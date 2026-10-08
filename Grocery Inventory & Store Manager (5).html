@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HINDUSTAN SUPER BAZAR - JARIGEBAIL | Live Grocery Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="h-full flex flex-col font-sans text-slate-800 bg-slate-50">
+
+    <!-- Top Announcement Banner -->
+    <div class="bg-amber-400 text-slate-900 text-xs font-bold py-2 px-4 shadow-sm border-b border-amber-500">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-location-dot text-emerald-900"></i>
+                <span class="tracking-wide">Jarigebail Main Store | Fresh Groceries & Daily Needs</span>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-2">
+                <a href="tel:9900365638" class="flex items-center gap-1.5 bg-slate-900 text-white px-2.5 py-1 rounded-full text-[11px] hover:bg-slate-800 transition shadow-sm">
+                    <i class="fa-solid fa-phone text-amber-400"></i>
+                    <span>9900365638</span>
+                </a>
+                <a href="tel:9972045163" class="flex items-center gap-1.5 bg-slate-900 text-white px-2.5 py-1 rounded-full text-[11px] hover:bg-slate-800 transition shadow-sm">
+                    <i class="fa-solid fa-phone text-amber-400"></i>
+                    <span>9972045163</span>
+                </a>
+                <a href="https://wa.me/919900365638" target="_blank" class="flex items-center gap-1 bg-emerald-700 text-white px-2.5 py-1 rounded-full text-[11px] hover:bg-emerald-800 transition shadow-sm">
+                    <i class="fa-brands fa-whatsapp text-emerald-300"></i>
+                    <span>WA 1</span>
+                </a>
+                <a href="https://wa.me/919972045163" target="_blank" class="flex items-center gap-1 bg-emerald-700 text-white px-2.5 py-1 rounded-full text-[11px] hover:bg-emerald-800 transition shadow-sm">
+                    <i class="fa-brands fa-whatsapp text-emerald-300"></i>
+                    <span>WA 2</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Supermarket Branding -->
+    <header class="bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-950 text-white shadow-xl sticky top-0 z-30 border-b border-emerald-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 gap-3">
+                
+                <!-- Premium Custom Supermarket Logo -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="resetFilters()">
+                    <div class="relative w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-300 via-amber-400 to-amber-500 p-1 shadow-lg shadow-amber-500/20 border-2 border-amber-200 flex items-center justify-center shrink-0">
+                        <!-- Custom Supermarket SVG Icon -->
+                        <svg class="w-8 h-8 text-emerald-950 drop-shadow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1.5" fill="currentColor"></circle>
+                            <circle cx="20" cy="21" r="1.5" fill="currentColor"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" fill="none"></path>
+                            <path d="M12 9l2 2 4-4" stroke="#065f46" stroke-width="2.5"></path>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 flex h-3 w-3">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-200 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-3 w-3 bg-amber-400 border border-slate-900"></span>
+                        </span>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-1.5">
+                            <h1 class="font-black text-base sm:text-xl tracking-tight leading-none text-amber-300 uppercase drop-shadow-sm">
+                                HINDUSTAN SUPER BAZAR
+                            </h1>
+                            <span class="hidden sm:inline-block bg-amber-400/20 text-amber-300 border border-amber-400/40 text-[10px] font-black px-1.5 py-0.5 rounded uppercase">
+                                JARIGEBAIL
+                            </span>
+                        </div>
+                        <span class="text-[11px] text-emerald-200 font-semibold tracking-wider block mt-1">
+                            Contacts: <strong class="text-white">9900365638</strong> / <strong class="text-white">9972045163</strong>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="flex items-center space-x-2 sm:space-x-3">
+                    
+                    <!-- How to Add Items Walkthrough Button -->
+                    <button onclick="openHowToAddModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-900 text-xs font-black transition shadow-md border border-amber-300 animate-pulse">
+                        <i class="fa-solid fa-circle-question text-emerald-900"></i>
+                        <span>How to Add Items?</span>
+                    </button>
+
+                    <!-- SEO Guide Modal Trigger -->
+                    <button onclick="openSeoModal()" class="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-900 hover:bg-emerald-950 text-xs font-semibold text-emerald-100 transition border border-emerald-700">
+                        <i class="fa-solid fa-globe text-amber-400"></i>
+                        <span>Public Web Guide</span>
+                    </button>
+
+                    <!-- Staff Role Switcher -->
+                    <div class="flex items-center bg-emerald-950 p-1 rounded-xl border border-emerald-700 shadow-inner">
+                        <button id="mode-customer-btn" onclick="switchRole('customer')" class="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition shadow-sm bg-white text-emerald-900">
+                            <i class="fa-solid fa-user text-emerald-700"></i>
+                            <span class="hidden sm:inline">Customer View</span>
+                        </button>
+                        <button id="mode-employer-btn" onclick="promptEmployerAuth()" class="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition text-emerald-200 hover:text-white">
+                            <i class="fa-solid fa-user-shield text-amber-400"></i>
+                            <span>Staff Admin Mode</span>
+                        </button>
+                    </div>
+
+                    <!-- Cart Drawer Trigger Button -->
+                    <button id="cart-toggle-btn" onclick="toggleCartDrawer()" class="relative p-2.5 rounded-xl bg-emerald-900 hover:bg-emerald-950 text-white transition border border-emerald-700">
+                        <i class="fa-solid fa-cart-shopping text-base"></i>
+                        <span id="cart-badge" class="absolute -top-1.5 -right-1.5 bg-amber-400 text-slate-900 font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-emerald-800 hidden">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Live Information Bar -->
+        <div id="role-banner" class="bg-emerald-950 text-emerald-100 text-xs py-1.5 px-4 text-center font-medium border-t border-emerald-800/80 flex items-center justify-center gap-2">
+            <span id="banner-text"><i class="fa-solid fa-circle-info text-amber-300 mr-1"></i> Public View Mode: Customers can check live stock status and order items directly via WhatsApp to <strong>9900365638</strong> or <strong>9972045163</strong>.</span>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <!-- Staff Employer Control Panel (Shown only in Admin Mode) -->
+        <div id="employer-controls" class="hidden mb-6 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 rounded-2xl p-4 shadow-md">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-amber-950 font-black text-base flex items-center gap-2">
+                        <i class="fa-solid fa-user-shield text-amber-600"></i> Store Employer Control Panel
+                    </h2>
+                    <p class="text-xs text-amber-800 mt-0.5">Manage item availability, set discount offer prices, add new items, or delete products.</p>
+                </div>
+                <div class="flex items-center gap-2 w-full sm:w-auto">
+                    <button onclick="openAddProductModal()" class="w-full sm:w-auto px-4 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs rounded-xl shadow-md transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-plus-circle text-amber-300 text-sm"></i>
+                        <span>+ Add New Item</span>
+                    </button>
+                    <button onclick="resetToDefaultData()" class="px-3 py-2.5 bg-amber-200 hover:bg-amber-300 text-amber-900 text-xs font-bold rounded-xl transition flex items-center gap-1.5" title="Reset catalog to initial store items">
+                        <i class="fa-solid fa-rotate-right"></i>
+                        <span class="hidden sm:inline">Reset Stock</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Bar and Category Filters -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 mb-6">
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                
+                <!-- Live Search Box -->
+                <div class="relative w-full md:w-80">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                    <input type="text" id="search-input" placeholder="Search rice, oil, ghee, spices, snacks..." oninput="handleFilterChange()" class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:bg-white transition">
+                </div>
+
+                <!-- Category Pill Buttons -->
+                <div class="w-full md:w-auto overflow-x-auto custom-scrollbar pb-1 md:pb-0">
+                    <div id="category-pills" class="flex items-center gap-2 min-w-max">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+
+                <!-- Stock Toggle & Sorting -->
+                <div class="flex items-center justify-between md:justify-end gap-3 w-full md:w-auto pt-2 md:pt-0 border-t md:border-t-0 border-slate-100">
+                    <label class="flex items-center gap-2 text-xs font-bold text-slate-700 cursor-pointer select-none bg-slate-50 px-3 py-2 rounded-xl border border-slate-200 hover:bg-slate-100 transition">
+                        <input type="checkbox" id="stock-filter" onchange="handleFilterChange()" class="w-4 h-4 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500">
+                        <span>In Stock Only</span>
+                    </label>
+
+                    <select id="sort-select" onchange="handleFilterChange()" class="bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700 py-2 px-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600">
+                        <option value="default">Sort: Default</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="discount">Highest Savings %</option>
+                        <option value="name">Name (A-Z)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Summary Counter Bar -->
+        <div class="flex items-center justify-between mb-4 px-1">
+            <h2 class="text-xs font-extrabold text-slate-500 uppercase tracking-wider">
+                Store Catalog Items (<span id="product-count" class="text-emerald-700 font-black">0</span>)
+            </h2>
+            <div class="text-xs text-slate-500 font-medium">
+                Helplines: <strong class="text-slate-800">9900365638</strong> / <strong class="text-slate-800">9972045163</strong>
+            </div>
+        </div>
+
+        <!-- Dynamic Product Cards Grid -->
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            <!-- Rendered dynamically by JavaScript -->
+        </div>
+
+        <!-- Empty Filter State -->
+        <div id="empty-state" class="hidden text-center py-16 bg-white rounded-2xl border border-dashed border-slate-300 my-4">
+            <div class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">
+                <i class="fa-solid fa-basket-shopping"></i>
+            </div>
+            <h3 class="text-base font-bold text-slate-800">No matching store items found</h3>
+            <p class="text-xs text-slate-500 mt-1">Try resetting search filters or changing product categories.</p>
+            <button onclick="resetFilters()" class="mt-4 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition">
+                Reset All Filters
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Shopping Cart Side Drawer -->
+    <div id="cart-drawer" class="fixed inset-0 z-40 overflow-hidden hidden">
+        <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm transition-opacity" onclick="toggleCartDrawer()"></div>
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                <div class="p-4 bg-emerald-800 text-white flex items-center justify-between">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-cart-shopping text-lg text-amber-300"></i>
+                            <h2 class="font-extrabold text-lg">My Grocery Order</h2>
+                        </div>
+                        <p class="text-[11px] text-emerald-200 mt-0.5">Direct WhatsApp Order to HINDUSTAN SUPER BAZAR</p>
+                    </div>
+                    <button onclick="toggleCartDrawer()" class="p-1 rounded-lg hover:bg-emerald-900 transition">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+
+                <div id="cart-items-container" class="flex-grow overflow-y-auto p-4 space-y-3 custom-scrollbar">
+                    <!-- Rendered by JS -->
+                </div>
+
+                <div class="p-4 bg-slate-50 border-t border-slate-200 space-y-3">
+                    <div class="space-y-1 text-xs">
+                        <div class="flex justify-between text-slate-600 font-medium">
+                            <span>Total Item Quantity:</span>
+                            <span id="cart-total-qty" class="font-bold text-slate-800">0</span>
+                        </div>
+                        <div class="flex justify-between text-slate-600 font-medium">
+                            <span>Total Offer Savings:</span>
+                            <span id="cart-total-savings" class="font-bold text-emerald-600">₹0.00</span>
+                        </div>
+                        <div class="flex justify-between text-base font-black text-slate-900 pt-2 border-t border-slate-200">
+                            <span>Estimated Bill Amount:</span>
+                            <span id="cart-total-price" class="text-emerald-700">₹0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 pt-1">
+                        <span class="block text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center">Send Order List via WhatsApp to:</span>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="sendOrderViaWhatsApp('9900365638')" class="py-2.5 px-2 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-[11px] rounded-xl shadow transition flex items-center justify-center gap-1.5">
+                                <i class="fa-brands fa-whatsapp text-sm"></i>
+                                <span>9900365638</span>
+                            </button>
+                            <button onclick="sendOrderViaWhatsApp('9972045163')" class="py-2.5 px-2 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-[11px] rounded-xl shadow transition flex items-center justify-center gap-1.5">
+                                <i class="fa-brands fa-whatsapp text-sm"></i>
+                                <span>9972045163</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <button onclick="clearCart()" class="w-full py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs rounded-xl transition">
+                        Clear Shopping List
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- How To Add Items Help Modal -->
+    <div id="how-to-add-modal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+        <div class="min-h-screen px-4 text-center flex items-center justify-center">
+            <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="closeHowToAddModal()"></div>
+
+            <div class="inline-block w-full max-w-xl p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-2xl rounded-2xl relative z-10">
+                <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                    <h3 class="text-lg font-black text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-question text-amber-500 text-xl"></i> How Store Employers Add Items
+                    </h3>
+                    <button onclick="closeHowToAddModal()" class="text-slate-400 hover:text-slate-600 text-lg">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <div class="mt-4 space-y-4 text-xs text-slate-700">
+                    <p class="text-slate-600 font-medium">Follow these simple steps to add new products or edit existing grocery prices:</p>
+                    
+                    <!-- Step 1 -->
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <div class="w-7 h-7 rounded-full bg-emerald-700 text-white font-black flex items-center justify-center shrink-0">1</div>
+                        <div>
+                            <strong class="text-slate-900 text-sm block">Switch to Staff Admin Mode</strong>
+                            <p class="text-slate-500 mt-0.5">Click on the <span class="bg-emerald-950 text-amber-300 font-bold px-1.5 py-0.5 rounded text-[10px]">Staff Admin Mode</span> button at the top right of the screen.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <div class="w-7 h-7 rounded-full bg-emerald-700 text-white font-black flex items-center justify-center shrink-0">2</div>
+                        <div>
+                            <strong class="text-slate-900 text-sm block">Enter PIN Code</strong>
+                            <p class="text-slate-500 mt-0.5">Enter the store employer PIN code (Default PIN is <code class="bg-amber-100 text-amber-900 font-bold px-1 rounded">1234</code>) to unlock store editor permissions.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <div class="w-7 h-7 rounded-full bg-emerald-700 text-white font-black flex items-center justify-center shrink-0">3</div>
+                        <div>
+                            <strong class="text-slate-900 text-sm block">Click "+ Add New Item"</strong>
+                            <p class="text-slate-500 mt-0.5">Once unlocked, click the green <span class="bg-emerald-700 text-white font-bold px-2 py-0.5 rounded text-[10px]">+ Add New Item</span> button in the amber dashboard header.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <div class="w-7 h-7 rounded-full bg-emerald-700 text-white font-black flex items-center justify-center shrink-0">4</div>
+                        <div>
+                            <strong class="text-slate-900 text-sm block">Fill Details & Save</strong>
+                            <p class="text-slate-500 mt-0.5">Enter Product Name, Category, MRP, Discounted Offer Price, Weight/Unit (e.g. 1 kg / 500 ml), and set stock availability to <strong>In Stock</strong> or <strong>Out of Stock</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <button onclick="closeHowToAddModal()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition">
+                        Close Guide
+                    </button>
+                    <button onclick="closeHowToAddModal(); promptEmployerAuth();" class="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-xl shadow transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-key text-amber-300"></i>
+                        <span>Unlock Staff Admin Now</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Add/Edit Modal -->
+    <div id="product-modal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+        <div class="min-h-screen px-4 text-center flex items-center justify-center">
+            <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="closeProductModal()"></div>
+
+            <div class="inline-block w-full max-w-lg p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-2xl rounded-2xl relative z-10">
+                <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                    <h3 id="modal-title" class="text-lg font-black text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-pen-to-square text-emerald-600"></i> Edit Product Item
+                    </h3>
+                    <button onclick="closeProductModal()" class="text-slate-400 hover:text-slate-600 text-lg">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <form id="product-form" onsubmit="handleProductFormSubmit(event)" class="mt-4 space-y-4">
+                    <input type="hidden" id="form-product-id">
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Item / Product Name *</label>
+                        <input type="text" id="form-title" required placeholder="e.g. Sona Masoori Steam Rice" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Category *</label>
+                            <select id="form-category" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600">
+                                <option value="Rice & Grains">Rice & Grains</option>
+                                <option value="Oil & Ghee">Oil & Ghee</option>
+                                <option value="Spices & Masala">Spices & Masala</option>
+                                <option value="Snacks & Bakery">Snacks & Bakery</option>
+                                <option value="Dairy & Fresh">Dairy & Fresh</option>
+                                <option value="Beverages">Beverages</option>
+                                <option value="Personal Care">Personal Care</option>
+                                <option value="Household">Household</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Unit / Quantity *</label>
+                            <input type="text" id="form-unit" required placeholder="e.g. 25 kg bag, 1 Litre, 500g" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">MRP (₹) *</label>
+                            <input type="number" id="form-mrp" min="0" step="0.01" required placeholder="1400.00" oninput="validatePricing()" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Store Offer Price (₹) *</label>
+                            <input type="number" id="form-offer-price" min="0" step="0.01" required placeholder="1250.00" oninput="validatePricing()" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600">
+                        </div>
+                    </div>
+                    <div id="price-error" class="hidden text-xs text-rose-600 font-bold">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Offer Price cannot be higher than MRP!
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Image URL</label>
+                        <input type="url" id="form-image" placeholder="https://images.unsplash.com/..." class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600">
+                        <p class="text-[11px] text-slate-400 mt-1">Leave empty to auto-assign default category image.</p>
+                    </div>
+
+                    <div class="flex items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-200">
+                        <div>
+                            <span class="block text-xs font-bold text-slate-800 uppercase">Stock Availability Status</span>
+                            <span class="text-[11px] text-slate-500">Toggle whether item is available in Jarigebail store</span>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" id="form-instock" class="sr-only peer" checked>
+                            <div class="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-600"></div>
+                        </label>
+                    </div>
+
+                    <div class="flex justify-end gap-2 pt-3 border-t border-slate-100">
+                        <button type="button" onclick="closeProductModal()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition">
+                            Cancel
+                        </button>
+                        <button type="submit" class="px-5 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-xl shadow-md transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-floppy-disk"></i> Save Product Item
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Employer Auth Modal -->
+    <div id="auth-modal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+        <div class="min-h-screen px-4 text-center flex items-center justify-center">
+            <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="closeAuthModal()"></div>
+
+            <div class="inline-block w-full max-w-sm p-6 my-8 overflow-hidden text-center align-middle transition-all transform bg-white shadow-2xl rounded-2xl relative z-10">
+                <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
+                    <i class="fa-solid fa-key"></i>
+                </div>
+                <h3 class="text-lg font-black text-slate-900">Staff PIN Login</h3>
+                <p class="text-xs text-slate-500 mt-1">Enter PIN code to manage inventory & pricing.</p>
+                <div class="mt-2.5 bg-amber-50 text-amber-900 text-[11px] p-2 rounded-lg font-mono font-bold border border-amber-200">
+                    Default Staff PIN: <span class="underline">1234</span>
+                </div>
+
+                <form onsubmit="handleAuthSubmit(event)" class="mt-4 space-y-3">
+                    <input type="password" id="auth-passkey" maxlength="8" required placeholder="Enter Staff PIN" class="w-full text-center text-lg font-mono font-bold tracking-widest px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600">
+                    <div id="auth-error" class="hidden text-xs text-rose-600 font-bold">
+                        Incorrect PIN! Try entering 1234.
+                    </div>
+                    <div class="flex gap-2">
+                        <button type="button" onclick="closeAuthModal()" class="w-1/2 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition">
+                            Cancel
+                        </button>
+                        <button type="submit" class="w-1/2 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-xl shadow transition">
+                            Unlock Admin
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Public Google SEO & Hosting Guide Modal -->
+    <div id="seo-modal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+        <div class="min-h-screen px-4 text-center flex items-center justify-center">
+            <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="closeSeoModal()"></div>
+
+            <div class="inline-block w-full max-w-2xl p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-2xl rounded-2xl relative z-10">
+                <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                    <h3 class="text-base sm:text-lg font-black text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-globe text-emerald-600"></i> How to put HINDUSTAN SUPER BAZAR on Google?
+                    </h3>
+                    <button onclick="closeSeoModal()" class="text-slate-400 hover:text-slate-600 text-lg">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <div class="mt-4 space-y-4 text-xs text-slate-600 max-h-[70vh] overflow-y-auto pr-2 custom-scrollbar">
+                    
+                    <div class="bg-amber-50 border border-amber-200 rounded-xl p-3">
+                        <h4 class="font-bold text-amber-950 text-sm mb-1"><i class="fa-solid fa-cloud-arrow-up text-amber-600 mr-1"></i> Step 1: Host it online for free</h4>
+                        <p class="leading-relaxed">Publish this single <code class="bg-white px-1 py-0.5 rounded border border-amber-200 font-mono text-amber-900 font-bold">index.html</code> file on any free web hosting platform:</p>
+                        <ul class="list-disc list-inside mt-1.5 space-y-1 font-semibold text-slate-800">
+                            <li><strong>Netlify Drop:</strong> Visit <a href="https://app.netlify.com/drop" target="_blank" class="text-emerald-700 underline">netlify.com/drop</a> and drag & drop your code file to get a live URL!</li>
+                            <li><strong>GitHub Pages:</strong> Upload to GitHub and enable free hosting in repository Settings.</li>
+                            <li><strong>Vercel:</strong> Import the code to deploy globally with ultra-fast speed.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3">
+                        <h4 class="font-bold text-slate-900 text-sm mb-1"><i class="fa-solid fa-magnifying-glass text-emerald-600 mr-1"></i> Step 2: Show up on Google Search</h4>
+                        <ol class="list-decimal list-inside space-y-1.5 leading-relaxed text-slate-700">
+                            <li>Open <a href="https://search.google.com/search-console" target="_blank" class="text-emerald-700 font-bold underline">Google Search Console</a> and submit your live website domain.</li>
+                            <li>Use the <strong>"URL Inspection"</strong> tool to click <strong>"Request Indexing"</strong> so Google indexes "HINDUSTAN SUPER BAZAR - JARIGEBAIL".</li>
+                        </ol>
+                    </div>
+
+                    <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3">
+                        <h4 class="font-bold text-emerald-950 text-sm mb-1"><i class="fa-solid fa-map-location-dot text-emerald-600 mr-1"></i> Step 3: Google Maps Link</h4>
+                        <p class="leading-relaxed text-slate-700">Create a free <strong>Google Business Profile</strong> for <em>HINDUSTAN SUPER BAZAR - JARIGEBAIL (Helplines: 9900365638 / 9972045163)</em> and add your hosted site link in the official website field!</p>
+                    </div>
+
+                </div>
+
+                <div class="mt-5 pt-3 border-t border-slate-100 text-right">
+                    <button onclick="closeSeoModal()" class="px-5 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-xl transition">
+                        Got It
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-slate-900 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2.5 text-xs font-bold">
+            <i id="toast-icon" class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+            <span id="toast-message">Action completed successfully</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-8 px-4 border-t border-slate-800 mt-12">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+            <div>
+                <h3 class="font-black text-amber-400 text-sm uppercase tracking-wide mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-store"></i> HINDUSTAN SUPER BAZAR
+                </h3>
+                <p class="text-slate-400 leading-relaxed">
+                    Jarigebail Main Store. Your trusted one-stop supermarket for fresh rice, refined oils, ghee, aromatic spices, daily dairy, and bakery products.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="font-extrabold text-white text-xs uppercase tracking-wider mb-2">Store Contact Helplines</h4>
+                <div class="space-y-2">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-emerald-400"></i>
+                        <a href="tel:9900365638" class="hover:text-white transition">Primary: +91 9900365638</a>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-emerald-400"></i>
+                        <a href="tel:9972045163" class="hover:text-white transition">Secondary: +91 9972045163</a>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+                        <a href="https://wa.me/919900365638" target="_blank" class="hover:text-white transition">WhatsApp 1: 9900365638</a>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+                        <a href="https://wa.me/919972045163" target="_blank" class="hover:text-white transition">WhatsApp 2: 9972045163</a>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="font-extrabold text-white text-xs uppercase tracking-wider mb-2">Location & Timings</h4>
+                <p class="text-slate-400 leading-relaxed mb-2">
+                    <i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> Jarigebail, Karnataka, India
+                </p>
+                <p class="text-slate-400">
+                    <i class="fa-solid fa-clock text-amber-400 mr-1"></i> Open Everyday: 7:00 AM - 9:30 PM
+                </p>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-6 mt-6 border-t border-slate-800 text-center text-slate-500 text-[11px]">
+            &copy; HINDUSTAN SUPER BAZAR - JARIGEBAIL. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        const DEFAULT_PRODUCTS = [
+            {
+                id: 'hsb-1',
+                title: 'Sona Masoori Rice (Premium)',
+                category: 'Rice & Grains',
+                unit: '25 kg Bag',
+                mrp: 1450.00,
+                offerPrice: 1290.00,
+                inStock: true,
+                image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'hsb-2',
+                title: 'Gold Winner Refined Sunflower Oil',
+                category: 'Oil & Ghee',
+                unit: '1 Litre Pouch',
+                mrp: 160.00,
+                offerPrice: 138.00,
+                inStock: true,
+                image: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'hsb-3',
+                title: 'Nandini Pure Cow Ghee',
+                category: 'Oil & Ghee',
+                unit: '500 ml Pack',
+                mrp: 320.00,
+                offerPrice: 298.00,
+                inStock: true,
+                image: 'https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'hsb-4',
+                title: 'Aashirvaad Shuddh Chakki Atta',
+                category: 'Rice & Grains',
+                unit: '10 kg Pack',
+                mrp: 480.00,
+                offerPrice: 425.00,
+                inStock: true,
+                image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'hsb-5',
+                title: 'Everest Garam Masala Powder',
+                category: 'Spices & Masala',
+                unit: '100g Pack',
+                mrp: 85.00,
+                offerPrice: 74.00,
+                inStock: true,
+                image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'hsb-6',
+                title: 'Toor Dal / Arhar Dal (Cleaned)',
+                category: 'Rice & Grains',
+                unit: '1 kg',
+                mrp: 175.00,
+                offerPrice: 152.00,
+                inStock: false,
+                image: 'https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'hsb-7',
+                title: 'Tata Salt (Iodized)',
+                category: 'Spices & Masala',
+                unit: '1 kg Pack',
+                mrp: 28.00,
+                offerPrice: 24.00,
+                inStock: true,
+                image: 'https://images.unsplash.com/photo-1518110168401-f2877ee2e88d?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'hsb-8',
+                title: 'Parle-G Gold Biscuits Pack',
+                category: 'Snacks & Bakery',
+                unit: '1 kg Family Pack',
+                mrp: 140.00,
+                offerPrice: 120.00,
+                inStock: true,
+                image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'hsb-9',
+                title: 'Taj Mahal Tea Granules',
+                category: 'Beverages',
+                unit: '500g Pack',
+                mrp: 380.00,
+                offerPrice: 335.00,
+                inStock: true,
+                image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'hsb-10',
+                title: 'Nandini Toned Fresh Milk',
+                category: 'Dairy & Fresh',
+                unit: '500 ml Pouch',
+                mrp: 24.00,
+                offerPrice: 24.00,
+                inStock: true,
+                image: 'https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=600&q=80'
+            }
+        ];
+
+        const CATEGORY_IMAGES = {
+            'Rice & Grains': 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=80',
+            'Oil & Ghee': 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=600&q=80',
+            'Spices & Masala': 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80',
+            'Snacks & Bakery': 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80',
+            'Dairy & Fresh': 'https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=600&q=80',
+            'Beverages': 'https://images.unsplash.com/photo-1527960471264-932f39eb5846?auto=format&fit=crop&w=600&q=80',
+            'Personal Care': 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80',
+            'Household': 'https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=600&q=80'
+        };
+
+        let products = [];
+        let cart = [];
+        let currentRole = 'customer'; 
+        let selectedCategory = 'All';
+
+        window.addEventListener('DOMContentLoaded', () => {
+            loadProductsFromStorage();
+            loadCartFromStorage();
+            renderCategories();
+            renderProducts();
+            updateCartBadge();
+        });
+
+        function loadProductsFromStorage() {
+            const stored = localStorage.getItem('hsb_jarigebail_products');
+            if (stored) {
+                try {
+                    products = JSON.parse(stored);
+                } catch (e) {
+                    products = [...DEFAULT_PRODUCTS];
+                }
+            } else {
+                products = [...DEFAULT_PRODUCTS];
+                saveProductsToStorage();
+            }
+        }
+
+        function saveProductsToStorage() {
+            localStorage.setItem('hsb_jarigebail_products', JSON.stringify(products));
+        }
+
+        function loadCartFromStorage() {
+            const stored = localStorage.getItem('hsb_jarigebail_cart');
+            if (stored) {
+                try {
+                    cart = JSON.parse(stored);
+                } catch (e) {
+                    cart = [];
+                }
+            }
+        }
+
+        function saveCartToStorage() {
+            localStorage.setItem('hsb_jarigebail_cart', JSON.stringify(cart));
+            updateCartBadge();
+        }
+
+        function resetToDefaultData() {
+            if (confirm('Reset store catalog back to sample default items?')) {
+                products = [...DEFAULT_PRODUCTS];
+                saveProductsToStorage();
+                renderCategories();
+                renderProducts();
+                showToast('Store data reset to default catalog!');
+            }
+        }
+
+        function switchRole(role) {
+            currentRole = role;
+            const customerBtn = document.getElementById('mode-customer-btn');
+            const employerBtn = document.getElementById('mode-employer-btn');
+            const employerControls = document.getElementById('employer-controls');
+            const bannerText = document.getElementById('banner-text');
+
+            if (role === 'employer') {
+                customerBtn.className = "flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition text-emerald-200 hover:text-white";
+                employerBtn.className = "flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition shadow-sm bg-amber-400 text-slate-900";
+                employerControls.classList.remove('hidden');
+                bannerText.innerHTML = `<i class="fa-solid fa-user-shield text-amber-300 mr-1"></i> Staff Admin Mode: Edit product MRP, offer prices, toggle stock, or add new store items.`;
+                showToast('Unlocked Staff Admin Mode');
+            } else {
+                customerBtn.className = "flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition shadow-sm bg-white text-emerald-900";
+                employerBtn.className = "flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition text-emerald-200 hover:text-white";
+                employerControls.classList.add('hidden');
+                bannerText.innerHTML = `<i class="fa-solid fa-circle-info text-amber-300 mr-1"></i> Public View Mode: Customers can check live stock status and order items directly via WhatsApp to <strong>9900365638</strong> or <strong>9972045163</strong>.`;
+            }
+
+            renderProducts();
+        }
+
+        function promptEmployerAuth() {
+            if (currentRole === 'employer') return;
+            document.getElementById('auth-passkey').value = '';
+            document.getElementById('auth-error').classList.add('hidden');
+            document.getElementById('auth-modal').classList.remove('hidden');
+        }
+
+        function closeAuthModal() {
+            document.getElementById('auth-modal').classList.add('hidden');
+        }
+
+        function handleAuthSubmit(e) {
+            e.preventDefault();
+            const passkey = document.getElementById('auth-passkey').value;
+            if (passkey === '1234') {
+                closeAuthModal();
+                switchRole('employer');
+            } else {
+                document.getElementById('auth-error').classList.remove('hidden');
+            }
+        }
+
+        function renderCategories() {
+            const categories = ['All', ...new Set(products.map(p => p.category))];
+            const pillsContainer = document.getElementById('category-pills');
+
+            pillsContainer.innerHTML = categories.map(cat => {
+                const isSelected = cat === selectedCategory;
+                const activeClasses = "bg-emerald-700 text-white shadow-sm font-extrabold";
+                const inactiveClasses = "bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold";
+
+                return `
+                    <button onclick="selectCategory('${cat}')" class="px-3.5 py-1.5 rounded-xl text-xs transition ${isSelected ? activeClasses : inactiveClasses}">
+                        ${cat}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function selectCategory(cat) {
+            selectedCategory = cat;
+            renderCategories();
+            renderProducts();
+        }
+
+        function resetFilters() {
+            document.getElementById('search-input').value = '';
+            document.getElementById('stock-filter').checked = false;
+            document.getElementById('sort-select').value = 'default';
+            selectedCategory = 'All';
+            renderCategories();
+            renderProducts();
+        }
+
+        function handleFilterChange() {
+            renderProducts();
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
+            const emptyState = document.getElementById('empty-state');
+            const searchQuery = document.getElementById('search-input').value.toLowerCase().trim();
+            const inStockOnly = document.getElementById('stock-filter').checked;
+            const sortMode = document.getElementById('sort-select').value;
+
+            let filtered = products.filter(p => {
+                const matchesCategory = selectedCategory === 'All' || p.category === selectedCategory;
+                const matchesSearch = p.title.toLowerCase().includes(searchQuery) || p.category.toLowerCase().includes(searchQuery);
+                const matchesStock = !inStockOnly || p.inStock;
+                return matchesCategory && matchesSearch && matchesStock;
+            });
+
+            if (sortMode === 'price-low') {
+                filtered.sort((a, b) => a.offerPrice - b.offerPrice);
+            } else if (sortMode === 'price-high') {
+                filtered.sort((a, b) => b.offerPrice - a.offerPrice);
+            } else if (sortMode === 'discount') {
+                filtered.sort((a, b) => (b.mrp - b.offerPrice) - (a.mrp - a.offerPrice));
+            } else if (sortMode === 'name') {
+                filtered.sort((a, b) => a.title.localeCompare(b.title));
+            }
+
+            document.getElementById('product-count').textContent = filtered.length;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            } else {
+                emptyState.classList.add('hidden');
+            }
+
+            grid.innerHTML = filtered.map(product => {
+                const discountAmt = Math.max(0, product.mrp - product.offerPrice);
+                const discountPct = product.mrp > 0 ? Math.round((discountAmt / product.mrp) * 100) : 0;
+                const cartItem = cart.find(i => i.id === product.id);
+                const cartQty = cartItem ? cartItem.qty : 0;
+
+                return `
+                    <div class="bg-white rounded-2xl border ${product.inStock ? 'border-slate-200' : 'border-rose-200 bg-rose-50/20'} shadow-sm hover:shadow-md transition flex flex-col overflow-hidden relative group">
+                        
+                        <!-- Discount Badge -->
+                        ${discountPct > 0 ? `
+                            <div class="absolute top-3 left-3 bg-amber-400 text-slate-900 font-black text-[10px] px-2 py-0.5 rounded-full shadow z-10">
+                                SAVE ${discountPct}%
+                            </div>
+                        ` : ''}
+
+                        <!-- Stock Status Tag -->
+                        <div class="absolute top-3 right-3 z-10">
+                            ${product.inStock ? `
+                                <span class="bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-[10px] px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> IN STOCK
+                                </span>
+                            ` : `
+                                <span class="bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-[10px] px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-rose-600"></span> OUT OF STOCK
+                                </span>
+                            `}
+                        </div>
+
+                        <!-- Image Section -->
+                        <div class="h-44 bg-slate-100 relative overflow-hidden">
+                            <img src="${product.image || CATEGORY_IMAGES[product.category] || CATEGORY_IMAGES['Rice & Grains']}" 
+                                 alt="${product.title}" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-300 ${!product.inStock ? 'grayscale opacity-75' : ''}"
+                                 onerror="this.src='https://placehold.co/600x400/f1f5f9/0f766e?text=HINDUSTAN+SUPER+BAZAR'">
+                        </div>
+
+                        <!-- Item Content -->
+                        <div class="p-4 flex-grow flex flex-col justify-between space-y-3">
+                            <div>
+                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">${product.category}</span>
+                                <h3 class="font-extrabold text-sm text-slate-900 leading-snug line-clamp-2 mt-0.5">${product.title}</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-1"><i class="fa-solid fa-weight-hanging text-amber-500 mr-1"></i>Pack: <strong>${product.unit}</strong></p>
+                            </div>
+
+                            <!-- Pricing Info -->
+                            <div class="pt-2 border-t border-slate-100">
+                                <div class="flex items-baseline gap-2">
+                                    <span class="text-lg font-black text-emerald-700">₹${product.offerPrice.toFixed(2)}</span>
+                                    ${product.mrp > product.offerPrice ? `
+                                        <span class="text-xs text-slate-400 line-through">MRP ₹${product.mrp.toFixed(2)}</span>
+                                    ` : ''}
+                                </div>
+                                ${discountAmt > 0 ? `
+                                    <span class="text-[11px] font-bold text-emerald-600 block mt-0.5">Save ₹${discountAmt.toFixed(2)} per item</span>
+                                ` : ''}
+                            </div>
+
+                            <!-- Employer Admin Controls OR Customer Shopping Buttons -->
+                            <div class="pt-2">
+                                ${currentRole === 'employer' ? `
+                                    <div class="space-y-2">
+                                        <div class="flex items-center justify-between bg-slate-50 p-2 rounded-xl border border-slate-200">
+                                            <span class="text-[11px] font-bold text-slate-700">Quick Stock:</span>
+                                            <button onclick="toggleStockStatus('${product.id}')" class="px-2.5 py-1 rounded-lg text-[11px] font-bold ${product.inStock ? 'bg-rose-100 text-rose-700 hover:bg-rose-200' : 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200'} transition">
+                                                Mark ${product.inStock ? 'Out of Stock' : 'In Stock'}
+                                            </button>
+                                        </div>
+                                        <div class="grid grid-cols-2 gap-2">
+                                            <button onclick="openEditProductModal('${product.id}')" class="w-full py-1.5 bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold text-xs rounded-xl transition flex items-center justify-center gap-1">
+                                                <i class="fa-solid fa-pen-to-square text-amber-700"></i> Edit
+                                            </button>
+                                            <button onclick="deleteProduct('${product.id}')" class="w-full py-1.5 bg-rose-100 hover:bg-rose-200 text-rose-800 font-bold text-xs rounded-xl transition flex items-center justify-center gap-1">
+                                                <i class="fa-solid fa-trash-can text-rose-600"></i> Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                ` : `
+                                    ${product.inStock ? `
+                                        ${cartQty > 0 ? `
+                                            <div class="flex items-center justify-between bg-emerald-50 border border-emerald-300 rounded-xl p-1">
+                                                <button onclick="updateCartQty('${product.id}', ${cartQty - 1})" class="w-8 h-8 rounded-lg bg-white text-emerald-800 font-black hover:bg-emerald-100 transition shadow-sm flex items-center justify-center">-</button>
+                                                <span class="font-black text-sm text-emerald-900">${cartQty} in cart</span>
+                                                <button onclick="updateCartQty('${product.id}', ${cartQty + 1})" class="w-8 h-8 rounded-lg bg-emerald-700 text-white font-black hover:bg-emerald-800 transition shadow-sm flex items-center justify-center">+</button>
+                                            </div>
+                                        ` : `
+                                            <button onclick="addToCart('${product.id}')" class="w-full py-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs rounded-xl shadow transition flex items-center justify-center gap-1.5">
+                                                <i class="fa-solid fa-cart-plus"></i> Add to Order List
+                                            </button>
+                                        `}
+                                    ` : `
+                                        <button disabled class="w-full py-2 bg-slate-100 text-slate-400 font-bold text-xs rounded-xl cursor-not-allowed">
+                                            Currently Unavailable
+                                        </button>
+                                    `}
+                                `}
+                            </div>
+
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function toggleStockStatus(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                product.inStock = !product.inStock;
+                saveProductsToStorage();
+                renderProducts();
+                showToast(`Updated '${product.title}' stock status!`);
+            }
+        }
+
+        function openAddProductModal() {
+            document.getElementById('modal-title').innerHTML = `<i class="fa-solid fa-circle-plus text-emerald-600"></i> Add New Grocery Item`;
+            document.getElementById('form-product-id').value = '';
+            document.getElementById('form-title').value = '';
+            document.getElementById('form-category').value = 'Rice & Grains';
+            document.getElementById('form-unit').value = '';
+            document.getElementById('form-mrp').value = '';
+            document.getElementById('form-offer-price').value = '';
+            document.getElementById('form-image').value = '';
+            document.getElementById('form-instock').checked = true;
+            document.getElementById('price-error').classList.add('hidden');
+            document.getElementById('product-modal').classList.remove('hidden');
+        }
+
+        function openEditProductModal(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            document.getElementById('modal-title').innerHTML = `<i class="fa-solid fa-pen-to-square text-emerald-600"></i> Edit Product Item`;
+            document.getElementById('form-product-id').value = product.id;
+            document.getElementById('form-title').value = product.title;
+            document.getElementById('form-category').value = product.category;
+            document.getElementById('form-unit').value = product.unit;
+            document.getElementById('form-mrp').value = product.mrp;
+            document.getElementById('form-offer-price').value = product.offerPrice;
+            document.getElementById('form-image').value = product.image || '';
+            document.getElementById('form-instock').checked = product.inStock;
+            document.getElementById('price-error').classList.add('hidden');
+            document.getElementById('product-modal').classList.remove('hidden');
+        }
+
+        function closeProductModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+        }
+
+        function validatePricing() {
+            const mrp = parseFloat(document.getElementById('form-mrp').value) || 0;
+            const offer = parseFloat(document.getElementById('form-offer-price').value) || 0;
+            const errElem = document.getElementById('price-error');
+
+            if (offer > mrp) {
+                errElem.classList.remove('hidden');
+                return false;
+            } else {
+                errElem.classList.add('hidden');
+                return true;
+            }
+        }
+
+        function handleProductFormSubmit(e) {
+            e.preventDefault();
+            if (!validatePricing()) return;
+
+            const id = document.getElementById('form-product-id').value;
+            const title = document.getElementById('form-title').value.trim();
+            const category = document.getElementById('form-category').value;
+            const unit = document.getElementById('form-unit').value.trim();
+            const mrp = parseFloat(document.getElementById('form-mrp').value);
+            const offerPrice = parseFloat(document.getElementById('form-offer-price').value);
+            const image = document.getElementById('form-image').value.trim();
+            const inStock = document.getElementById('form-instock').checked;
+
+            if (id) {
+                // Update
+                const index = products.findIndex(p => p.id === id);
+                if (index !== -1) {
+                    products[index] = { ...products[index], title, category, unit, mrp, offerPrice, image, inStock };
+                    showToast('Product updated successfully!');
+                }
+            } else {
+                // Add New
+                const newProduct = {
+                    id: 'hsb-' + Date.now(),
+                    title,
+                    category,
+                    unit,
+                    mrp,
+                    offerPrice,
+                    image,
+                    inStock
+                };
+                products.unshift(newProduct);
+                showToast('New product added to store catalog!');
+            }
+
+            saveProductsToStorage();
+            closeProductModal();
+            renderCategories();
+            renderProducts();
+        }
+
+        function deleteProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            if (confirm(`Are you sure you want to delete '${product.title}' from inventory?`)) {
+                products = products.filter(p => p.id !== productId);
+                cart = cart.filter(i => i.id !== productId);
+                saveProductsToStorage();
+                saveCartToStorage();
+                renderCategories();
+                renderProducts();
+                showToast('Product removed from store.');
+            }
+        }
+
+        function addToCart(productId) {
+            const cartItem = cart.find(i => i.id === productId);
+            if (cartItem) {
+                cartItem.qty += 1;
+            } else {
+                cart.push({ id: productId, qty: 1 });
+            }
+            saveCartToStorage();
+            renderProducts();
+            showToast('Item added to order list!');
+        }
+
+        function updateCartQty(productId, newQty) {
+            if (newQty <= 0) {
+                cart = cart.filter(i => i.id !== productId);
+            } else {
+                const item = cart.find(i => i.id === productId);
+                if (item) item.qty = newQty;
+            }
+            saveCartToStorage();
+            renderProducts();
+            renderCartDrawer();
+        }
+
+        function clearCart() {
+            if (cart.length === 0) return;
+            cart = [];
+            saveCartToStorage();
+            renderProducts();
+            renderCartDrawer();
+            showToast('Shopping cart cleared.');
+        }
+
+        function updateCartBadge() {
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            const badge = document.getElementById('cart-badge');
+            badge.textContent = totalItems;
+            if (totalItems > 0) {
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+        }
+
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cart-drawer');
+            if (drawer.classList.contains('hidden')) {
+                renderCartDrawer();
+                drawer.classList.remove('hidden');
+            } else {
+                drawer.classList.add('hidden');
+            }
+        }
+
+        function renderCartDrawer() {
+            const container = document.getElementById('cart-items-container');
+            let totalQty = 0;
+            let totalPrice = 0;
+            let totalSavings = 0;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12">
+                        <div class="w-12 h-12 bg-slate-100 text-slate-400 rounded-full flex items-center justify-center mx-auto mb-2 text-xl">
+                            <i class="fa-solid fa-cart-flatbed"></i>
+                        </div>
+                        <p class="text-xs font-bold text-slate-600">Your shopping cart is empty</p>
+                        <p class="text-[11px] text-slate-400 mt-0.5">Add grocery items from the list to construct your order.</p>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = cart.map(item => {
+                    const product = products.find(p => p.id === item.id);
+                    if (!product) return '';
+
+                    const itemTotal = product.offerPrice * item.qty;
+                    const itemSavings = (product.mrp - product.offerPrice) * item.qty;
+
+                    totalQty += item.qty;
+                    totalPrice += itemTotal;
+                    totalSavings += Math.max(0, itemSavings);
+
+                    return `
+                        <div class="flex items-center justify-between p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                            <div class="flex-grow pr-2">
+                                <h4 class="font-bold text-xs text-slate-900 leading-snug">${product.title}</h4>
+                                <span class="text-[10px] text-slate-500">${product.unit} • ₹${product.offerPrice.toFixed(2)} each</span>
+                                <span class="block font-black text-xs text-emerald-700 mt-0.5">Subtotal: ₹${itemTotal.toFixed(2)}</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="updateCartQty('${product.id}', ${item.qty - 1})" class="w-7 h-7 rounded-lg bg-white border border-slate-200 font-black text-xs hover:bg-slate-100 transition">-</button>
+                                <span class="font-extrabold text-xs text-slate-800 w-4 text-center">${item.qty}</span>
+                                <button onclick="updateCartQty('${product.id}', ${item.qty + 1})" class="w-7 h-7 rounded-lg bg-emerald-700 text-white font-black text-xs hover:bg-emerald-800 transition">+</button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            document.getElementById('cart-total-qty').textContent = totalQty;
+            document.getElementById('cart-total-savings').textContent = `₹${totalSavings.toFixed(2)}`;
+            document.getElementById('cart-total-price').textContent = `₹${totalPrice.toFixed(2)}`;
+        }
+
+        function sendOrderViaWhatsApp(phoneNum = '9900365638') {
+            if (cart.length === 0) {
+                showToast('Please add items to your shopping cart first!');
+                return;
+            }
+
+            let message = `🛒 *NEW GROCERY ORDER - HINDUSTAN SUPER BAZAR (JARIGEBAIL)*\n\n`;
+            let totalPrice = 0;
+
+            cart.forEach((item, index) => {
+                const product = products.find(p => p.id === item.id);
+                if (product) {
+                    const lineTotal = product.offerPrice * item.qty;
+                    totalPrice += lineTotal;
+                    message += `${index + 1}. *${product.title}* (${product.unit})\n   Qty: ${item.qty} | Subtotal: ₹${lineTotal.toFixed(2)}\n`;
+                }
+            });
+
+            message += `\n💵 *Estimated Bill Total: ₹${totalPrice.toFixed(2)}*\n`;
+            message += `\nPlease confirm item availability and store pickup / delivery time. Thank you!`;
+
+            const encodedMsg = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/91${phoneNum}?text=${encodedMsg}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function openHowToAddModal() {
+            document.getElementById('how-to-add-modal').classList.remove('hidden');
+        }
+
+        function closeHowToAddModal() {
+            document.getElementById('how-to-add-modal').classList.add('hidden');
+        }
+
+        function openSeoModal() {
+            document.getElementById('seo-modal').classList.remove('hidden');
+        }
+
+        function closeSeoModal() {
+            document.getElementById('seo-modal').classList.add('hidden');
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const messageElem = document.getElementById('toast-message');
+            messageElem.textContent = msg;
+
+            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
