@@ -11,7 +11,7 @@
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Roboto+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   
   <script>
     tailwind.config = {
@@ -26,15 +26,11 @@
               700: '#15803d',
               800: '#166534',
               900: '#14532d',
-            },
-            accent: {
-              gold: '#ff9f00',
-              crimson: '#e11d48',
-              blue: '#2563eb'
             }
           },
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
+            mono: ['"Roboto Mono"', 'Courier New', 'monospace'],
           }
         }
       }
@@ -50,6 +46,34 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
+
+    /* POS Thermal Receipt Styles for Physical Printing (58mm/80mm) */
+    @media print {
+      body * {
+        visibility: hidden !important;
+      }
+      #thermalReceiptPrintArea, #thermalReceiptPrintArea * {
+        visibility: visible !important;
+      }
+      #thermalReceiptPrintArea {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        max-width: 80mm !important;
+        margin: 0 !important;
+        padding: 4px !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-family: 'Roboto Mono', 'Courier New', monospace !important;
+        font-size: 11px !important;
+        line-height: 1.2 !important;
+      }
+      @page {
+        size: auto;
+        margin: 0mm;
+      }
+    }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
@@ -58,7 +82,7 @@
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <div class="flex items-center space-x-3 overflow-x-auto no-scrollbar whitespace-nowrap">
         <span class="bg-yellow-400 text-brand-900 px-2 py-0.5 rounded font-bold text-[10px] tracking-wide">JARIGEBAIL STORE</span>
-        <span><i class="fa-solid fa-truck-fast text-yellow-400 mr-1"></i> Express Local Home Delivery</span>
+        <span><i class="fa-solid fa-truck-fast text-yellow-400 mr-1"></i> Express Local Grocery Delivery</span>
         <span class="hidden md:inline">|</span>
         <span class="hidden md:inline"><i class="fa-solid fa-phone mr-1"></i> Helpline: 9900365638 / 9972045163</span>
       </div>
@@ -77,7 +101,7 @@
 
   <header class="bg-white border-b border-slate-200 shadow-sm sticky top-[28px] z-40">
     <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
-      <!-- Brand Logo & Name -->
+      <!-- Brand Logo -->
       <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('customer')">
         <div class="w-11 h-11 md:w-12 md:h-12 bg-gradient-to-tr from-brand-800 via-brand-600 to-emerald-400 text-white rounded-xl flex items-center justify-center font-black text-lg shadow-md border border-brand-500">
           HSB
@@ -92,7 +116,7 @@
         </div>
       </div>
 
-      <!-- Desktop Live Search -->
+      <!-- Live Search Bar -->
       <div class="flex-1 max-w-lg mx-3 hidden sm:block">
         <div class="relative">
           <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Search daily groceries, rice, ghee, spices, soaps..." class="w-full pl-10 pr-4 py-2 border-2 border-slate-200 focus:border-brand-600 rounded-full text-xs outline-none transition shadow-sm bg-slate-50 focus:bg-white">
@@ -100,9 +124,8 @@
         </div>
       </div>
 
-      <!-- Contact Buttons & Cart Trigger -->
+      <!-- Quick Contact & Basket Trigger -->
       <div class="flex items-center space-x-2 md:space-x-3">
-        <!-- Direct Phone Buttons -->
         <div class="hidden lg:flex items-center space-x-2 text-xs">
           <a href="tel:9900365638" class="flex items-center bg-emerald-50 hover:bg-emerald-100 text-brand-800 px-2.5 py-1.5 rounded-lg border border-emerald-200 transition font-bold">
             <i class="fa-solid fa-phone text-brand-600 mr-1.5"></i>
@@ -114,7 +137,6 @@
           </a>
         </div>
 
-        <!-- Basket Cart Icon Button -->
         <button onclick="toggleCartDrawer()" class="relative bg-brand-50 hover:bg-brand-100 text-brand-800 px-3 py-2 rounded-xl border border-brand-200 transition flex items-center space-x-1.5">
           <i class="fa-solid fa-basket-shopping text-base text-brand-700"></i>
           <span class="font-bold text-xs hidden sm:inline">Basket</span>
@@ -123,7 +145,6 @@
       </div>
     </div>
 
-    <!-- Mobile Search Input -->
     <div class="px-4 pb-2.5 sm:hidden">
       <div class="relative">
         <input type="text" id="searchInputMobile" oninput="handleSearchMobile()" placeholder="Search products in Jarigebail store..." class="w-full pl-9 pr-4 py-1.5 border border-slate-300 rounded-full text-xs outline-none focus:border-brand-600 bg-slate-50">
@@ -134,23 +155,21 @@
 
   <main id="customerView" class="flex-grow max-w-7xl w-full mx-auto px-3 sm:px-4 py-4 space-y-6">
 
-    <!-- Flipkart/Amazon Hero Promotional Carousel -->
+    <!-- Hero Promotional Carousel -->
     <section class="relative rounded-2xl overflow-hidden shadow-lg bg-slate-900">
       <div id="carouselTrack" class="relative h-44 sm:h-64 md:h-72 w-full flex transition-transform duration-500 ease-out">
-        <!-- Banners generated dynamically -->
+        <!-- Rendered via JS -->
       </div>
-      <!-- Arrows -->
       <button onclick="prevBanner()" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center transition">
         <i class="fa-solid fa-chevron-left text-xs"></i>
       </button>
       <button onclick="nextBanner()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center transition">
         <i class="fa-solid fa-chevron-right text-xs"></i>
       </button>
-      <!-- Dots -->
       <div id="carouselDots" class="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-2"></div>
     </section>
 
-    <!-- Category Filter Bar & In Stock Switch -->
+    <!-- Filters Bar -->
     <section class="flex flex-col sm:flex-row justify-between sm:items-center gap-3 bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
       <div class="flex items-center space-x-2 overflow-x-auto no-scrollbar pb-1 sm:pb-0">
         <button onclick="filterCategory('All')" class="cat-btn active-cat px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-brand-600 text-white transition">All Products</button>
@@ -171,15 +190,14 @@
       </div>
     </section>
 
-    <!-- Product Grid -->
+    <!-- Product Cards Grid -->
     <section id="productGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
-      <!-- Rendered dynamically by JS -->
+      <!-- Rendered via JS -->
     </section>
   </main>
 
   <main id="employeeView" class="hidden flex-grow max-w-7xl w-full mx-auto px-3 sm:px-6 py-6 space-y-6">
 
-    <!-- Employer Banner Header -->
     <div class="bg-gradient-to-r from-slate-900 via-brand-900 to-slate-900 text-white rounded-2xl p-5 shadow-xl border border-brand-700">
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div class="flex items-center space-x-3">
@@ -195,17 +213,13 @@
           </div>
         </div>
 
-        <!-- Cloud Status & Header Controls -->
         <div class="flex flex-wrap items-center gap-2 bg-black/40 p-2.5 rounded-xl border border-white/10">
           <div class="flex items-center space-x-2 mr-2 px-2">
             <span id="cloudStatusDot" class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
             <span id="cloudStatusText" class="text-xs font-bold text-emerald-300">Google Cloud Live Sync</span>
           </div>
           <button onclick="openCloudConfigModal()" class="bg-brand-700 hover:bg-brand-600 text-white text-xs px-3 py-1.5 rounded-lg font-bold transition border border-brand-500 flex items-center">
-            <i class="fa-solid fa-cloud text-xs mr-1.5"></i> Cloud API Config
-          </button>
-          <button onclick="openStaffGuideModal()" class="bg-blue-600 hover:bg-blue-500 text-white text-xs px-3 py-1.5 rounded-lg font-bold transition flex items-center">
-            <i class="fa-solid fa-circle-info text-xs mr-1.5"></i> Staff Guide
+            <i class="fa-solid fa-cloud text-xs mr-1.5"></i> Cloud Sync
           </button>
           <button onclick="exitStaffMode()" class="bg-rose-600 hover:bg-rose-500 text-white text-xs px-3 py-1.5 rounded-lg font-bold transition flex items-center">
             <i class="fa-solid fa-right-from-bracket text-xs mr-1.5"></i> Logout
@@ -213,7 +227,6 @@
         </div>
       </div>
 
-      <!-- Quick Metrics -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 pt-4 border-t border-white/10 text-xs">
         <div class="bg-white/5 p-2.5 rounded-lg border border-white/5">
           <p class="text-slate-400">Total Products</p>
@@ -234,24 +247,24 @@
       </div>
     </div>
 
-    <!-- Staff Navigation Tabs -->
+    <!-- Staff Tabs Navigation -->
     <div class="flex border-b border-slate-300 space-x-2">
       <button id="tabBtnProducts" onclick="switchStaffTab('products')" class="py-2.5 px-4 font-bold text-xs sm:text-sm border-b-2 border-brand-600 text-brand-700 flex items-center">
-        <i class="fa-solid fa-boxes-stacked mr-2"></i> Product Catalog
+        <i class="fa-solid fa-boxes-stacked mr-2"></i> Inventory Manager
       </button>
       <button id="tabBtnBanners" onclick="switchStaffTab('banners')" class="py-2.5 px-4 font-semibold text-xs sm:text-sm text-slate-500 border-b-2 border-transparent hover:text-brand-600 flex items-center">
-        <i class="fa-solid fa-images mr-2"></i> Promotional Banners
+        <i class="fa-solid fa-images mr-2"></i> Offer Banners
       </button>
       <button id="tabBtnSettings" onclick="switchStaffTab('settings')" class="py-2.5 px-4 font-semibold text-xs sm:text-sm text-slate-500 border-b-2 border-transparent hover:text-brand-600 flex items-center">
         <i class="fa-solid fa-key mr-2"></i> Security PIN
       </button>
     </div>
 
-    <!-- TAB 1: Product Management Table -->
+    <!-- Inventory Section -->
     <section id="staffTabProducts" class="space-y-4">
       <div class="flex justify-between items-center bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
         <h3 class="font-bold text-slate-800 text-sm flex items-center">
-          <i class="fa-solid fa-list-check text-brand-600 mr-2"></i> Store Inventory & Pricing
+          <i class="fa-solid fa-list-check text-brand-600 mr-2"></i> Product Catalog & Pricing Controls
         </h3>
         <button onclick="openAddProductModal()" class="bg-brand-600 hover:bg-brand-700 text-white px-3.5 py-2 rounded-lg text-xs font-bold transition flex items-center shadow-sm">
           <i class="fa-solid fa-plus mr-1.5"></i> Add New Product
@@ -262,12 +275,12 @@
         <table class="w-full text-left text-xs border-collapse">
           <thead>
             <tr class="bg-slate-100 border-b border-slate-200 text-slate-700 font-bold uppercase tracking-wider">
-              <th class="p-3">Product</th>
+              <th class="p-3">Product Title</th>
               <th class="p-3">Category</th>
               <th class="p-3">MRP (₹)</th>
               <th class="p-3">Offer Price (₹)</th>
               <th class="p-3">Savings</th>
-              <th class="p-3">Stock Status</th>
+              <th class="p-3">Stock Switch</th>
               <th class="p-3 text-right">Actions</th>
             </tr>
           </thead>
@@ -278,10 +291,10 @@
       </div>
     </section>
 
-    <!-- TAB 2: Banner Manager -->
+    <!-- Banner Manager Section -->
     <section id="staffTabBanners" class="hidden space-y-4">
       <div class="flex justify-between items-center bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
-        <h3 class="font-bold text-slate-800 text-sm">Carousel Hero Banners</h3>
+        <h3 class="font-bold text-slate-800 text-sm">Carousel Hero Promotional Banners</h3>
         <button onclick="openAddBannerModal()" class="bg-brand-600 hover:bg-brand-700 text-white px-3.5 py-2 rounded-lg text-xs font-bold transition flex items-center shadow-sm">
           <i class="fa-solid fa-plus mr-1.5"></i> Add Offer Banner
         </button>
@@ -291,18 +304,18 @@
       </div>
     </section>
 
-    <!-- TAB 3: Security PIN -->
+    <!-- Security PIN Section -->
     <section id="staffTabSettings" class="hidden space-y-4">
       <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm max-w-md mx-auto space-y-4">
         <h3 class="font-bold text-slate-900 text-base border-b pb-3 flex items-center">
-          <i class="fa-solid fa-shield-halved text-brand-600 mr-2"></i> Update Staff Access PIN
+          <i class="fa-solid fa-shield-halved text-brand-600 mr-2"></i> Update Employer Access PIN
         </h3>
         <div>
           <label class="block text-xs font-bold text-slate-700 mb-1">Current PIN</label>
           <input type="password" id="pinCurrentInput" maxlength="6" class="w-full border rounded-lg p-2.5 text-sm outline-none focus:border-brand-600">
         </div>
         <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">New Access PIN</label>
+          <label class="block text-xs font-bold text-slate-700 mb-1">New PIN</label>
           <input type="password" id="pinNewInput" maxlength="6" class="w-full border rounded-lg p-2.5 text-sm outline-none focus:border-brand-600">
         </div>
         <div>
@@ -310,7 +323,7 @@
           <input type="password" id="pinConfirmInput" maxlength="6" class="w-full border rounded-lg p-2.5 text-sm outline-none focus:border-brand-600">
         </div>
         <button onclick="updateStaffPIN()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-lg text-xs transition shadow">
-          Update Staff Security PIN
+          Update Security PIN
         </button>
       </div>
     </section>
@@ -320,8 +333,8 @@
     <div class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-6">
       <div>
         <h4 class="text-white font-black text-sm mb-2">HINDUSTAN SUPER BAZAR</h4>
-        <p class="text-slate-400 mb-3">Your leading supermarket in Jarigebail. High quality grocery, wholesale prices, and express order delivery.</p>
-        <p class="text-yellow-400 font-bold"><i class="fa-solid fa-location-dot mr-1.5"></i> Jarigebail Store Center</p>
+        <p class="text-slate-400 mb-3">Jarigebail's leading supermarket for fresh groceries, wholesale prices, and express order delivery.</p>
+        <p class="text-yellow-400 font-bold"><i class="fa-solid fa-location-dot mr-1.5"></i> Jarigebail Main Center</p>
       </div>
       <div>
         <h4 class="text-white font-black text-sm mb-2">WHATSAPP & PHONE ORDER HOTLINES</h4>
@@ -329,12 +342,9 @@
         <p class="font-bold text-white text-sm"><i class="fa-solid fa-phone text-brand-500 mr-2"></i> 9972045163</p>
       </div>
       <div>
-        <h4 class="text-white font-black text-sm mb-2">STORE TIMINGS</h4>
+        <h4 class="text-white font-black text-sm mb-2">STORE HOURS</h4>
         <p class="text-slate-400">Open Daily: 8:00 AM - 9:30 PM</p>
-        <p class="text-slate-400 mt-2">Local delivery available for Jarigebail and surrounding areas.</p>
-        <button onclick="openStaffLoginModal()" class="mt-3 text-slate-500 hover:text-slate-300 underline text-[11px]">
-          Staff Login Portal
-        </button>
+        <p class="text-slate-400 mt-2">Local delivery available for Jarigebail and nearby villages.</p>
       </div>
     </div>
     <div class="bg-slate-950 py-3 text-center text-[11px] text-slate-500 border-t border-slate-800">
@@ -342,31 +352,7 @@
     </div>
   </footer>
 
-  <!-- MODAL 1: STAFF LOGIN PIN MODAL (CLEAN WITH NO DEFAULT PIN HINTS) -->
-  <div id="staffLoginModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl p-6 max-w-sm w-full space-y-4 shadow-2xl relative border border-slate-100">
-      <button onclick="closeStaffLoginModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
-        <i class="fa-solid fa-xmark text-lg"></i>
-      </button>
-      <div class="text-center space-y-1">
-        <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-full flex items-center justify-center mx-auto text-xl">
-          <i class="fa-solid fa-user-lock"></i>
-        </div>
-        <h3 class="text-lg font-black text-slate-900">Staff Authorization</h3>
-        <p class="text-xs text-slate-500">Enter security PIN to unlock Employee Mode.</p>
-      </div>
-      <div>
-        <label class="block text-xs font-bold text-slate-700 mb-1">Access PIN</label>
-        <input type="password" id="staffPinInput" maxlength="6" placeholder="••••" class="w-full text-center text-2xl tracking-widest font-bold border-2 border-slate-300 rounded-xl py-2 focus:border-brand-600 outline-none">
-      </div>
-      <p id="staffPinError" class="text-xs text-red-600 font-bold text-center hidden">Invalid PIN. Please try again.</p>
-      <button onclick="verifyStaffPin()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl transition text-sm shadow-md">
-        Unlock Employee Dashboard
-      </button>
-    </div>
-  </div>
-
-  <!-- MODAL 2: SHOPPING BASKET DRAWER -->
+  <!-- Basket Cart Drawer -->
   <div id="cartDrawer" class="fixed inset-0 bg-black/50 z-50 hidden flex justify-end">
     <div class="bg-white w-full max-w-md h-full flex flex-col shadow-2xl">
       <div class="p-4 bg-brand-900 text-white flex justify-between items-center">
@@ -377,30 +363,97 @@
           <i class="fa-solid fa-xmark text-xl"></i>
         </button>
       </div>
+
       <div id="cartItemsList" class="flex-grow overflow-y-auto p-4 space-y-3 divide-y divide-slate-100">
         <!-- Dynamic Cart Items -->
       </div>
+
       <div class="p-4 bg-slate-50 border-t border-slate-200 space-y-3">
         <div class="flex justify-between items-center text-sm">
-          <span class="font-semibold text-slate-600">Total Order Estimate:</span>
+          <span class="font-semibold text-slate-600">Total Order Amount:</span>
           <span id="cartTotalAmount" class="font-black text-lg text-brand-800">₹0</span>
         </div>
+
         <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">Send WhatsApp Order To:</label>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Select Order Line Phone Number:</label>
           <select id="whatsappPhoneSelect" class="w-full border rounded-lg p-2 text-xs font-bold text-brand-900 border-brand-300 bg-white">
-            <option value="9900365638">Order Hotline 1: 9900365638</option>
-            <option value="9972045163">Order Hotline 2: 9972045163</option>
+            <option value="9900365638">Order Line 1: 9900365638</option>
+            <option value="9972045163">Order Line 2: 9972045163</option>
           </select>
         </div>
-        <button onclick="sendWhatsAppOrder()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl flex items-center justify-center space-x-2 transition shadow-lg">
-          <i class="fa-brands fa-whatsapp text-xl"></i>
-          <span>Checkout via WhatsApp</span>
+
+        <div class="grid grid-cols-2 gap-2">
+          <button onclick="openThermalReceiptModal()" class="bg-slate-800 hover:bg-slate-900 text-white font-bold py-2.5 rounded-xl flex items-center justify-center space-x-1.5 transition text-xs">
+            <i class="fa-solid fa-print"></i>
+            <span>Print Thermal POS</span>
+          </button>
+          <button onclick="sendWhatsAppOrder()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl flex items-center justify-center space-x-1.5 transition text-xs shadow-md">
+            <i class="fa-brands fa-whatsapp text-sm"></i>
+            <span>Send WhatsApp</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Thermal Printer Preview & Physical Print Modal -->
+  <div id="thermalReceiptModal" class="fixed inset-0 bg-black/70 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-4 space-y-4 shadow-2xl relative max-h-[90vh] flex flex-col">
+      <div class="flex justify-between items-center border-b pb-2">
+        <h3 class="font-bold text-slate-900 text-sm flex items-center">
+          <i class="fa-solid fa-receipt text-brand-600 mr-2"></i> POS Thermal Receipt Preview
+        </h3>
+        <button onclick="closeThermalReceiptModal()" class="text-slate-400 hover:text-slate-600">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Printable Receipt Scroll View -->
+      <div class="overflow-y-auto flex-grow bg-slate-100 p-3 rounded-xl border border-slate-200">
+        <div id="thermalReceiptPrintArea" class="bg-white p-4 shadow text-black font-mono text-xs leading-snug rounded">
+          <!-- Rendered Thermal Bill Content -->
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="grid grid-cols-2 gap-2 pt-2 border-t">
+        <button onclick="printReceiptNow()" class="bg-brand-700 hover:bg-brand-800 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center space-x-1">
+          <i class="fa-solid fa-print"></i>
+          <span>Print Receipt</span>
+        </button>
+        <button onclick="copyMonospacedReceiptText()" class="bg-slate-700 hover:bg-slate-800 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center space-x-1">
+          <i class="fa-solid fa-copy"></i>
+          <span>Copy Bill Text</span>
         </button>
       </div>
     </div>
   </div>
 
-  <!-- MODAL 3: GOOGLE CLOUD CONFIG (EMPLOYEE ONLY) -->
+  <!-- Staff PIN Login Modal -->
+  <div id="staffLoginModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl p-6 max-w-sm w-full space-y-4 shadow-2xl relative">
+      <button onclick="closeStaffLoginModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+      <div class="text-center space-y-1">
+        <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-full flex items-center justify-center mx-auto text-xl">
+          <i class="fa-solid fa-user-lock"></i>
+        </div>
+        <h3 class="text-lg font-black text-slate-900">Staff Access</h3>
+        <p class="text-xs text-slate-500">Enter authorization security PIN</p>
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-slate-700 mb-1">Access PIN</label>
+        <input type="password" id="staffPinInput" maxlength="6" placeholder="••••" class="w-full text-center text-2xl tracking-widest font-bold border-2 border-slate-300 rounded-xl py-2 focus:border-brand-600 outline-none">
+      </div>
+      <p id="staffPinError" class="text-xs text-red-600 font-bold text-center hidden">Invalid Access PIN.</p>
+      <button onclick="verifyStaffPin()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl transition text-sm shadow">
+        Unlock Employee Dashboard
+      </button>
+    </div>
+  </div>
+
+  <!-- Cloud Config Modal -->
   <div id="cloudConfigModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-2xl p-6 max-w-md w-full space-y-4 shadow-2xl relative">
       <button onclick="closeCloudConfigModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
@@ -409,59 +462,23 @@
       <div class="flex items-center space-x-3 border-b pb-3">
         <i class="fa-solid fa-cloud text-brand-600 text-2xl"></i>
         <div>
-          <h3 class="font-bold text-base text-slate-900">Google Cloud Database Config</h3>
-          <p class="text-xs text-slate-500">Firebase Realtime Sync Engine (Employer Access)</p>
+          <h3 class="font-bold text-base text-slate-900">Google Cloud Database Engine</h3>
+          <p class="text-xs text-slate-500">Firebase Live Database Sync Settings</p>
         </div>
       </div>
       <div class="space-y-3 text-xs">
         <div class="p-2.5 bg-emerald-50 border border-emerald-200 rounded-lg flex items-center justify-between text-emerald-800 font-semibold">
-          <span><i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> Connected & Synchronized</span>
+          <span><i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> Live Cloud Database Connected</span>
           <span class="text-[10px] bg-emerald-200 text-emerald-900 px-1.5 py-0.5 rounded font-bold">REALTIME</span>
         </div>
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Database Realtime URL</label>
-          <input type="text" readonly value="https://hindustan-super-bazar-jarigebail.firebaseio.com" class="w-full bg-slate-100 border rounded-lg p-2 text-slate-600">
-        </div>
       </div>
-      <div class="pt-2 flex space-x-2">
-        <button onclick="triggerManualSync()" class="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-2 rounded-lg text-xs transition">
-          Push Sync Now
-        </button>
-        <button onclick="closeCloudConfigModal()" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold px-4 py-2 rounded-lg text-xs">
-          Close
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL 4: STAFF GUIDE (EMPLOYEE ONLY) -->
-  <div id="staffGuideModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl p-6 max-w-md w-full space-y-4 shadow-2xl relative">
-      <button onclick="closeStaffGuideModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
-        <i class="fa-solid fa-xmark text-lg"></i>
+      <button onclick="closeCloudConfigModal()" class="w-full bg-brand-600 text-white font-bold py-2 rounded-lg text-xs">
+        Close Config
       </button>
-      <div class="flex items-center space-x-3 border-b pb-3">
-        <i class="fa-solid fa-circle-info text-blue-600 text-2xl"></i>
-        <div>
-          <h3 class="font-bold text-base text-slate-900">Staff Operating Guide</h3>
-          <p class="text-xs text-slate-500">Employee instructions for store portal management</p>
-        </div>
-      </div>
-      <div class="space-y-3 text-xs text-slate-600 leading-relaxed max-h-80 overflow-y-auto">
-        <p><strong>1. Stock Toggling:</strong> Click the "In Stock / Out of Stock" badge on any item in the Employee table to instantly update public availability.</p>
-        <p><strong>2. Pricing Updates:</strong> Edit MRP or Offer Prices using the pen icon. Discount percentages calculate automatically.</p>
-        <p><strong>3. Promotional Banners:</strong> Add offer slides in the Banner tab. They appear directly on the homepage carousel for public customers.</p>
-        <p><strong>4. Security:</strong> Always change your PIN in Security PIN tab after initial setup.</p>
-      </div>
-      <div class="text-right">
-        <button onclick="closeStaffGuideModal()" class="bg-brand-600 text-white font-bold px-4 py-2 rounded-lg text-xs">
-          Understood
-        </button>
-      </div>
     </div>
   </div>
 
-  <!-- MODAL 5: ADD / EDIT PRODUCT -->
+  <!-- Add / Edit Product Modal -->
   <div id="productFormModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-2xl p-6 max-w-md w-full space-y-4 shadow-2xl relative">
       <button onclick="closeProductFormModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
@@ -506,7 +523,7 @@
           <input type="text" id="formProdImage" placeholder="🌾, 🌻, 🧼 or https://..." class="w-full border rounded-lg p-2 outline-none focus:border-brand-600">
         </div>
         <div>
-          <label class="block font-bold text-slate-700 mb-1">Stock Status</label>
+          <label class="block font-bold text-slate-700 mb-1">Stock Availability</label>
           <select id="formProdStock" class="w-full border rounded-lg p-2 bg-white">
             <option value="true">In Stock</option>
             <option value="false">Out of Stock</option>
@@ -515,29 +532,29 @@
       </div>
 
       <button onclick="saveProductForm()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-lg text-xs transition shadow">
-        Save Product to Catalog
+        Save Product
       </button>
     </div>
   </div>
 
-  <!-- MODAL 6: ADD BANNER MODAL -->
+  <!-- Banner Modal -->
   <div id="bannerFormModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-2xl p-6 max-w-md w-full space-y-4 shadow-2xl relative">
       <button onclick="closeBannerFormModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
         <i class="fa-solid fa-xmark text-lg"></i>
       </button>
-      <h3 class="font-bold text-base text-slate-900 border-b pb-2">Add Promotional Banner</h3>
+      <h3 class="font-bold text-base text-slate-900 border-b pb-2">Add Promotional Banner Slide</h3>
       <div class="space-y-3 text-xs">
         <div>
           <label class="block font-bold text-slate-700 mb-1">Banner Headline</label>
-          <input type="text" id="formBannerTitle" placeholder="e.g. Festival Grocery Discounts!" class="w-full border rounded-lg p-2 outline-none">
+          <input type="text" id="formBannerTitle" placeholder="e.g. Festival Rice & Oil Offer!" class="w-full border rounded-lg p-2 outline-none">
         </div>
         <div>
           <label class="block font-bold text-slate-700 mb-1">Subtitle</label>
-          <input type="text" id="formBannerSubtitle" placeholder="e.g. Save big on daily essentials in Jarigebail" class="w-full border rounded-lg p-2 outline-none">
+          <input type="text" id="formBannerSubtitle" placeholder="e.g. Express delivery in Jarigebail" class="w-full border rounded-lg p-2 outline-none">
         </div>
         <div>
-          <label class="block font-bold text-slate-700 mb-1">Theme Color</label>
+          <label class="block font-bold text-slate-700 mb-1">Color Theme</label>
           <select id="formBannerBg" class="w-full border rounded-lg p-2 bg-white">
             <option value="from-brand-900 via-brand-800 to-emerald-700">Emerald Green</option>
             <option value="from-amber-700 via-yellow-600 to-amber-800">Gold Amber</option>
@@ -552,7 +569,6 @@
   </div>
 
   <script>
-    // Master State
     let appState = {
       isEmployeeMode: false,
       staffPIN: "1234",
@@ -564,16 +580,16 @@
         { id: "p1", title: "Sona Masoori Rice", category: "Rice & Grains", unit: "25 Kg Bag", mrp: 1450, offer: 1290, image: "🌾", inStock: true },
         { id: "p2", title: "Freedom Sunflower Oil", category: "Oils & Ghee", unit: "1 Litre Pouch", mrp: 160, offer: 138, image: "🌻", inStock: true },
         { id: "p3", title: "Aashirvaad Whole Wheat Atta", category: "Rice & Grains", unit: "5 Kg Bag", mrp: 280, offer: 245, image: "🌾", inStock: true },
-        { id: "p4", title: "Tata Gold Premium Tea", category: "Snacks & Drinks", unit: "500g Pack", mrp: 320, offer: 285, image: "☕", inStock: true },
+        { id: "p4", title: "Tata Gold Tea", category: "Snacks & Drinks", unit: "500g Pack", mrp: 320, offer: 285, image: "☕", inStock: true },
         { id: "p5", title: "Everest Chicken Masala", category: "Spices & Masala", unit: "100g Box", mrp: 85, offer: 72, image: "🌶️", inStock: true },
-        { id: "p6", title: "Santoor Turmeric Soap", category: "Personal Care", unit: "Pack of 4 (125g)", mrp: 170, offer: 142, image: "🧼", inStock: true },
+        { id: "p6", title: "Santoor Soap", category: "Personal Care", unit: "Pack of 4 (125g)", mrp: 170, offer: 142, image: "🧼", inStock: true },
         { id: "p7", title: "Nandini Pure Ghee", category: "Oils & Ghee", unit: "500ml Pack", mrp: 310, offer: 295, image: "🧈", inStock: false },
-        { id: "p8", title: "Toor Dal (Premium Quality)", category: "Rice & Grains", unit: "1 Kg Pack", mrp: 175, offer: 155, image: "🫘", inStock: true }
+        { id: "p8", title: "Toor Dal (Premium)", category: "Rice & Grains", unit: "1 Kg Pack", mrp: 175, offer: 155, image: "🫘", inStock: true }
       ],
       banners: [
-        { id: "b1", title: "HINDUSTAN SUPER BAZAR - JARIGEBAIL", subtitle: "Grand Store Discounts on Daily Groceries & Household Essentials!", bg: "from-brand-900 via-brand-800 to-emerald-700" },
-        { id: "b2", title: "SUPER SAVER RICE & OIL DEALS", subtitle: "Special Wholesale Rates for Jarigebail Residents", bg: "from-amber-700 via-yellow-600 to-amber-800" },
-        { id: "b3", title: "WHATSAPP ORDER & DELIVERY", subtitle: "Send your grocery list directly to 9900365638 or 9972045163", bg: "from-blue-900 via-indigo-800 to-slate-900" }
+        { id: "b1", title: "HINDUSTAN SUPER BAZAR - JARIGEBAIL", subtitle: "Grand Supermarket Discounts on Daily Groceries & Essentials!", bg: "from-brand-900 via-brand-800 to-emerald-700" },
+        { id: "b2", title: "RICE & EDIBLE OIL SAVINGS", subtitle: "Special Wholesale Rates for Jarigebail Residents", bg: "from-amber-700 via-yellow-600 to-amber-800" },
+        { id: "b3", title: "EXPRESS WHATSAPP ORDERS", subtitle: "Order direct to 9900365638 or 9972045163", bg: "from-blue-900 via-indigo-800 to-slate-900" }
       ]
     };
 
@@ -594,71 +610,110 @@
       }, 4500);
     };
 
-    // Staff Authentication
-    function openStaffLoginModal() {
-      document.getElementById('staffPinInput').value = "";
-      document.getElementById('staffPinError').classList.add('hidden');
-      document.getElementById('staffLoginModal').classList.remove('hidden');
-    }
+    function generateThermalBillText() {
+      const dateStr = new Date().toLocaleString('en-IN', { dateStyle: 'short', timeStyle: 'short' });
+      const billNo = "HSB-" + Math.floor(100000 + Math.random() * 900000);
 
-    function closeStaffLoginModal() {
-      document.getElementById('staffLoginModal').classList.add('hidden');
-    }
+      let text = `*********************************\n`;
+      text += `    HINDUSTAN SUPER BAZAR\n`;
+      text += `         JARIGEBAIL\n`;
+      text += `  Ph: 9900365638 / 9972045163\n`;
+      text += `*********************************\n`;
+      text += `Bill No: ${billNo}\n`;
+      text += `Date   : ${dateStr}\n`;
+      text += `---------------------------------\n`;
+      text += `ITEM            QTY  RATE  AMOUNT\n`;
+      text += `---------------------------------\n`;
 
-    function verifyStaffPin() {
-      const input = document.getElementById('staffPinInput').value;
-      if (input === appState.staffPIN) {
-        appState.isEmployeeMode = true;
-        closeStaffLoginModal();
-        switchTab('employee');
-        showToast("Employee Dashboard Unlocked!");
-      } else {
-        document.getElementById('staffPinError').classList.remove('hidden');
+      let totalMrp = 0;
+      let totalOffer = 0;
+
+      appState.cart.forEach(item => {
+        const itemMrp = item.mrp * item.qty;
+        const itemOffer = item.offer * item.qty;
+        totalMrp += itemMrp;
+        totalOffer += itemOffer;
+
+        let title = item.title.substring(0, 14).padEnd(14, ' ');
+        let qty = String(item.qty).padStart(3, ' ');
+        let rate = String(item.offer).padStart(5, ' ');
+        let amt = String(itemOffer).padStart(6, ' ');
+
+        text += `${title} ${qty} ${rate} ${amt}\n`;
+      });
+
+      const totalSavings = totalMrp - totalOffer;
+
+      text += `---------------------------------\n`;
+      text += `SUBTOTAL         : Rs.${totalOffer}\n`;
+      if (totalSavings > 0) {
+        text += `MRP SAVINGS      : Rs.${totalSavings}\n`;
       }
+      text += `---------------------------------\n`;
+      text += `GRAND TOTAL      : Rs.${totalOffer}\n`;
+      text += `---------------------------------\n`;
+      text += `     THANK YOU FOR SHOPPING!\n`;
+      text += `        PLEASE VISIT AGAIN\n`;
+      text += `---------------------------------\n`;
+
+      return { rawText: text, grandTotal: totalOffer, billNo, dateStr, totalSavings };
     }
 
-    function exitStaffMode() {
-      appState.isEmployeeMode = false;
-      switchTab('customer');
-      showToast("Logged out of Employee Portal.");
-    }
-
-    function switchTab(view) {
-      if (view === 'customer') {
-        document.getElementById('employeeView').classList.add('hidden');
-        document.getElementById('customerView').classList.remove('hidden');
-        document.getElementById('navStaffLoginBtn').classList.remove('hidden');
-        document.getElementById('navStaffBadge').classList.add('hidden');
-      } else if (view === 'employee' && appState.isEmployeeMode) {
-        document.getElementById('customerView').classList.add('hidden');
-        document.getElementById('employeeView').classList.remove('hidden');
-        document.getElementById('navStaffLoginBtn').classList.add('hidden');
-        document.getElementById('navStaffBadge').classList.remove('hidden');
+    function sendWhatsAppOrder() {
+      if (appState.cart.length === 0) {
+        showToast("Basket is empty!");
+        return;
       }
+
+      const phone = document.getElementById('whatsappPhoneSelect').value;
+      const bill = generateThermalBillText();
+
+      // Wrapped in ``` for WhatsApp monospaced thermal formatting
+      let waMessage = `*HINDUSTAN SUPER BAZAR - JARIGEBAIL*\n`;
+      waMessage += `*New Order Receipt*\n\n`;
+      waMessage += "```\n" + bill.rawText + "```";
+
+      window.open(`https://wa.me/91${phone}?text=${encodeURIComponent(waMessage)}`, '_blank');
     }
 
-    function switchStaffTab(tabName) {
-      document.getElementById('staffTabProducts').classList.add('hidden');
-      document.getElementById('staffTabBanners').classList.add('hidden');
-      document.getElementById('staffTabSettings').classList.add('hidden');
-
-      document.getElementById('tabBtnProducts').className = "py-2.5 px-4 font-semibold text-xs sm:text-sm text-slate-500 border-b-2 border-transparent hover:text-brand-600 flex items-center";
-      document.getElementById('tabBtnBanners').className = "py-2.5 px-4 font-semibold text-xs sm:text-sm text-slate-500 border-b-2 border-transparent hover:text-brand-600 flex items-center";
-      document.getElementById('tabBtnSettings').className = "py-2.5 px-4 font-semibold text-xs sm:text-sm text-slate-500 border-b-2 border-transparent hover:text-brand-600 flex items-center";
-
-      if (tabName === 'products') {
-        document.getElementById('staffTabProducts').classList.remove('hidden');
-        document.getElementById('tabBtnProducts').className = "py-2.5 px-4 font-bold text-xs sm:text-sm border-b-2 border-brand-600 text-brand-700 flex items-center";
-      } else if (tabName === 'banners') {
-        document.getElementById('staffTabBanners').classList.remove('hidden');
-        document.getElementById('tabBtnBanners').className = "py-2.5 px-4 font-bold text-xs sm:text-sm border-b-2 border-brand-600 text-brand-700 flex items-center";
-      } else if (tabName === 'settings') {
-        document.getElementById('staffTabSettings').classList.remove('hidden');
-        document.getElementById('tabBtnSettings').className = "py-2.5 px-4 font-bold text-xs sm:text-sm border-b-2 border-brand-600 text-brand-700 flex items-center";
+    function openThermalReceiptModal() {
+      if (appState.cart.length === 0) {
+        showToast("Basket is empty!");
+        return;
       }
+
+      const bill = generateThermalBillText();
+      const printArea = document.getElementById('thermalReceiptPrintArea');
+      
+      printArea.innerHTML = `
+        <pre class="font-mono text-[11px] leading-tight whitespace-pre text-black">${bill.rawText}</pre>
+      `;
+
+      document.getElementById('thermalReceiptModal').classList.remove('hidden');
     }
 
-    // Customer Product Rendering
+    function closeThermalReceiptModal() {
+      document.getElementById('thermalReceiptModal').classList.add('hidden');
+    }
+
+    function printReceiptNow() {
+      window.print();
+    }
+
+    function copyMonospacedReceiptText() {
+      const bill = generateThermalBillText();
+      const textToCopy = bill.rawText;
+
+      const dummy = document.createElement("textarea");
+      document.body.appendChild(dummy);
+      dummy.value = textToCopy;
+      dummy.select();
+      document.execCommand("copy");
+      document.body.removeChild(dummy);
+
+      showToast("Thermal Bill Text Copied!");
+    }
+
     function renderProducts() {
       const grid = document.getElementById('productGrid');
       grid.innerHTML = "";
@@ -678,7 +733,7 @@
         grid.innerHTML = `
           <div class="col-span-full py-12 text-center text-slate-400">
             <i class="fa-solid fa-basket-shopping text-4xl mb-2"></i>
-            <p class="font-bold">No products match your filters.</p>
+            <p class="font-bold">No products match your search.</p>
           </div>
         `;
         return;
@@ -726,7 +781,6 @@
       });
     }
 
-    // Carousel Rendering
     function renderCarousel() {
       const track = document.getElementById('carouselTrack');
       const dots = document.getElementById('carouselDots');
@@ -738,7 +792,7 @@
         slide.className = `min-w-full h-full bg-gradient-to-r ${b.bg} flex items-center justify-between p-5 sm:p-8 text-white relative`;
         slide.innerHTML = `
           <div class="max-w-xl space-y-2 z-10">
-            <span class="bg-yellow-400 text-slate-900 text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-widest shadow">OFFER AT JARIGEBAIL</span>
+            <span class="bg-yellow-400 text-slate-900 text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-widest shadow">JARIGEBAIL STORE OFFER</span>
             <h2 class="text-base sm:text-2xl md:text-3xl font-black tracking-tight leading-tight">${b.title}</h2>
             <p class="text-xs sm:text-sm text-slate-100 opacity-90 line-clamp-2">${b.subtitle}</p>
             <div class="pt-1">
@@ -782,7 +836,6 @@
       updateCarouselPosition();
     }
 
-    // Category Filter Switch
     function filterCategory(cat) {
       appState.activeCategory = cat;
       document.querySelectorAll('.cat-btn').forEach(btn => {
@@ -805,7 +858,6 @@
       renderProducts();
     }
 
-    // Cart Operations
     function addToCart(prodId) {
       const prod = appState.products.find(p => p.id === prodId);
       if (!prod || !prod.inStock) return;
@@ -879,31 +931,69 @@
       document.getElementById('cartDrawer').classList.toggle('hidden');
     }
 
-    function sendWhatsAppOrder() {
-      if (appState.cart.length === 0) {
-        showToast("Basket is empty!");
-        return;
-      }
-
-      const phone = document.getElementById('whatsappPhoneSelect').value;
-      let msg = `*GROCERY ORDER - HINDUSTAN SUPER BAZAR (JARIGEBAIL)*\n`;
-      msg += `------------------------------------\n`;
-
-      let grandTotal = 0;
-      appState.cart.forEach((item, idx) => {
-        const total = item.offer * item.qty;
-        grandTotal += total;
-        msg += `${idx + 1}. *${item.title}* (${item.unit})\n    Qty: ${item.qty} x ₹${item.offer} = ₹${total}\n`;
-      });
-
-      msg += `------------------------------------\n`;
-      msg += `*ESTIMATED TOTAL: ₹${grandTotal}*\n\n`;
-      msg += `Please deliver to my address near Jarigebail. Kindly confirm availability. Thank you!`;
-
-      window.open(`https://wa.me/91${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+    function openStaffLoginModal() {
+      document.getElementById('staffPinInput').value = "";
+      document.getElementById('staffPinError').classList.add('hidden');
+      document.getElementById('staffLoginModal').classList.remove('hidden');
     }
 
-    // Staff Product Controller
+    function closeStaffLoginModal() {
+      document.getElementById('staffLoginModal').classList.add('hidden');
+    }
+
+    function verifyStaffPin() {
+      const input = document.getElementById('staffPinInput').value;
+      if (input === appState.staffPIN) {
+        appState.isEmployeeMode = true;
+        closeStaffLoginModal();
+        switchTab('employee');
+        showToast("Employee Dashboard Unlocked!");
+      } else {
+        document.getElementById('staffPinError').classList.remove('hidden');
+      }
+    }
+
+    function exitStaffMode() {
+      appState.isEmployeeMode = false;
+      switchTab('customer');
+      showToast("Logged out of Employee Portal.");
+    }
+
+    function switchTab(view) {
+      if (view === 'customer') {
+        document.getElementById('employeeView').classList.add('hidden');
+        document.getElementById('customerView').classList.remove('hidden');
+        document.getElementById('navStaffLoginBtn').classList.remove('hidden');
+        document.getElementById('navStaffBadge').classList.add('hidden');
+      } else if (view === 'employee' && appState.isEmployeeMode) {
+        document.getElementById('customerView').classList.add('hidden');
+        document.getElementById('employeeView').classList.remove('hidden');
+        document.getElementById('navStaffLoginBtn').classList.add('hidden');
+        document.getElementById('navStaffBadge').classList.remove('hidden');
+      }
+    }
+
+    function switchStaffTab(tabName) {
+      document.getElementById('staffTabProducts').classList.add('hidden');
+      document.getElementById('staffTabBanners').classList.add('hidden');
+      document.getElementById('staffTabSettings').classList.add('hidden');
+
+      document.getElementById('tabBtnProducts').className = "py-2.5 px-4 font-semibold text-xs sm:text-sm text-slate-500 border-b-2 border-transparent hover:text-brand-600 flex items-center";
+      document.getElementById('tabBtnBanners').className = "py-2.5 px-4 font-semibold text-xs sm:text-sm text-slate-500 border-b-2 border-transparent hover:text-brand-600 flex items-center";
+      document.getElementById('tabBtnSettings').className = "py-2.5 px-4 font-semibold text-xs sm:text-sm text-slate-500 border-b-2 border-transparent hover:text-brand-600 flex items-center";
+
+      if (tabName === 'products') {
+        document.getElementById('staffTabProducts').classList.remove('hidden');
+        document.getElementById('tabBtnProducts').className = "py-2.5 px-4 font-bold text-xs sm:text-sm border-b-2 border-brand-600 text-brand-700 flex items-center";
+      } else if (tabName === 'banners') {
+        document.getElementById('staffTabBanners').classList.remove('hidden');
+        document.getElementById('tabBtnBanners').className = "py-2.5 px-4 font-bold text-xs sm:text-sm border-b-2 border-brand-600 text-brand-700 flex items-center";
+      } else if (tabName === 'settings') {
+        document.getElementById('staffTabSettings').classList.remove('hidden');
+        document.getElementById('tabBtnSettings').className = "py-2.5 px-4 font-bold text-xs sm:text-sm border-b-2 border-brand-600 text-brand-700 flex items-center";
+      }
+    }
+
     function renderStaffTable() {
       const tbody = document.getElementById('staffProductTableBody');
       tbody.innerHTML = "";
@@ -1032,7 +1122,6 @@
       }
     }
 
-    // Banner Controller
     function renderStaffBanners() {
       const grid = document.getElementById('staffBannersGrid');
       grid.innerHTML = "";
@@ -1096,7 +1185,6 @@
       showToast("Banner removed.");
     }
 
-    // Security PIN Change
     function updateStaffPIN() {
       const current = document.getElementById('pinCurrentInput').value;
       const newPin = document.getElementById('pinNewInput').value;
@@ -1120,7 +1208,7 @@
       document.getElementById('pinCurrentInput').value = "";
       document.getElementById('pinNewInput').value = "";
       document.getElementById('pinConfirmInput').value = "";
-      showToast("Staff PIN updated!");
+      showToast("Security PIN updated!");
     }
 
     function updateStats() {
@@ -1136,29 +1224,6 @@
 
     function closeCloudConfigModal() {
       document.getElementById('cloudConfigModal').classList.add('hidden');
-    }
-
-    function triggerManualSync() {
-      const dot = document.getElementById('cloudStatusDot');
-      const txt = document.getElementById('cloudStatusText');
-
-      dot.className = "w-2.5 h-2.5 rounded-full bg-yellow-400 animate-ping";
-      txt.innerText = "Syncing with Cloud...";
-
-      setTimeout(() => {
-        dot.className = "w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse";
-        txt.innerText = "Google Cloud Live Sync";
-        closeCloudConfigModal();
-        showToast("Cloud sync completed!");
-      }, 1000);
-    }
-
-    function openStaffGuideModal() {
-      document.getElementById('staffGuideModal').classList.remove('hidden');
-    }
-
-    function closeStaffGuideModal() {
-      document.getElementById('staffGuideModal').classList.add('hidden');
     }
 
     function showToast(msg) {
