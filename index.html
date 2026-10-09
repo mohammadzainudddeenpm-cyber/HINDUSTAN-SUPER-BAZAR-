@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HINDUSTAN SUPER BAZAR - JARIGEBAIL</title>
-  
-  <!-- Tailwind CSS -->
+
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Google Fonts -->
+  <!-- Google Web Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Roboto+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-  
+
   <script>
     tailwind.config = {
       theme: {
@@ -21,6 +21,7 @@
             brand: {
               50: '#f0fdf4',
               100: '#dcfce7',
+              200: '#bbf7d0',
               500: '#22c55e',
               600: '#16a34a',
               700: '#15803d',
@@ -36,10 +37,11 @@
       }
     }
   </script>
-  
+
   <style>
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
     .line-clamp-2 {
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -47,7 +49,7 @@
       overflow: hidden;
     }
 
-    /* POS Thermal Receipt Styles for Physical Printing (58mm/80mm) */
+    /* POS Thermal Receipt CSS Rules for Direct 58mm/80mm Physical Printers */
     @media print {
       body * {
         visibility: hidden !important;
@@ -67,7 +69,7 @@
         color: #000000 !important;
         font-family: 'Roboto Mono', 'Courier New', monospace !important;
         font-size: 11px !important;
-        line-height: 1.2 !important;
+        line-height: 1.25 !important;
       }
       @page {
         size: auto;
@@ -76,24 +78,25 @@
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-600 selection:text-white">
 
-  <div class="bg-brand-900 text-white text-xs py-1.5 px-4 sticky top-0 z-50">
+  <div class="bg-brand-900 text-white text-xs py-1.5 px-4 sticky top-0 z-50 shadow-md">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <div class="flex items-center space-x-3 overflow-x-auto no-scrollbar whitespace-nowrap">
-        <span class="bg-yellow-400 text-brand-900 px-2 py-0.5 rounded font-bold text-[10px] tracking-wide">JARIGEBAIL STORE</span>
-        <span><i class="fa-solid fa-truck-fast text-yellow-400 mr-1"></i> Express Local Grocery Delivery</span>
-        <span class="hidden md:inline">|</span>
-        <span class="hidden md:inline"><i class="fa-solid fa-phone mr-1"></i> Helpline: 9900365638 / 9972045163</span>
+        <span class="bg-yellow-400 text-brand-900 px-2 py-0.5 rounded font-black text-[10px] tracking-wider uppercase shadow-sm">JARIGEBAIL STORE</span>
+        <span class="font-medium"><i class="fa-solid fa-truck-fast text-yellow-400 mr-1"></i> Express Local Grocery Delivery</span>
+        <span class="hidden md:inline text-brand-700">|</span>
+        <span class="hidden md:inline font-semibold"><i class="fa-solid fa-phone mr-1"></i> Hotline: 9900365638 / 9972045163</span>
       </div>
+
       <div class="flex items-center space-x-2">
-        <button id="navStaffLoginBtn" onclick="openStaffLoginModal()" class="bg-brand-800 hover:bg-brand-700 text-white px-2.5 py-1 rounded-md text-xs font-semibold transition border border-brand-600 flex items-center">
+        <button id="navStaffLoginBtn" onclick="openStaffLoginModal()" class="bg-brand-800 hover:bg-brand-700 text-white px-2.5 py-1 rounded-lg text-xs font-semibold transition border border-brand-600 flex items-center shadow-sm">
           <i class="fa-solid fa-lock mr-1.5 text-yellow-300 text-[10px]"></i>
           <span>Staff Access</span>
         </button>
-        <button id="navStaffBadge" onclick="switchTab('employee')" class="hidden bg-yellow-400 text-brand-900 px-2.5 py-1 rounded-md text-xs font-extrabold transition flex items-center shadow-md">
+        <button id="navStaffBadge" onclick="switchTab('employee')" class="hidden bg-yellow-400 text-brand-900 px-2.5 py-1 rounded-lg text-xs font-black transition flex items-center shadow-md hover:bg-yellow-300">
           <i class="fa-solid fa-user-shield mr-1.5"></i>
-          <span>Employee Portal</span>
+          <span>Employee Dashboard</span>
         </button>
       </div>
     </div>
@@ -101,53 +104,52 @@
 
   <header class="bg-white border-b border-slate-200 shadow-sm sticky top-[28px] z-40">
     <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      
       <!-- Brand Logo -->
-      <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('customer')">
-        <div class="w-11 h-11 md:w-12 md:h-12 bg-gradient-to-tr from-brand-800 via-brand-600 to-emerald-400 text-white rounded-xl flex items-center justify-center font-black text-lg shadow-md border border-brand-500">
+      <div class="flex items-center space-x-3 cursor-pointer select-none group" onclick="switchTab('customer')">
+        <div class="w-11 h-11 md:w-12 md:h-12 bg-gradient-to-tr from-brand-800 via-brand-600 to-emerald-400 text-white rounded-xl flex items-center justify-center font-black text-lg shadow-md border border-brand-500 group-hover:scale-105 transition transform">
           HSB
         </div>
         <div>
-          <h1 class="text-base md:text-xl font-black text-brand-900 tracking-tight leading-none">
+          <h1 class="text-base md:text-xl font-black text-brand-900 tracking-tight leading-none group-hover:text-brand-700 transition">
             HINDUSTAN SUPER BAZAR
           </h1>
           <p class="text-[10px] md:text-xs font-bold text-brand-600 uppercase tracking-widest mt-0.5">
-            JARIGEBAIL MAIN STORE
+            JARIGEBAIL MAIN CENTER
           </p>
         </div>
       </div>
 
-      <!-- Live Search Bar -->
+      <!-- Live Product Search Bar -->
       <div class="flex-1 max-w-lg mx-3 hidden sm:block">
         <div class="relative">
-          <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Search daily groceries, rice, ghee, spices, soaps..." class="w-full pl-10 pr-4 py-2 border-2 border-slate-200 focus:border-brand-600 rounded-full text-xs outline-none transition shadow-sm bg-slate-50 focus:bg-white">
+          <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Search rice, wheat, ghee, spices, soaps, snacks..." class="w-full pl-10 pr-4 py-2 border-2 border-slate-200 focus:border-brand-600 rounded-full text-xs outline-none transition shadow-sm bg-slate-50 focus:bg-white">
           <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-2.5 text-slate-400 text-xs"></i>
         </div>
       </div>
 
-      <!-- Quick Contact & Basket Trigger -->
+      <!-- Header Controls: Customer Account & Cart -->
       <div class="flex items-center space-x-2 md:space-x-3">
-        <div class="hidden lg:flex items-center space-x-2 text-xs">
-          <a href="tel:9900365638" class="flex items-center bg-emerald-50 hover:bg-emerald-100 text-brand-800 px-2.5 py-1.5 rounded-lg border border-emerald-200 transition font-bold">
-            <i class="fa-solid fa-phone text-brand-600 mr-1.5"></i>
-            <span>9900365638</span>
-          </a>
-          <a href="tel:9972045163" class="flex items-center bg-emerald-50 hover:bg-emerald-100 text-brand-800 px-2.5 py-1.5 rounded-lg border border-emerald-200 transition font-bold">
-            <i class="fa-solid fa-phone text-brand-600 mr-1.5"></i>
-            <span>9972045163</span>
-          </a>
-        </div>
+        
+        <!-- Customer Account Button -->
+        <button id="custAccountHeaderBtn" onclick="openCustomerAuthModal()" class="bg-slate-100 hover:bg-slate-200 text-slate-800 px-3 py-2 rounded-xl border border-slate-300 transition flex items-center space-x-1.5 text-xs font-bold">
+          <i class="fa-solid fa-user-circle text-base text-brand-700"></i>
+          <span id="custAccountHeaderLabel" class="hidden sm:inline">Login / Sign Up</span>
+        </button>
 
-        <button onclick="toggleCartDrawer()" class="relative bg-brand-50 hover:bg-brand-100 text-brand-800 px-3 py-2 rounded-xl border border-brand-200 transition flex items-center space-x-1.5">
+        <!-- Shopping Basket Trigger -->
+        <button onclick="toggleCartDrawer()" class="relative bg-brand-50 hover:bg-brand-100 text-brand-800 px-3.5 py-2 rounded-xl border border-brand-200 transition flex items-center space-x-1.5">
           <i class="fa-solid fa-basket-shopping text-base text-brand-700"></i>
           <span class="font-bold text-xs hidden sm:inline">Basket</span>
-          <span id="cartCountBadge" class="bg-red-600 text-white font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">0</span>
+          <span id="cartCountBadge" class="bg-red-600 text-white font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-white shadow-sm">0</span>
         </button>
       </div>
     </div>
 
+    <!-- Mobile Search Bar -->
     <div class="px-4 pb-2.5 sm:hidden">
       <div class="relative">
-        <input type="text" id="searchInputMobile" oninput="handleSearchMobile()" placeholder="Search products in Jarigebail store..." class="w-full pl-9 pr-4 py-1.5 border border-slate-300 rounded-full text-xs outline-none focus:border-brand-600 bg-slate-50">
+        <input type="text" id="searchInputMobile" oninput="handleSearchMobile()" placeholder="Search items in Jarigebail store..." class="w-full pl-9 pr-4 py-1.5 border border-slate-300 rounded-full text-xs outline-none focus:border-brand-600 bg-slate-50">
         <i class="fa-solid fa-magnifying-glass absolute left-3 top-2 text-slate-400 text-xs"></i>
       </div>
     </div>
@@ -155,44 +157,68 @@
 
   <main id="customerView" class="flex-grow max-w-7xl w-full mx-auto px-3 sm:px-4 py-4 space-y-6">
 
-    <!-- Hero Promotional Carousel -->
-    <section class="relative rounded-2xl overflow-hidden shadow-lg bg-slate-900">
-      <div id="carouselTrack" class="relative h-44 sm:h-64 md:h-72 w-full flex transition-transform duration-500 ease-out">
-        <!-- Rendered via JS -->
+    <!-- Customer Logged-in Welcome & WhatsApp Offer Bar -->
+    <div id="custWelcomeBanner" class="hidden bg-gradient-to-r from-emerald-800 via-brand-800 to-emerald-900 text-white rounded-2xl p-3.5 shadow-md border border-brand-700 flex flex-col sm:flex-row justify-between items-center gap-3">
+      <div class="flex items-center space-x-3">
+        <div class="w-9 h-9 bg-yellow-400 text-slate-900 font-black rounded-full flex items-center justify-center text-sm shadow">
+          <span id="custWelcomeInitial">C</span>
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <h3 id="custWelcomeName" class="font-black text-sm text-yellow-300">Welcome, Customer</h3>
+            <span class="bg-emerald-600 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-400"><i class="fa-solid fa-phone mr-1 text-[9px]"></i><span id="custWelcomePhone"></span></span>
+          </div>
+          <p id="custWelcomeAddress" class="text-xs text-slate-200 mt-0.5">Saved Delivery Address set for Jarigebail orders</p>
+        </div>
       </div>
-      <button onclick="prevBanner()" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center transition">
+
+      <div class="flex items-center space-x-2 w-full sm:w-auto justify-end">
+        <button id="custWaSubscribeBtn" onclick="toggleWaOfferSubscription()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-3 py-1.5 rounded-xl font-bold text-xs transition flex items-center shadow space-x-1.5">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          <span id="custWaSubscribeLabel">Subscribe to WhatsApp Offers</span>
+        </button>
+        <button onclick="logoutCustomer()" class="bg-white/10 hover:bg-white/20 text-white px-2.5 py-1.5 rounded-xl text-xs font-semibold transition">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Flipkart / Amazon Style Hero Banner Carousel -->
+    <section class="relative rounded-2xl overflow-hidden shadow-lg bg-slate-900 border border-slate-800">
+      <div id="carouselTrack" class="relative h-44 sm:h-64 md:h-72 w-full flex transition-transform duration-500 ease-out">
+        <!-- Rendered dynamically -->
+      </div>
+      <button onclick="prevBanner()" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center transition shadow">
         <i class="fa-solid fa-chevron-left text-xs"></i>
       </button>
-      <button onclick="nextBanner()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center transition">
+      <button onclick="nextBanner()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center transition shadow">
         <i class="fa-solid fa-chevron-right text-xs"></i>
       </button>
       <div id="carouselDots" class="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-2"></div>
     </section>
 
-    <!-- Filters Bar -->
-    <section class="flex flex-col sm:flex-row justify-between sm:items-center gap-3 bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
+    <section class="flex flex-col sm:flex-row justify-between sm:items-center gap-3 bg-white p-3 rounded-2xl border border-slate-200 shadow-sm">
       <div class="flex items-center space-x-2 overflow-x-auto no-scrollbar pb-1 sm:pb-0">
-        <button onclick="filterCategory('All')" class="cat-btn active-cat px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-brand-600 text-white transition">All Products</button>
-        <button onclick="filterCategory('Rice & Grains')" class="cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 transition">Rice & Grains</button>
+        <button onclick="filterCategory('All')" class="cat-btn active-cat px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-brand-600 text-white transition shadow-sm">All Products</button>
+        <button onclick="filterCategory('Rice & Atta')" class="cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 transition">Rice & Atta</button>
         <button onclick="filterCategory('Oils & Ghee')" class="cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 transition">Oils & Ghee</button>
-        <button onclick="filterCategory('Spices & Masala')" class="cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 transition">Spices & Masala</button>
+        <button onclick="filterCategory('Spices & Dal')" class="cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 transition">Spices & Dal</button>
         <button onclick="filterCategory('Snacks & Drinks')" class="cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 transition">Snacks & Drinks</button>
-        <button onclick="filterCategory('Personal Care')" class="cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 transition">Personal Care</button>
+        <button onclick="filterCategory('Household')" class="cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 transition">Household</button>
       </div>
 
-      <div class="flex items-center justify-between sm:justify-end space-x-2 border-t sm:border-t-0 pt-2 sm:pt-0 border-slate-100">
+      <div class="flex items-center justify-between sm:justify-end space-x-3 border-t sm:border-t-0 pt-2 sm:pt-0 border-slate-100">
         <label class="text-xs font-bold text-slate-600 flex items-center cursor-pointer select-none">
           <input type="checkbox" id="inStockOnlyToggle" onchange="renderProducts()" class="sr-only peer">
           <div class="w-8 h-4 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-brand-600 relative"></div>
           <span class="ml-2">In Stock Only</span>
         </label>
-        <span id="productCountBadge" class="text-[11px] font-bold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">0 Items</span>
+        <span id="productCountBadge" class="text-[11px] font-extrabold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-lg">0 Items</span>
       </div>
     </section>
 
-    <!-- Product Cards Grid -->
     <section id="productGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
-      <!-- Rendered via JS -->
+      <!-- Rendered dynamically -->
     </section>
   </main>
 
@@ -207,9 +233,9 @@
           <div>
             <div class="flex items-center space-x-2">
               <h2 class="text-xl font-black tracking-wide">EMPLOYEE CONTROL DASHBOARD</h2>
-              <span class="bg-yellow-400 text-slate-900 text-[10px] font-black px-2 py-0.5 rounded">STAFF MODE</span>
+              <span class="bg-yellow-400 text-slate-900 text-[10px] font-black px-2 py-0.5 rounded uppercase">STAFF MODE</span>
             </div>
-            <p class="text-xs text-slate-300">Logged in as Authorized Staff | Hindustan Super Bazar Jarigebail</p>
+            <p class="text-xs text-slate-300">Authorized Staff Management Portal | Hindustan Super Bazar Jarigebail</p>
           </div>
         </div>
 
@@ -227,44 +253,45 @@
         </div>
       </div>
 
+      <!-- Quick Inventory Counters -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 pt-4 border-t border-white/10 text-xs">
         <div class="bg-white/5 p-2.5 rounded-lg border border-white/5">
-          <p class="text-slate-400">Total Products</p>
+          <p class="text-slate-400 font-medium">Total Products</p>
           <p id="statTotalProducts" class="text-lg font-black text-white">0</p>
         </div>
         <div class="bg-white/5 p-2.5 rounded-lg border border-white/5">
-          <p class="text-slate-400">In Stock Items</p>
+          <p class="text-slate-400 font-medium">In Stock Items</p>
           <p id="statInStock" class="text-lg font-black text-emerald-400">0</p>
         </div>
         <div class="bg-white/5 p-2.5 rounded-lg border border-white/5">
-          <p class="text-slate-400">Out of Stock</p>
+          <p class="text-slate-400 font-medium">Out of Stock</p>
           <p id="statOutOfStock" class="text-lg font-black text-rose-400">0</p>
         </div>
         <div class="bg-white/5 p-2.5 rounded-lg border border-white/5">
-          <p class="text-slate-400">Offer Banners</p>
+          <p class="text-slate-400 font-medium">Offer Banners</p>
           <p id="statActiveBanners" class="text-lg font-black text-yellow-400">0</p>
         </div>
       </div>
     </div>
 
-    <!-- Staff Tabs Navigation -->
+    <!-- Staff Section Tabs -->
     <div class="flex border-b border-slate-300 space-x-2">
       <button id="tabBtnProducts" onclick="switchStaffTab('products')" class="py-2.5 px-4 font-bold text-xs sm:text-sm border-b-2 border-brand-600 text-brand-700 flex items-center">
         <i class="fa-solid fa-boxes-stacked mr-2"></i> Inventory Manager
       </button>
       <button id="tabBtnBanners" onclick="switchStaffTab('banners')" class="py-2.5 px-4 font-semibold text-xs sm:text-sm text-slate-500 border-b-2 border-transparent hover:text-brand-600 flex items-center">
-        <i class="fa-solid fa-images mr-2"></i> Offer Banners
+        <i class="fa-solid fa-images mr-2"></i> Promotional Banners
       </button>
       <button id="tabBtnSettings" onclick="switchStaffTab('settings')" class="py-2.5 px-4 font-semibold text-xs sm:text-sm text-slate-500 border-b-2 border-transparent hover:text-brand-600 flex items-center">
         <i class="fa-solid fa-key mr-2"></i> Security PIN
       </button>
     </div>
 
-    <!-- Inventory Section -->
+    <!-- Inventory CRUD Table -->
     <section id="staffTabProducts" class="space-y-4">
       <div class="flex justify-between items-center bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
         <h3 class="font-bold text-slate-800 text-sm flex items-center">
-          <i class="fa-solid fa-list-check text-brand-600 mr-2"></i> Product Catalog & Pricing Controls
+          <i class="fa-solid fa-list-check text-brand-600 mr-2"></i> Store Inventory & Pricing Catalog
         </h3>
         <button onclick="openAddProductModal()" class="bg-brand-600 hover:bg-brand-700 text-white px-3.5 py-2 rounded-lg text-xs font-bold transition flex items-center shadow-sm">
           <i class="fa-solid fa-plus mr-1.5"></i> Add New Product
@@ -280,50 +307,50 @@
               <th class="p-3">MRP (₹)</th>
               <th class="p-3">Offer Price (₹)</th>
               <th class="p-3">Savings</th>
-              <th class="p-3">Stock Switch</th>
+              <th class="p-3">Stock Toggle</th>
               <th class="p-3 text-right">Actions</th>
             </tr>
           </thead>
           <tbody id="staffProductTableBody" class="divide-y divide-slate-100">
-            <!-- Dynamic Staff Rows -->
+            <!-- Dynamic Rows -->
           </tbody>
         </table>
       </div>
     </section>
 
-    <!-- Banner Manager Section -->
+    <!-- Banner Carousel Manager -->
     <section id="staffTabBanners" class="hidden space-y-4">
       <div class="flex justify-between items-center bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
-        <h3 class="font-bold text-slate-800 text-sm">Carousel Hero Promotional Banners</h3>
+        <h3 class="font-bold text-slate-800 text-sm">Carousel Hero Advertisement Banners</h3>
         <button onclick="openAddBannerModal()" class="bg-brand-600 hover:bg-brand-700 text-white px-3.5 py-2 rounded-lg text-xs font-bold transition flex items-center shadow-sm">
           <i class="fa-solid fa-plus mr-1.5"></i> Add Offer Banner
         </button>
       </div>
       <div id="staffBannersGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <!-- Banner Cards -->
+        <!-- Dynamic Banner Cards -->
       </div>
     </section>
 
-    <!-- Security PIN Section -->
+    <!-- Staff Security PIN Section -->
     <section id="staffTabSettings" class="hidden space-y-4">
-      <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm max-w-md mx-auto space-y-4">
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm max-w-md mx-auto space-y-4">
         <h3 class="font-bold text-slate-900 text-base border-b pb-3 flex items-center">
-          <i class="fa-solid fa-shield-halved text-brand-600 mr-2"></i> Update Employer Access PIN
+          <i class="fa-solid fa-shield-halved text-brand-600 mr-2"></i> Update Staff Security Access PIN
         </h3>
         <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">Current PIN</label>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Current Access PIN</label>
           <input type="password" id="pinCurrentInput" maxlength="6" class="w-full border rounded-lg p-2.5 text-sm outline-none focus:border-brand-600">
         </div>
         <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">New PIN</label>
+          <label class="block text-xs font-bold text-slate-700 mb-1">New Security PIN</label>
           <input type="password" id="pinNewInput" maxlength="6" class="w-full border rounded-lg p-2.5 text-sm outline-none focus:border-brand-600">
         </div>
         <div>
           <label class="block text-xs font-bold text-slate-700 mb-1">Confirm New PIN</label>
           <input type="password" id="pinConfirmInput" maxlength="6" class="w-full border rounded-lg p-2.5 text-sm outline-none focus:border-brand-600">
         </div>
-        <button onclick="updateStaffPIN()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-lg text-xs transition shadow">
-          Update Security PIN
+        <button onclick="updateStaffPIN()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-xl text-xs transition shadow">
+          Update Security Access PIN
         </button>
       </div>
     </section>
@@ -333,7 +360,7 @@
     <div class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-6">
       <div>
         <h4 class="text-white font-black text-sm mb-2">HINDUSTAN SUPER BAZAR</h4>
-        <p class="text-slate-400 mb-3">Jarigebail's leading supermarket for fresh groceries, wholesale prices, and express order delivery.</p>
+        <p class="text-slate-400 mb-3 leading-relaxed">Jarigebail's premier store for fresh groceries, wholesale prices, and instant local order delivery.</p>
         <p class="text-yellow-400 font-bold"><i class="fa-solid fa-location-dot mr-1.5"></i> Jarigebail Main Center</p>
       </div>
       <div>
@@ -344,7 +371,7 @@
       <div>
         <h4 class="text-white font-black text-sm mb-2">STORE HOURS</h4>
         <p class="text-slate-400">Open Daily: 8:00 AM - 9:30 PM</p>
-        <p class="text-slate-400 mt-2">Local delivery available for Jarigebail and nearby villages.</p>
+        <p class="text-slate-400 mt-2">Local home delivery for Jarigebail and nearby areas.</p>
       </div>
     </div>
     <div class="bg-slate-950 py-3 text-center text-[11px] text-slate-500 border-t border-slate-800">
@@ -352,7 +379,6 @@
     </div>
   </footer>
 
-  <!-- Basket Cart Drawer -->
   <div id="cartDrawer" class="fixed inset-0 bg-black/50 z-50 hidden flex justify-end">
     <div class="bg-white w-full max-w-md h-full flex flex-col shadow-2xl">
       <div class="p-4 bg-brand-900 text-white flex justify-between items-center">
@@ -365,25 +391,34 @@
       </div>
 
       <div id="cartItemsList" class="flex-grow overflow-y-auto p-4 space-y-3 divide-y divide-slate-100">
-        <!-- Dynamic Cart Items -->
+        <!-- Dynamic Items -->
       </div>
 
       <div class="p-4 bg-slate-50 border-t border-slate-200 space-y-3">
+        <!-- Delivery Customer Details -->
+        <div class="bg-white p-2.5 rounded-xl border border-slate-200 text-xs space-y-1.5">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-slate-700">Customer Delivery Info:</span>
+            <button onclick="openCustomerAuthModal()" class="text-brand-700 font-extrabold hover:underline text-[11px]">Edit Info</button>
+          </div>
+          <p id="cartCustInfoText" class="text-slate-600 font-medium">Guest Order (Tap edit to set name/phone)</p>
+        </div>
+
         <div class="flex justify-between items-center text-sm">
           <span class="font-semibold text-slate-600">Total Order Amount:</span>
           <span id="cartTotalAmount" class="font-black text-lg text-brand-800">₹0</span>
         </div>
 
         <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">Select Order Line Phone Number:</label>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Select Dispatch Phone Hotline:</label>
           <select id="whatsappPhoneSelect" class="w-full border rounded-lg p-2 text-xs font-bold text-brand-900 border-brand-300 bg-white">
-            <option value="9900365638">Order Line 1: 9900365638</option>
-            <option value="9972045163">Order Line 2: 9972045163</option>
+            <option value="9900365638">Hotline 1: 9900365638</option>
+            <option value="9972045163">Hotline 2: 9972045163</option>
           </select>
         </div>
 
         <div class="grid grid-cols-2 gap-2">
-          <button onclick="openThermalReceiptModal()" class="bg-slate-800 hover:bg-slate-900 text-white font-bold py-2.5 rounded-xl flex items-center justify-center space-x-1.5 transition text-xs">
+          <button onclick="openThermalReceiptModal()" class="bg-slate-800 hover:bg-slate-900 text-white font-bold py-2.5 rounded-xl flex items-center justify-center space-x-1.5 transition text-xs shadow-sm">
             <i class="fa-solid fa-print"></i>
             <span>Print Thermal POS</span>
           </button>
@@ -396,28 +431,25 @@
     </div>
   </div>
 
-  <!-- Thermal Printer Preview & Physical Print Modal -->
   <div id="thermalReceiptModal" class="fixed inset-0 bg-black/70 z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-2xl max-w-sm w-full p-4 space-y-4 shadow-2xl relative max-h-[90vh] flex flex-col">
       <div class="flex justify-between items-center border-b pb-2">
         <h3 class="font-bold text-slate-900 text-sm flex items-center">
-          <i class="fa-solid fa-receipt text-brand-600 mr-2"></i> POS Thermal Receipt Preview
+          <i class="fa-solid fa-receipt text-brand-600 mr-2"></i> Thermal Receipt Preview (58mm/80mm)
         </h3>
         <button onclick="closeThermalReceiptModal()" class="text-slate-400 hover:text-slate-600">
           <i class="fa-solid fa-xmark text-lg"></i>
         </button>
       </div>
 
-      <!-- Printable Receipt Scroll View -->
       <div class="overflow-y-auto flex-grow bg-slate-100 p-3 rounded-xl border border-slate-200">
-        <div id="thermalReceiptPrintArea" class="bg-white p-4 shadow text-black font-mono text-xs leading-snug rounded">
-          <!-- Rendered Thermal Bill Content -->
+        <div id="thermalReceiptPrintArea" class="bg-white p-3 shadow text-black font-mono text-xs leading-snug rounded">
+          <!-- Formatted Bill HTML -->
         </div>
       </div>
 
-      <!-- Action Buttons -->
       <div class="grid grid-cols-2 gap-2 pt-2 border-t">
-        <button onclick="printReceiptNow()" class="bg-brand-700 hover:bg-brand-800 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center space-x-1">
+        <button onclick="printReceiptNow()" class="bg-brand-700 hover:bg-brand-800 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center space-x-1 shadow">
           <i class="fa-solid fa-print"></i>
           <span>Print Receipt</span>
         </button>
@@ -429,7 +461,58 @@
     </div>
   </div>
 
-  <!-- Staff PIN Login Modal -->
+  <div id="custAuthModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl p-6 max-w-sm w-full space-y-4 shadow-2xl relative">
+      <button onclick="closeCustomerAuthModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div class="text-center space-y-1">
+        <div class="w-12 h-12 bg-emerald-100 text-brand-700 rounded-full flex items-center justify-center mx-auto text-xl">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+        </div>
+        <h3 class="text-lg font-black text-slate-900">Customer Account</h3>
+        <p class="text-xs text-slate-500">Sign in with phone number for fast WhatsApp orders</p>
+      </div>
+
+      <!-- Step 1: Phone & Name Input -->
+      <div id="custAuthStep1" class="space-y-3 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Your Full Name</label>
+          <input type="text" id="custAuthName" placeholder="e.g. Ramesh Kumar" class="w-full border rounded-xl p-2.5 text-xs outline-none focus:border-brand-600">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Mobile Number</label>
+          <div class="flex">
+            <span class="inline-flex items-center px-3 rounded-l-xl border border-r-0 border-slate-300 bg-slate-100 text-slate-600 font-bold text-xs">+91</span>
+            <input type="tel" id="custAuthPhone" maxlength="10" placeholder="9876543210" class="w-full border rounded-r-xl p-2.5 text-xs outline-none focus:border-brand-600 font-bold">
+          </div>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Delivery Address (Jarigebail Area)</label>
+          <input type="text" id="custAuthAddress" placeholder="e.g. Near Temple Street, Jarigebail" class="w-full border rounded-xl p-2.5 text-xs outline-none focus:border-brand-600">
+        </div>
+        <button onclick="sendCustomerOTP()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-xl transition text-xs shadow-md">
+          Get Verification OTP Code
+        </button>
+      </div>
+
+      <!-- Step 2: Verification PIN/OTP Code Input -->
+      <div id="custAuthStep2" class="hidden space-y-3 text-xs text-center">
+        <div class="p-2.5 bg-yellow-50 border border-yellow-200 rounded-xl text-yellow-800 font-bold text-xs">
+          Verification Code generated: <span id="generatedOtpBadge" class="text-brand-800 text-sm font-black underline">1234</span>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Enter 4-Digit OTP Code</label>
+          <input type="text" id="custOtpInput" maxlength="4" placeholder="••••" class="w-full text-center text-2xl tracking-widest font-black border-2 border-slate-300 rounded-xl py-2 focus:border-brand-600 outline-none">
+        </div>
+        <button onclick="verifyCustomerOTP()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-xl transition text-xs shadow-md">
+          Verify & Log In
+        </button>
+      </div>
+    </div>
+  </div>
+
   <div id="staffLoginModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-2xl p-6 max-w-sm w-full space-y-4 shadow-2xl relative">
       <button onclick="closeStaffLoginModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
@@ -443,7 +526,7 @@
         <p class="text-xs text-slate-500">Enter authorization security PIN</p>
       </div>
       <div>
-        <label class="block text-xs font-bold text-slate-700 mb-1">Access PIN</label>
+        <label class="block text-xs font-bold text-slate-700 mb-1">Access Security PIN</label>
         <input type="password" id="staffPinInput" maxlength="6" placeholder="••••" class="w-full text-center text-2xl tracking-widest font-bold border-2 border-slate-300 rounded-xl py-2 focus:border-brand-600 outline-none">
       </div>
       <p id="staffPinError" class="text-xs text-red-600 font-bold text-center hidden">Invalid Access PIN.</p>
@@ -453,7 +536,7 @@
     </div>
   </div>
 
-  <!-- Cloud Config Modal -->
+  <!-- Cloud Database Config Modal -->
   <div id="cloudConfigModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-2xl p-6 max-w-md w-full space-y-4 shadow-2xl relative">
       <button onclick="closeCloudConfigModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
@@ -462,29 +545,29 @@
       <div class="flex items-center space-x-3 border-b pb-3">
         <i class="fa-solid fa-cloud text-brand-600 text-2xl"></i>
         <div>
-          <h3 class="font-bold text-base text-slate-900">Google Cloud Database Engine</h3>
-          <p class="text-xs text-slate-500">Firebase Live Database Sync Settings</p>
+          <h3 class="font-bold text-base text-slate-900">Google Cloud Database Sync</h3>
+          <p class="text-xs text-slate-500">Realtime Firebase Cloud Settings</p>
         </div>
       </div>
       <div class="space-y-3 text-xs">
         <div class="p-2.5 bg-emerald-50 border border-emerald-200 rounded-lg flex items-center justify-between text-emerald-800 font-semibold">
-          <span><i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> Live Cloud Database Connected</span>
-          <span class="text-[10px] bg-emerald-200 text-emerald-900 px-1.5 py-0.5 rounded font-bold">REALTIME</span>
+          <span><i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> Google Realtime Cloud Active</span>
+          <span class="text-[10px] bg-emerald-200 text-emerald-900 px-1.5 py-0.5 rounded font-bold">CONNECTED</span>
         </div>
       </div>
       <button onclick="closeCloudConfigModal()" class="w-full bg-brand-600 text-white font-bold py-2 rounded-lg text-xs">
-        Close Config
+        Close Window
       </button>
     </div>
   </div>
 
-  <!-- Add / Edit Product Modal -->
+  <!-- Product Modal -->
   <div id="productFormModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-2xl p-6 max-w-md w-full space-y-4 shadow-2xl relative">
       <button onclick="closeProductFormModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
         <i class="fa-solid fa-xmark text-lg"></i>
       </button>
-      <h3 id="productFormTitle" class="font-bold text-base text-slate-900 border-b pb-2">Add New Product</h3>
+      <h3 id="productFormTitle" class="font-bold text-base text-slate-900 border-b pb-2">Add Store Product</h3>
 
       <input type="hidden" id="formProductId">
       <div class="space-y-3 text-xs">
@@ -496,11 +579,11 @@
           <div>
             <label class="block font-bold text-slate-700 mb-1">Category</label>
             <select id="formProdCategory" class="w-full border rounded-lg p-2 bg-white">
-              <option value="Rice & Grains">Rice & Grains</option>
+              <option value="Rice & Atta">Rice & Atta</option>
               <option value="Oils & Ghee">Oils & Ghee</option>
-              <option value="Spices & Masala">Spices & Masala</option>
+              <option value="Spices & Dal">Spices & Dal</option>
               <option value="Snacks & Drinks">Snacks & Drinks</option>
-              <option value="Personal Care">Personal Care</option>
+              <option value="Household">Household</option>
             </select>
           </div>
           <div>
@@ -523,7 +606,7 @@
           <input type="text" id="formProdImage" placeholder="🌾, 🌻, 🧼 or https://..." class="w-full border rounded-lg p-2 outline-none focus:border-brand-600">
         </div>
         <div>
-          <label class="block font-bold text-slate-700 mb-1">Stock Availability</label>
+          <label class="block font-bold text-slate-700 mb-1">Stock Switch</label>
           <select id="formProdStock" class="w-full border rounded-lg p-2 bg-white">
             <option value="true">In Stock</option>
             <option value="false">Out of Stock</option>
@@ -532,7 +615,7 @@
       </div>
 
       <button onclick="saveProductForm()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-lg text-xs transition shadow">
-        Save Product
+        Save Product Details
       </button>
     </div>
   </div>
@@ -543,15 +626,15 @@
       <button onclick="closeBannerFormModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
         <i class="fa-solid fa-xmark text-lg"></i>
       </button>
-      <h3 class="font-bold text-base text-slate-900 border-b pb-2">Add Promotional Banner Slide</h3>
+      <h3 class="font-bold text-base text-slate-900 border-b pb-2">Add Promotional Hero Banner</h3>
       <div class="space-y-3 text-xs">
         <div>
           <label class="block font-bold text-slate-700 mb-1">Banner Headline</label>
-          <input type="text" id="formBannerTitle" placeholder="e.g. Festival Rice & Oil Offer!" class="w-full border rounded-lg p-2 outline-none">
+          <input type="text" id="formBannerTitle" placeholder="e.g. Festival Rice & Oil Special Offers!" class="w-full border rounded-lg p-2 outline-none">
         </div>
         <div>
           <label class="block font-bold text-slate-700 mb-1">Subtitle</label>
-          <input type="text" id="formBannerSubtitle" placeholder="e.g. Express delivery in Jarigebail" class="w-full border rounded-lg p-2 outline-none">
+          <input type="text" id="formBannerSubtitle" placeholder="e.g. Express delivery across Jarigebail" class="w-full border rounded-lg p-2 outline-none">
         </div>
         <div>
           <label class="block font-bold text-slate-700 mb-1">Color Theme</label>
@@ -576,15 +659,17 @@
       searchQuery: "",
       cart: [],
       currentBannerIndex: 0,
+      customer: null,
+      generatedOtp: null,
       products: [
-        { id: "p1", title: "Sona Masoori Rice", category: "Rice & Grains", unit: "25 Kg Bag", mrp: 1450, offer: 1290, image: "🌾", inStock: true },
+        { id: "p1", title: "Sona Masoori Rice", category: "Rice & Atta", unit: "25 Kg Bag", mrp: 1450, offer: 1290, image: "🌾", inStock: true },
         { id: "p2", title: "Freedom Sunflower Oil", category: "Oils & Ghee", unit: "1 Litre Pouch", mrp: 160, offer: 138, image: "🌻", inStock: true },
-        { id: "p3", title: "Aashirvaad Whole Wheat Atta", category: "Rice & Grains", unit: "5 Kg Bag", mrp: 280, offer: 245, image: "🌾", inStock: true },
+        { id: "p3", title: "Aashirvaad Whole Wheat Atta", category: "Rice & Atta", unit: "5 Kg Bag", mrp: 280, offer: 245, image: "🌾", inStock: true },
         { id: "p4", title: "Tata Gold Tea", category: "Snacks & Drinks", unit: "500g Pack", mrp: 320, offer: 285, image: "☕", inStock: true },
-        { id: "p5", title: "Everest Chicken Masala", category: "Spices & Masala", unit: "100g Box", mrp: 85, offer: 72, image: "🌶️", inStock: true },
-        { id: "p6", title: "Santoor Soap", category: "Personal Care", unit: "Pack of 4 (125g)", mrp: 170, offer: 142, image: "🧼", inStock: true },
+        { id: "p5", title: "Everest Chicken Masala", category: "Spices & Dal", unit: "100g Box", mrp: 85, offer: 72, image: "🌶️", inStock: true },
+        { id: "p6", title: "Santoor Soap", category: "Household", unit: "Pack of 4 (125g)", mrp: 170, offer: 142, image: "🧼", inStock: true },
         { id: "p7", title: "Nandini Pure Ghee", category: "Oils & Ghee", unit: "500ml Pack", mrp: 310, offer: 295, image: "🧈", inStock: false },
-        { id: "p8", title: "Toor Dal (Premium)", category: "Rice & Grains", unit: "1 Kg Pack", mrp: 175, offer: 155, image: "🫘", inStock: true }
+        { id: "p8", title: "Toor Dal (Premium)", category: "Spices & Dal", unit: "1 Kg Pack", mrp: 175, offer: 155, image: "🫘", inStock: true }
       ],
       banners: [
         { id: "b1", title: "HINDUSTAN SUPER BAZAR - JARIGEBAIL", subtitle: "Grand Supermarket Discounts on Daily Groceries & Essentials!", bg: "from-brand-900 via-brand-800 to-emerald-700" },
@@ -596,6 +681,14 @@
     window.onload = function() {
       const savedPin = localStorage.getItem('hsb_staff_pin');
       if (savedPin) appState.staffPIN = savedPin;
+
+      const savedCust = localStorage.getItem('hsb_customer');
+      if (savedCust) {
+        try {
+          appState.customer = JSON.parse(savedCust);
+          updateCustomerUI();
+        } catch(e){}
+      }
 
       renderCarousel();
       renderProducts();
@@ -610,6 +703,113 @@
       }, 4500);
     };
 
+    /* Customer Account Logic */
+    function openCustomerAuthModal() {
+      document.getElementById('custAuthStep1').classList.remove('hidden');
+      document.getElementById('custAuthStep2').classList.add('hidden');
+      if (appState.customer) {
+        document.getElementById('custAuthName').value = appState.customer.name || "";
+        document.getElementById('custAuthPhone').value = appState.customer.phone || "";
+        document.getElementById('custAuthAddress').value = appState.customer.address || "";
+      }
+      document.getElementById('custAuthModal').classList.remove('hidden');
+    }
+
+    function closeCustomerAuthModal() {
+      document.getElementById('custAuthModal').classList.add('hidden');
+    }
+
+    function sendCustomerOTP() {
+      const name = document.getElementById('custAuthName').value.trim();
+      const phone = document.getElementById('custAuthPhone').value.trim();
+      const address = document.getElementById('custAuthAddress').value.trim();
+
+      if (!name || phone.length < 10) {
+        showToast("Enter valid name and 10-digit mobile number.");
+        return;
+      }
+
+      appState.generatedOtp = Math.floor(1000 + Math.random() * 9000).toString();
+      document.getElementById('generatedOtpBadge').innerText = appState.generatedOtp;
+
+      document.getElementById('custAuthStep1').classList.add('hidden');
+      document.getElementById('custAuthStep2').classList.remove('hidden');
+      document.getElementById('custOtpInput').value = "";
+    }
+
+    function verifyCustomerOTP() {
+      const enteredOtp = document.getElementById('custOtpInput').value.trim();
+      if (enteredOtp === appState.generatedOtp) {
+        const name = document.getElementById('custAuthName').value.trim();
+        const phone = document.getElementById('custAuthPhone').value.trim();
+        const address = document.getElementById('custAuthAddress').value.trim();
+
+        appState.customer = {
+          name,
+          phone,
+          address,
+          subscribedToWa: appState.customer ? appState.customer.subscribedToWa : false
+        };
+
+        localStorage.setItem('hsb_customer', JSON.stringify(appState.customer));
+        updateCustomerUI();
+        closeCustomerAuthModal();
+        showToast(`Welcome ${name}! Session active.`);
+      } else {
+        showToast("Incorrect OTP code entered.");
+      }
+    }
+
+    function updateCustomerUI() {
+      if (appState.customer) {
+        document.getElementById('custAccountHeaderLabel').innerText = appState.customer.name;
+        document.getElementById('custWelcomeName').innerText = `Welcome, ${appState.customer.name}`;
+        document.getElementById('custWelcomePhone').innerText = appState.customer.phone;
+        document.getElementById('custWelcomeAddress').innerText = appState.customer.address ? `Address: ${appState.customer.address}` : "Address: Jarigebail Main Area";
+        document.getElementById('custWelcomeInitial').innerText = appState.customer.name.charAt(0).toUpperCase();
+        document.getElementById('custWelcomeBanner').classList.remove('hidden');
+        document.getElementById('cartCustInfoText').innerText = `${appState.customer.name} (${appState.customer.phone}) - ${appState.customer.address || 'Jarigebail'}`;
+
+        if (appState.customer.subscribedToWa) {
+          document.getElementById('custWaSubscribeLabel').innerText = "Subscribed to Offers";
+          document.getElementById('custWaSubscribeBtn').className = "bg-yellow-400 text-slate-900 px-3 py-1.5 rounded-xl font-bold text-xs transition flex items-center shadow space-x-1.5";
+        } else {
+          document.getElementById('custWaSubscribeLabel').innerText = "Subscribe to WhatsApp Offers";
+          document.getElementById('custWaSubscribeBtn').className = "bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-3 py-1.5 rounded-xl font-bold text-xs transition flex items-center shadow space-x-1.5";
+        }
+      } else {
+        document.getElementById('custAccountHeaderLabel').innerText = "Login / Sign Up";
+        document.getElementById('custWelcomeBanner').classList.add('hidden');
+        document.getElementById('cartCustInfoText').innerText = "Guest Order (Tap edit to set name/phone)";
+      }
+    }
+
+    function toggleWaOfferSubscription() {
+      if (!appState.customer) {
+        openCustomerAuthModal();
+        return;
+      }
+      appState.customer.subscribedToWa = !appState.customer.subscribedToWa;
+      localStorage.setItem('hsb_customer', JSON.stringify(appState.customer));
+      updateCustomerUI();
+
+      if (appState.customer.subscribedToWa) {
+        const phone = "9900365638";
+        const msg = `Hello Hindustan Super Bazar Jarigebail, please subscribe my phone number (${appState.customer.phone}) for WhatsApp Grocery Offer Alerts!`;
+        window.open(`https://wa.me/91${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+      } else {
+        showToast("WhatsApp Offer alerts unsubscribed.");
+      }
+    }
+
+    function logoutCustomer() {
+      appState.customer = null;
+      localStorage.removeItem('hsb_customer');
+      updateCustomerUI();
+      showToast("Customer session ended.");
+    }
+
+    /* Thermal POS Receipt Engine */
     function generateThermalBillText() {
       const dateStr = new Date().toLocaleString('en-IN', { dateStyle: 'short', timeStyle: 'short' });
       const billNo = "HSB-" + Math.floor(100000 + Math.random() * 900000);
@@ -621,6 +821,10 @@
       text += `*********************************\n`;
       text += `Bill No: ${billNo}\n`;
       text += `Date   : ${dateStr}\n`;
+      if (appState.customer) {
+        text += `Cust   : ${appState.customer.name.substring(0, 16)}\n`;
+        text += `Phone  : ${appState.customer.phone}\n`;
+      }
       text += `---------------------------------\n`;
       text += `ITEM            QTY  RATE  AMOUNT\n`;
       text += `---------------------------------\n`;
@@ -668,7 +872,6 @@
       const phone = document.getElementById('whatsappPhoneSelect').value;
       const bill = generateThermalBillText();
 
-      // Wrapped in ``` for WhatsApp monospaced thermal formatting
       let waMessage = `*HINDUSTAN SUPER BAZAR - JARIGEBAIL*\n`;
       waMessage += `*New Order Receipt*\n\n`;
       waMessage += "```\n" + bill.rawText + "```";
@@ -714,6 +917,7 @@
       showToast("Thermal Bill Text Copied!");
     }
 
+    /* Product Grid & Search */
     function renderProducts() {
       const grid = document.getElementById('productGrid');
       grid.innerHTML = "";
@@ -733,7 +937,7 @@
         grid.innerHTML = `
           <div class="col-span-full py-12 text-center text-slate-400">
             <i class="fa-solid fa-basket-shopping text-4xl mb-2"></i>
-            <p class="font-bold">No products match your search.</p>
+            <p class="font-bold">No products match your search query.</p>
           </div>
         `;
         return;
@@ -781,6 +985,7 @@
       });
     }
 
+    /* Hero Carousel Engine */
     function renderCarousel() {
       const track = document.getElementById('carouselTrack');
       const dots = document.getElementById('carouselDots');
@@ -840,7 +1045,7 @@
       appState.activeCategory = cat;
       document.querySelectorAll('.cat-btn').forEach(btn => {
         if (btn.innerText.includes(cat) || (cat === 'All' && btn.innerText.includes('All'))) {
-          btn.className = "cat-btn active-cat px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-brand-600 text-white transition";
+          btn.className = "cat-btn active-cat px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-brand-600 text-white transition shadow-sm";
         } else {
           btn.className = "cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 transition";
         }
@@ -896,7 +1101,7 @@
         list.innerHTML = `
           <div class="text-center py-12 text-slate-400">
             <i class="fa-solid fa-basket-shopping text-4xl mb-2"></i>
-            <p class="font-bold">Your basket is empty.</p>
+            <p class="font-bold">Your shopping basket is empty.</p>
           </div>
         `;
         document.getElementById('cartTotalAmount').innerText = "₹0";
@@ -931,6 +1136,7 @@
       document.getElementById('cartDrawer').classList.toggle('hidden');
     }
 
+    /* Staff & Employer Logic */
     function openStaffLoginModal() {
       document.getElementById('staffPinInput').value = "";
       document.getElementById('staffPinError').classList.add('hidden');
