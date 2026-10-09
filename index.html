@@ -47,7 +47,7 @@
         }
     </style>
 </head>
-<body class="h-full flex flex-col font-sans text-slate-800 bg-slate-50">
+<body class="h-full flex flex-col font-sans text-slate-800 bg-slate-50 pb-20">
 
     <!-- Top Announcement Banner -->
     <div class="bg-amber-400 text-slate-900 text-xs font-bold py-2 px-4 shadow-sm border-b border-amber-500">
@@ -82,231 +82,203 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20 gap-3">
                 
-                <!-- Premium Custom Supermarket Logo -->
                 <div class="flex items-center space-x-3 cursor-pointer" onclick="resetFilters()">
                     <div class="relative w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-300 via-amber-400 to-amber-500 p-1 shadow-lg shadow-amber-500/20 border-2 border-amber-200 flex items-center justify-center shrink-0">
-                        <!-- Custom Supermarket SVG Icon -->
                         <svg class="w-8 h-8 text-emerald-950 drop-shadow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="9" cy="21" r="1.5" fill="currentColor"></circle>
                             <circle cx="20" cy="21" r="1.5" fill="currentColor"></circle>
                             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" fill="none"></path>
                             <path d="M12 9l2 2 4-4" stroke="#065f46" stroke-width="2.5"></path>
                         </svg>
-                        <span class="absolute -top-1 -right-1 flex h-3 w-3">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-200 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-3 w-3 bg-amber-400 border border-slate-900"></span>
-                        </span>
                     </div>
                     <div>
                         <div class="flex items-center gap-1.5">
                             <h1 class="font-black text-base sm:text-xl tracking-tight leading-none text-amber-300 uppercase drop-shadow-sm">
                                 HINDUSTAN SUPER BAZAR
                             </h1>
-                            <span class="hidden sm:inline-block bg-amber-400/20 text-amber-300 border border-amber-400/40 text-[10px] font-black px-1.5 py-0.5 rounded uppercase">
-                                JARIGEBAIL
-                            </span>
                         </div>
                         <span class="text-[11px] text-emerald-200 font-semibold tracking-wider block mt-1">
-                            Contacts: <strong class="text-white">9900365638</strong> / <strong class="text-white">9972045163</strong>
+                            JARIGEBAIL • Contacts: <strong class="text-white">9900365638</strong> / <strong class="text-white">9972045163</strong>
                         </span>
                     </div>
                 </div>
 
-                <!-- Navigation Controls -->
-                <div class="flex items-center space-x-2 sm:space-x-3">
-                    
-                    <!-- How to Add Items Walkthrough Button -->
-                    <button onclick="openHowToAddModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-900 text-xs font-black transition shadow-md border border-amber-300 animate-pulse">
+                <!-- Controls -->
+                <div class="flex items-center space-x-2">
+                    <button onclick="openHowToAddModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-900 text-xs font-black transition shadow-md border border-amber-300">
                         <i class="fa-solid fa-circle-question text-emerald-900"></i>
-                        <span>How to Add Items?</span>
+                        <span class="hidden sm:inline">How to Add?</span>
                     </button>
 
-                    <!-- SEO Guide Modal Trigger -->
-                    <button onclick="openSeoModal()" class="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-900 hover:bg-emerald-950 text-xs font-semibold text-emerald-100 transition border border-emerald-700">
-                        <i class="fa-solid fa-globe text-amber-400"></i>
-                        <span>Public Web Guide</span>
-                    </button>
-
-                    <!-- Staff Role Switcher -->
-                    <div class="flex items-center bg-emerald-950 p-1 rounded-xl border border-emerald-700 shadow-inner">
-                        <button id="mode-customer-btn" onclick="switchRole('customer')" class="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition shadow-sm bg-white text-emerald-900">
-                            <i class="fa-solid fa-user text-emerald-700"></i>
-                            <span class="hidden sm:inline">Customer View</span>
-                        </button>
-                        <button id="mode-employer-btn" onclick="promptEmployerAuth()" class="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition text-emerald-200 hover:text-white">
-                            <i class="fa-solid fa-user-shield text-amber-400"></i>
-                            <span>Staff Admin Mode</span>
-                        </button>
+                    <div class="flex items-center bg-emerald-950 p-1 rounded-xl border border-emerald-700">
+                        <button id="mode-customer-btn" onclick="switchRole('customer')" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-white text-emerald-900">User</button>
+                        <button id="mode-employer-btn" onclick="promptEmployerAuth()" class="px-2.5 py-1 rounded-lg text-xs font-bold text-emerald-200">Admin</button>
                     </div>
 
-                    <!-- Cart Drawer Trigger Button -->
-                    <button id="cart-toggle-btn" onclick="toggleCartDrawer()" class="relative p-2.5 rounded-xl bg-emerald-900 hover:bg-emerald-950 text-white transition border border-emerald-700">
+                    <button onclick="toggleCartDrawer()" class="relative p-2.5 rounded-xl bg-emerald-900 hover:bg-emerald-950 text-white border border-emerald-700">
                         <i class="fa-solid fa-cart-shopping text-base"></i>
-                        <span id="cart-badge" class="absolute -top-1.5 -right-1.5 bg-amber-400 text-slate-900 font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-emerald-800 hidden">0</span>
+                        <span id="cart-badge" class="absolute -top-1.5 -right-1.5 bg-amber-400 text-slate-900 font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
                     </button>
                 </div>
             </div>
-        </div>
-        
-        <!-- Live Information Bar -->
-        <div id="role-banner" class="bg-emerald-950 text-emerald-100 text-xs py-1.5 px-4 text-center font-medium border-t border-emerald-800/80 flex items-center justify-center gap-2">
-            <span id="banner-text"><i class="fa-solid fa-circle-info text-amber-300 mr-1"></i> Public View Mode: Customers can check live stock status and order items directly via WhatsApp to <strong>9900365638</strong> or <strong>9972045163</strong>.</span>
         </div>
     </header>
 
     <!-- Main Content Area -->
     <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
 
-        <!-- Staff Employer Control Panel (Shown only in Admin Mode) -->
-        <div id="employer-controls" class="hidden mb-6 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 rounded-2xl p-4 shadow-md">
-            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div>
-                    <h2 class="text-amber-950 font-black text-base flex items-center gap-2">
-                        <i class="fa-solid fa-user-shield text-amber-600"></i> Store Employer Control Panel
-                    </h2>
-                    <p class="text-xs text-amber-800 mt-0.5">Manage item availability, set discount offer prices, add new items, or delete products.</p>
-                </div>
-                <div class="flex items-center gap-2 w-full sm:w-auto">
-                    <button onclick="openAddProductModal()" class="w-full sm:w-auto px-4 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs rounded-xl shadow-md transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-plus-circle text-amber-300 text-sm"></i>
-                        <span>+ Add New Item</span>
-                    </button>
-                    <button onclick="resetToDefaultData()" class="px-3 py-2.5 bg-amber-200 hover:bg-amber-300 text-amber-900 text-xs font-bold rounded-xl transition flex items-center gap-1.5" title="Reset catalog to initial store items">
-                        <i class="fa-solid fa-rotate-right"></i>
-                        <span class="hidden sm:inline">Reset Stock</span>
-                    </button>
-                </div>
+        <!-- Staff Employer Control Panel -->
+        <div id="employer-controls" class="hidden mb-6 bg-amber-50 border-2 border-amber-300 rounded-2xl p-4 shadow-md">
+            <div class="flex items-center justify-between">
+                <h2 class="text-amber-950 font-black text-sm"><i class="fa-solid fa-user-shield text-amber-600"></i> Admin Panel</h2>
+                <button onclick="openAddProductModal()" class="px-3 py-2 bg-emerald-700 text-white font-bold text-xs rounded-xl">+ Add Item</button>
             </div>
         </div>
 
-        <!-- Search Bar and Category Filters -->
+        <!-- Search Bar and Filters -->
         <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 mb-6">
             <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
-                
-                <!-- Live Search Box -->
                 <div class="relative w-full md:w-80">
                     <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                    <input type="text" id="search-input" placeholder="Search rice, oil, ghee, spices, snacks..." oninput="handleFilterChange()" class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:bg-white transition">
+                    <input type="text" id="search-input" placeholder="Search products..." oninput="handleFilterChange()" class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none">
                 </div>
-
-                <!-- Category Pill Buttons -->
-                <div class="w-full md:w-auto overflow-x-auto custom-scrollbar pb-1 md:pb-0">
-                    <div id="category-pills" class="flex items-center gap-2 min-w-max">
-                        <!-- Rendered by JS -->
-                    </div>
-                </div>
-
-                <!-- Stock Toggle & Sorting -->
-                <div class="flex items-center justify-between md:justify-end gap-3 w-full md:w-auto pt-2 md:pt-0 border-t md:border-t-0 border-slate-100">
-                    <label class="flex items-center gap-2 text-xs font-bold text-slate-700 cursor-pointer select-none bg-slate-50 px-3 py-2 rounded-xl border border-slate-200 hover:bg-slate-100 transition">
-                        <input type="checkbox" id="stock-filter" onchange="handleFilterChange()" class="w-4 h-4 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500">
-                        <span>In Stock Only</span>
-                    </label>
-
-                    <select id="sort-select" onchange="handleFilterChange()" class="bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700 py-2 px-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600">
-                        <option value="default">Sort: Default</option>
-                        <option value="price-low">Price: Low to High</option>
-                        <option value="price-high">Price: High to Low</option>
-                        <option value="discount">Highest Savings %</option>
-                        <option value="name">Name (A-Z)</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <!-- Products Summary Counter Bar -->
-        <div class="flex items-center justify-between mb-4 px-1">
-            <h2 class="text-xs font-extrabold text-slate-500 uppercase tracking-wider">
-                Store Catalog Items (<span id="product-count" class="text-emerald-700 font-black">0</span>)
-            </h2>
-            <div class="text-xs text-slate-500 font-medium">
-                Helplines: <strong class="text-slate-800">9900365638</strong> / <strong class="text-slate-800">9972045163</strong>
+                <div id="category-pills" class="flex items-center gap-2 overflow-x-auto w-full md:w-auto"></div>
             </div>
         </div>
 
         <!-- Dynamic Product Cards Grid -->
-        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-            <!-- Rendered dynamically by JavaScript -->
-        </div>
-
-        <!-- Empty Filter State -->
-        <div id="empty-state" class="hidden text-center py-16 bg-white rounded-2xl border border-dashed border-slate-300 my-4">
-            <div class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">
-                <i class="fa-solid fa-basket-shopping"></i>
-            </div>
-            <h3 class="text-base font-bold text-slate-800">No matching store items found</h3>
-            <p class="text-xs text-slate-500 mt-1">Try resetting search filters or changing product categories.</p>
-            <button onclick="resetFilters()" class="mt-4 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition">
-                Reset All Filters
-            </button>
-        </div>
-
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"></div>
     </main>
 
     <!-- Shopping Cart Side Drawer -->
     <div id="cart-drawer" class="fixed inset-0 z-40 overflow-hidden hidden">
-        <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm transition-opacity" onclick="toggleCartDrawer()"></div>
+        <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm" onclick="toggleCartDrawer()"></div>
         <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
             <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
                 <div class="p-4 bg-emerald-800 text-white flex items-center justify-between">
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <i class="fa-solid fa-cart-shopping text-lg text-amber-300"></i>
-                            <h2 class="font-extrabold text-lg">My Grocery Order</h2>
-                        </div>
-                        <p class="text-[11px] text-emerald-200 mt-0.5">Direct WhatsApp Order to HINDUSTAN SUPER BAZAR</p>
-                    </div>
-                    <button onclick="toggleCartDrawer()" class="p-1 rounded-lg hover:bg-emerald-900 transition">
-                        <i class="fa-solid fa-xmark text-lg"></i>
-                    </button>
+                    <h2 class="font-extrabold text-lg"><i class="fa-solid fa-cart-shopping text-amber-300"></i> Shopping Cart</h2>
+                    <button onclick="toggleCartDrawer()"><i class="fa-solid fa-xmark text-lg"></i></button>
                 </div>
-
-                <div id="cart-items-container" class="flex-grow overflow-y-auto p-4 space-y-3 custom-scrollbar">
-                    <!-- Rendered by JS -->
-                </div>
-
+                <div id="cart-items-container" class="flex-grow overflow-y-auto p-4 space-y-3"></div>
                 <div class="p-4 bg-slate-50 border-t border-slate-200 space-y-3">
-                    <div class="space-y-1 text-xs">
-                        <div class="flex justify-between text-slate-600 font-medium">
-                            <span>Total Item Quantity:</span>
-                            <span id="cart-total-qty" class="font-bold text-slate-800">0</span>
-                        </div>
-                        <div class="flex justify-between text-slate-600 font-medium">
-                            <span>Total Offer Savings:</span>
-                            <span id="cart-total-savings" class="font-bold text-emerald-600">₹0.00</span>
-                        </div>
-                        <div class="flex justify-between text-base font-black text-slate-900 pt-2 border-t border-slate-200">
-                            <span>Estimated Bill Amount:</span>
-                            <span id="cart-total-price" class="text-emerald-700">₹0.00</span>
-                        </div>
+                    <div class="flex justify-between text-base font-black text-slate-900">
+                        <span>Total:</span>
+                        <span id="cart-total-price" class="text-emerald-700">₹0.00</span>
                     </div>
-
-                    <div class="space-y-2 pt-1">
-                        <span class="block text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center">Send Order List via WhatsApp to:</span>
-                        <div class="grid grid-cols-2 gap-2">
-                            <button onclick="sendOrderViaWhatsApp('9900365638')" class="py-2.5 px-2 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-[11px] rounded-xl shadow transition flex items-center justify-center gap-1.5">
-                                <i class="fa-brands fa-whatsapp text-sm"></i>
-                                <span>9900365638</span>
-                            </button>
-                            <button onclick="sendOrderViaWhatsApp('9972045163')" class="py-2.5 px-2 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-[11px] rounded-xl shadow transition flex items-center justify-center gap-1.5">
-                                <i class="fa-brands fa-whatsapp text-sm"></i>
-                                <span>9972045163</span>
-                            </button>
-                        </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="sendOrderViaWhatsApp('9900365638')" class="py-2.5 bg-emerald-600 text-white font-black text-[11px] rounded-xl flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-whatsapp"></i> Order WA 1
+                        </button>
+                        <button onclick="sendOrderViaWhatsApp('9972045163')" class="py-2.5 bg-emerald-600 text-white font-black text-[11px] rounded-xl flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-whatsapp"></i> Order WA 2
+                        </button>
                     </div>
-                    
-                    <button onclick="clearCart()" class="w-full py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs rounded-xl transition">
-                        Clear Shopping List
-                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- How To Add Items Help Modal -->
+    <!-- Modals -->
     <div id="how-to-add-modal" class="fixed inset-0 z-50 overflow-y-auto hidden">
-        <div class="min-h-screen px-4 text-center flex items-center justify-center">
-            <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="closeHowToAddModal()"></div>
+        <div class="min-h-screen px-4 flex items-center justify-center">
+            <div class="fixed inset-0 bg-slate-900/60" onclick="closeHowToAddModal()"></div>
+            <div class="bg-white p-6 rounded-2xl z-10 max-w-md w-full relative">
+                <h3 class="font-bold text-lg mb-2">How to Order Items</h3>
+                <p class="text-xs text-slate-600 mb-4">1. Click <b>+ Add</b> on items to put them in your cart.<br>2. Open your cart and tap <b>Order WA</b> to send your grocery list directly to WhatsApp!</p>
+                <button onclick="closeHowToAddModal()" class="px-4 py-2 bg-emerald-600 text-white font-bold text-xs rounded-xl">Got it!</button>
+            </div>
+        </div>
+    </div>
 
-            <div class="inline-block w-full max-w-xl p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-2xl rounded-2xl relative z-10">
-     
+<script>
+    const defaultProducts = [
+        { id: 1, name: "Premium Sona Masoori Rice", category: "Rice & Atta", price: 1350, mrp: 1500, unit: "25 kg Bag", inStock: true },
+        { id: 2, name: "Refined Sunflower Oil", category: "Oil & Ghee", price: 135, mrp: 155, unit: "1 Litre Pouch", inStock: true },
+        { id: 3, name: "Pure Cow Ghee", category: "Oil & Ghee", price: 580, mrp: 640, unit: "1 Litre Box", inStock: true },
+        { id: 4, name: "Chakki Fresh Whole Wheat Atta", category: "Rice & Atta", price: 340, mrp: 380, unit: "10 kg Bag", inStock: true },
+        { id: 5, name: "Toor Dal (Yellow Split Peas)", category: "Dals & Pulses", price: 160, mrp: 180, unit: "1 kg Packet", inStock: true }
+    ];
+
+    let products = JSON.parse(localStorage.getItem('hsb_products')) || defaultProducts;
+    let cart = JSON.parse(localStorage.getItem('hsb_cart')) || [];
+    let currentRole = 'customer';
+    let selectedCategory = 'All';
+
+    window.onload = function() { renderCategories(); renderProducts(); updateCartUI(); };
+
+    function saveData() { localStorage.setItem('hsb_products', JSON.stringify(products)); localStorage.setItem('hsb_cart', JSON.stringify(cart)); }
+
+    function renderCategories() {
+        const categories = ['All', ...new Set(products.map(p => p.category))];
+        document.getElementById('category-pills').innerHTML = categories.map(cat => `
+            <button onclick="selectCategory('${cat}')" class="px-3 py-1.5 rounded-xl text-xs font-bold border ${selectedCategory === cat ? 'bg-emerald-700 text-white' : 'bg-slate-50 text-slate-600'}">${cat}</button>
+        `).join('');
+    }
+
+    function selectCategory(cat) { selectedCategory = cat; renderCategories(); renderProducts(); }
+
+    function renderProducts() {
+        const search = document.getElementById('search-input').value.toLowerCase();
+        let filtered = products.filter(p => (selectedCategory === 'All' || p.category === selectedCategory) && p.name.toLowerCase().includes(search));
+
+        document.getElementById('product-grid').innerHTML = filtered.map(p => {
+            const cartItem = cart.find(ci => ci.id === p.id);
+            const qty = cartItem ? cartItem.qty : 0;
+            return `
+                <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">${p.category}</span>
+                        <h3 class="font-bold text-slate-800 text-sm mt-2">${p.name}</h3>
+                        <p class="text-xs text-slate-400">${p.unit}</p>
+                        <div class="mt-2 text-base font-black text-slate-900">₹${p.price}</div>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                        ${qty === 0 ? `
+                            <button onclick="addToCart(${p.id})" class="px-3.5 py-1.5 bg-emerald-600 text-white font-extrabold text-xs rounded-xl flex items-center gap-1">
+                                <i class="fa-solid fa-plus text-[10px]"></i> Add
+                            </button>
+                        ` : `
+                            <div class="flex items-center gap-2 bg-emerald-50 border border-emerald-300 rounded-xl p-1">
+                                <button onclick="updateQty(${p.id}, -1)" class="w-6 h-6 bg-white text-emerald-900 font-black rounded-lg text-xs">-</button>
+                                <span class="text-xs font-bold px-1">${qty}</span>
+                                <button onclick="updateQty(${p.id}, 1)" class="w-6 h-6 bg-white text-emerald-900 font-black rounded-lg text-xs">+</button>
+                            </div>
+                        `}
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    function handleFilterChange() { renderProducts(); }
+    function addToCart(id) { const prod = products.find(p => p.id === id); cart.push({ ...prod, qty: 1 }); saveData(); updateCartUI(); renderProducts(); }
+    function updateQty(id, delta) { const idx = cart.findIndex(ci => ci.id === id); if (idx > -1) { cart[idx].qty += delta; if (cart[idx].qty <= 0) cart.splice(idx, 1); } saveData(); updateCartUI(); renderProducts(); }
+
+    function updateCartUI() {
+        const totalQty = cart.reduce((s, i) => s + i.qty, 0);
+        const totalPrice = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+        const badge = document.getElementById('cart-badge');
+        badge.innerText = totalQty;
+        if (totalQty > 0) badge.classList.remove('hidden'); else badge.classList.add('hidden');
+        document.getElementById('cart-total-price').innerText = `₹${totalPrice.toFixed(2)}`;
+
+        document.getElementById('cart-items-container').innerHTML = cart.length === 0 
+            ? `<div class="text-center py-10 text-xs text-slate-400">Cart is empty</div>`
+            : cart.map(i => `<div class="flex justify-between text-xs p-2 bg-slate-50 rounded-xl"><span>${i.name} x ${i.qty}</span><strong>₹${i.price * i.qty}</strong></div>`).join('');
+    }
+
+    function toggleCartDrawer() { document.getElementById('cart-drawer').classList.toggle('hidden'); }
+    function openHowToAddModal() { document.getElementById('how-to-add-modal').classList.remove('hidden'); }
+    function closeHowToAddModal() { document.getElementById('how-to-add-modal').classList.add('hidden'); }
+    function promptEmployerAuth() { if (prompt("Enter PIN:") === "1234") switchRole('employer'); }
+    function switchRole(role) { currentRole = role; document.getElementById('employer-controls').classList.toggle('hidden', role !== 'employer'); renderProducts(); }
+
+    function sendOrderViaWhatsApp(phone) {
+        if (cart.length === 0) return alert("Cart is empty!");
+        let msg = `🛒 *HINDUSTAN SUPER BAZAR ORDER*%0A`;
+        cart.forEach((item, i) => { msg += `${i+1}. ${item.name} x ${item.qty} = ₹${item.price * item.qty}%0A`; });
+        window.open(`https://wa.me/91${phone}?text=${msg}`, '_blank');
+    }
+</script>
+</body>
+</html>
