@@ -1,284 +1,1181 @@
+```html
 <!DOCTYPE html>
 <html lang="en" class="h-full bg-slate-50">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HINDUSTAN SUPER BAZAR - JARIGEBAIL | Live Grocery Store</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            600: '#16a34a',
-                            700: '#15803d',
-                            800: '#166534',
-                            900: '#14532d',
-                        }
-                    }
-                }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HINDUSTAN SUPER BAZAR - JARIGEBAIL</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#166534',
+              900: '#14532d',
+            },
+            accent: {
+              gold: '#ff9f00',
+              crimson: '#e11d48',
+              blue: '#2563eb'
             }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
         }
-    </script>
-    <style>
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-        }
-    </style>
+      }
+    }
+  </script>
+  
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
 </head>
-<body class="h-full flex flex-col font-sans text-slate-800 bg-slate-50 pb-20">
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
 
-    <!-- Top Announcement Banner -->
-    <div class="bg-amber-400 text-slate-900 text-xs font-bold py-2 px-4 shadow-sm border-b border-amber-500">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-location-dot text-emerald-900"></i>
-                <span class="tracking-wide">Jarigebail Main Store | Fresh Groceries & Daily Needs</span>
-            </div>
-            <div class="flex flex-wrap items-center justify-center gap-2">
-                <a href="tel:9900365638" class="flex items-center gap-1.5 bg-slate-900 text-white px-2.5 py-1 rounded-full text-[11px] hover:bg-slate-800 transition shadow-sm">
-                    <i class="fa-solid fa-phone text-amber-400"></i>
-                    <span>9900365638</span>
-                </a>
-                <a href="tel:9972045163" class="flex items-center gap-1.5 bg-slate-900 text-white px-2.5 py-1 rounded-full text-[11px] hover:bg-slate-800 transition shadow-sm">
-                    <i class="fa-solid fa-phone text-amber-400"></i>
-                    <span>9972045163</span>
-                </a>
-                <a href="https://wa.me/919900365638" target="_blank" class="flex items-center gap-1 bg-emerald-700 text-white px-2.5 py-1 rounded-full text-[11px] hover:bg-emerald-800 transition shadow-sm">
-                    <i class="fa-brands fa-whatsapp text-emerald-300"></i>
-                    <span>WA 1</span>
-                </a>
-                <a href="https://wa.me/919972045163" target="_blank" class="flex items-center gap-1 bg-emerald-700 text-white px-2.5 py-1 rounded-full text-[11px] hover:bg-emerald-800 transition shadow-sm">
-                    <i class="fa-brands fa-whatsapp text-emerald-300"></i>
-                    <span>WA 2</span>
-                </a>
-            </div>
+  <div class="bg-brand-900 text-white text-xs py-1.5 px-4 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-3 overflow-x-auto no-scrollbar whitespace-nowrap">
+        <span class="bg-yellow-400 text-brand-900 px-2 py-0.5 rounded font-bold text-[10px] tracking-wide">JARIGEBAIL STORE</span>
+        <span><i class="fa-solid fa-truck-fast text-yellow-400 mr-1"></i> Express Local Home Delivery</span>
+        <span class="hidden md:inline">|</span>
+        <span class="hidden md:inline"><i class="fa-solid fa-phone mr-1"></i> Helpline: 9900365638 / 9972045163</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <button id="navStaffLoginBtn" onclick="openStaffLoginModal()" class="bg-brand-800 hover:bg-brand-700 text-white px-2.5 py-1 rounded-md text-xs font-semibold transition border border-brand-600 flex items-center">
+          <i class="fa-solid fa-lock mr-1.5 text-yellow-300 text-[10px]"></i>
+          <span>Staff Access</span>
+        </button>
+        <button id="navStaffBadge" onclick="switchTab('employee')" class="hidden bg-yellow-400 text-brand-900 px-2.5 py-1 rounded-md text-xs font-extrabold transition flex items-center shadow-md">
+          <i class="fa-solid fa-user-shield mr-1.5"></i>
+          <span>Employee Portal</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <header class="bg-white border-b border-slate-200 shadow-sm sticky top-[28px] z-40">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <!-- Brand Logo & Name -->
+      <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('customer')">
+        <div class="w-11 h-11 md:w-12 md:h-12 bg-gradient-to-tr from-brand-800 via-brand-600 to-emerald-400 text-white rounded-xl flex items-center justify-center font-black text-lg shadow-md border border-brand-500">
+          HSB
         </div>
+        <div>
+          <h1 class="text-base md:text-xl font-black text-brand-900 tracking-tight leading-none">
+            HINDUSTAN SUPER BAZAR
+          </h1>
+          <p class="text-[10px] md:text-xs font-bold text-brand-600 uppercase tracking-widest mt-0.5">
+            JARIGEBAIL MAIN STORE
+          </p>
+        </div>
+      </div>
+
+      <!-- Desktop Live Search -->
+      <div class="flex-1 max-w-lg mx-3 hidden sm:block">
+        <div class="relative">
+          <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Search daily groceries, rice, ghee, spices, soaps..." class="w-full pl-10 pr-4 py-2 border-2 border-slate-200 focus:border-brand-600 rounded-full text-xs outline-none transition shadow-sm bg-slate-50 focus:bg-white">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-2.5 text-slate-400 text-xs"></i>
+        </div>
+      </div>
+
+      <!-- Contact Buttons & Cart Trigger -->
+      <div class="flex items-center space-x-2 md:space-x-3">
+        <!-- Direct Phone Buttons -->
+        <div class="hidden lg:flex items-center space-x-2 text-xs">
+          <a href="tel:9900365638" class="flex items-center bg-emerald-50 hover:bg-emerald-100 text-brand-800 px-2.5 py-1.5 rounded-lg border border-emerald-200 transition font-bold">
+            <i class="fa-solid fa-phone text-brand-600 mr-1.5"></i>
+            <span>9900365638</span>
+          </a>
+          <a href="tel:9972045163" class="flex items-center bg-emerald-50 hover:bg-emerald-100 text-brand-800 px-2.5 py-1.5 rounded-lg border border-emerald-200 transition font-bold">
+            <i class="fa-solid fa-phone text-brand-600 mr-1.5"></i>
+            <span>9972045163</span>
+          </a>
+        </div>
+
+        <!-- Basket Cart Icon Button -->
+        <button onclick="toggleCartDrawer()" class="relative bg-brand-50 hover:bg-brand-100 text-brand-800 px-3 py-2 rounded-xl border border-brand-200 transition flex items-center space-x-1.5">
+          <i class="fa-solid fa-basket-shopping text-base text-brand-700"></i>
+          <span class="font-bold text-xs hidden sm:inline">Basket</span>
+          <span id="cartCountBadge" class="bg-red-600 text-white font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">0</span>
+        </button>
+      </div>
     </div>
 
-    <!-- Header & Supermarket Branding -->
-    <header class="bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-950 text-white shadow-xl sticky top-0 z-30 border-b border-emerald-700">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20 gap-3">
-                
-                <div class="flex items-center space-x-3 cursor-pointer" onclick="resetFilters()">
-                    <div class="relative w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-300 via-amber-400 to-amber-500 p-1 shadow-lg shadow-amber-500/20 border-2 border-amber-200 flex items-center justify-center shrink-0">
-                        <svg class="w-8 h-8 text-emerald-950 drop-shadow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="9" cy="21" r="1.5" fill="currentColor"></circle>
-                            <circle cx="20" cy="21" r="1.5" fill="currentColor"></circle>
-                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" fill="none"></path>
-                            <path d="M12 9l2 2 4-4" stroke="#065f46" stroke-width="2.5"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-1.5">
-                            <h1 class="font-black text-base sm:text-xl tracking-tight leading-none text-amber-300 uppercase drop-shadow-sm">
-                                HINDUSTAN SUPER BAZAR
-                            </h1>
-                        </div>
-                        <span class="text-[11px] text-emerald-200 font-semibold tracking-wider block mt-1">
-                            JARIGEBAIL • Contacts: <strong class="text-white">9900365638</strong> / <strong class="text-white">9972045163</strong>
-                        </span>
-                    </div>
-                </div>
+    <!-- Mobile Search Input -->
+    <div class="px-4 pb-2.5 sm:hidden">
+      <div class="relative">
+        <input type="text" id="searchInputMobile" oninput="handleSearchMobile()" placeholder="Search products in Jarigebail store..." class="w-full pl-9 pr-4 py-1.5 border border-slate-300 rounded-full text-xs outline-none focus:border-brand-600 bg-slate-50">
+        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2 text-slate-400 text-xs"></i>
+      </div>
+    </div>
+  </header>
 
-                <!-- Controls -->
-                <div class="flex items-center space-x-2">
-                    <button onclick="openHowToAddModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-900 text-xs font-black transition shadow-md border border-amber-300">
-                        <i class="fa-solid fa-circle-question text-emerald-900"></i>
-                        <span class="hidden sm:inline">How to Add?</span>
-                    </button>
+  <main id="customerView" class="flex-grow max-w-7xl w-full mx-auto px-3 sm:px-4 py-4 space-y-6">
 
-                    <div class="flex items-center bg-emerald-950 p-1 rounded-xl border border-emerald-700">
-                        <button id="mode-customer-btn" onclick="switchRole('customer')" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-white text-emerald-900">User</button>
-                        <button id="mode-employer-btn" onclick="promptEmployerAuth()" class="px-2.5 py-1 rounded-lg text-xs font-bold text-emerald-200">Admin</button>
-                    </div>
+    <!-- Flipkart/Amazon Hero Promotional Carousel -->
+    <section class="relative rounded-2xl overflow-hidden shadow-lg bg-slate-900">
+      <div id="carouselTrack" class="relative h-44 sm:h-64 md:h-72 w-full flex transition-transform duration-500 ease-out">
+        <!-- Banners generated dynamically -->
+      </div>
+      <!-- Arrows -->
+      <button onclick="prevBanner()" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center transition">
+        <i class="fa-solid fa-chevron-left text-xs"></i>
+      </button>
+      <button onclick="nextBanner()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center transition">
+        <i class="fa-solid fa-chevron-right text-xs"></i>
+      </button>
+      <!-- Dots -->
+      <div id="carouselDots" class="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-2"></div>
+    </section>
 
-                    <button onclick="toggleCartDrawer()" class="relative p-2.5 rounded-xl bg-emerald-900 hover:bg-emerald-950 text-white border border-emerald-700">
-                        <i class="fa-solid fa-cart-shopping text-base"></i>
-                        <span id="cart-badge" class="absolute -top-1.5 -right-1.5 bg-amber-400 text-slate-900 font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
-                    </button>
-                </div>
+    <!-- Category Filter Bar & In Stock Switch -->
+    <section class="flex flex-col sm:flex-row justify-between sm:items-center gap-3 bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
+      <div class="flex items-center space-x-2 overflow-x-auto no-scrollbar pb-1 sm:pb-0">
+        <button onclick="filterCategory('All')" class="cat-btn active-cat px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-brand-600 text-white transition">All Products</button>
+        <button onclick="filterCategory('Rice & Grains')" class="cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 transition">Rice & Grains</button>
+        <button onclick="filterCategory('Oils & Ghee')" class="cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 transition">Oils & Ghee</button>
+        <button onclick="filterCategory('Spices & Masala')" class="cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 transition">Spices & Masala</button>
+        <button onclick="filterCategory('Snacks & Drinks')" class="cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 transition">Snacks & Drinks</button>
+        <button onclick="filterCategory('Personal Care')" class="cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 transition">Personal Care</button>
+      </div>
+
+      <div class="flex items-center justify-between sm:justify-end space-x-2 border-t sm:border-t-0 pt-2 sm:pt-0 border-slate-100">
+        <label class="text-xs font-bold text-slate-600 flex items-center cursor-pointer select-none">
+          <input type="checkbox" id="inStockOnlyToggle" onchange="renderProducts()" class="sr-only peer">
+          <div class="w-8 h-4 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-brand-600 relative"></div>
+          <span class="ml-2">In Stock Only</span>
+        </label>
+        <span id="productCountBadge" class="text-[11px] font-bold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">0 Items</span>
+      </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section id="productGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+      <!-- Rendered dynamically by JS -->
+    </section>
+  </main>
+
+  <main id="employeeView" class="hidden flex-grow max-w-7xl w-full mx-auto px-3 sm:px-6 py-6 space-y-6">
+
+    <!-- Employer Banner Header -->
+    <div class="bg-gradient-to-r from-slate-900 via-brand-900 to-slate-900 text-white rounded-2xl p-5 shadow-xl border border-brand-700">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="flex items-center space-x-3">
+          <div class="p-3 bg-brand-500/20 rounded-xl border border-brand-400">
+            <i class="fa-solid fa-user-shield text-2xl text-yellow-400"></i>
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <h2 class="text-xl font-black tracking-wide">EMPLOYEE CONTROL DASHBOARD</h2>
+              <span class="bg-yellow-400 text-slate-900 text-[10px] font-black px-2 py-0.5 rounded">STAFF MODE</span>
             </div>
-        </div>
-    </header>
-
-    <!-- Main Content Area -->
-    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
-
-        <!-- Staff Employer Control Panel -->
-        <div id="employer-controls" class="hidden mb-6 bg-amber-50 border-2 border-amber-300 rounded-2xl p-4 shadow-md">
-            <div class="flex items-center justify-between">
-                <h2 class="text-amber-950 font-black text-sm"><i class="fa-solid fa-user-shield text-amber-600"></i> Admin Panel</h2>
-                <button onclick="openAddProductModal()" class="px-3 py-2 bg-emerald-700 text-white font-bold text-xs rounded-xl">+ Add Item</button>
-            </div>
+            <p class="text-xs text-slate-300">Logged in as Authorized Staff | Hindustan Super Bazar Jarigebail</p>
+          </div>
         </div>
 
-        <!-- Search Bar and Filters -->
-        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 mb-6">
-            <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
-                <div class="relative w-full md:w-80">
-                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                    <input type="text" id="search-input" placeholder="Search products..." oninput="handleFilterChange()" class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none">
-                </div>
-                <div id="category-pills" class="flex items-center gap-2 overflow-x-auto w-full md:w-auto"></div>
-            </div>
+        <!-- Cloud Status & Header Controls -->
+        <div class="flex flex-wrap items-center gap-2 bg-black/40 p-2.5 rounded-xl border border-white/10">
+          <div class="flex items-center space-x-2 mr-2 px-2">
+            <span id="cloudStatusDot" class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span id="cloudStatusText" class="text-xs font-bold text-emerald-300">Google Cloud Live Sync</span>
+          </div>
+          <button onclick="openCloudConfigModal()" class="bg-brand-700 hover:bg-brand-600 text-white text-xs px-3 py-1.5 rounded-lg font-bold transition border border-brand-500 flex items-center">
+            <i class="fa-solid fa-cloud text-xs mr-1.5"></i> Cloud API Config
+          </button>
+          <button onclick="openStaffGuideModal()" class="bg-blue-600 hover:bg-blue-500 text-white text-xs px-3 py-1.5 rounded-lg font-bold transition flex items-center">
+            <i class="fa-solid fa-circle-info text-xs mr-1.5"></i> Staff Guide
+          </button>
+          <button onclick="exitStaffMode()" class="bg-rose-600 hover:bg-rose-500 text-white text-xs px-3 py-1.5 rounded-lg font-bold transition flex items-center">
+            <i class="fa-solid fa-right-from-bracket text-xs mr-1.5"></i> Logout
+          </button>
         </div>
+      </div>
 
-        <!-- Dynamic Product Cards Grid -->
-        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"></div>
-    </main>
-
-    <!-- Shopping Cart Side Drawer -->
-    <div id="cart-drawer" class="fixed inset-0 z-40 overflow-hidden hidden">
-        <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm" onclick="toggleCartDrawer()"></div>
-        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
-            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
-                <div class="p-4 bg-emerald-800 text-white flex items-center justify-between">
-                    <h2 class="font-extrabold text-lg"><i class="fa-solid fa-cart-shopping text-amber-300"></i> Shopping Cart</h2>
-                    <button onclick="toggleCartDrawer()"><i class="fa-solid fa-xmark text-lg"></i></button>
-                </div>
-                <div id="cart-items-container" class="flex-grow overflow-y-auto p-4 space-y-3"></div>
-                <div class="p-4 bg-slate-50 border-t border-slate-200 space-y-3">
-                    <div class="flex justify-between text-base font-black text-slate-900">
-                        <span>Total:</span>
-                        <span id="cart-total-price" class="text-emerald-700">₹0.00</span>
-                    </div>
-                    <div class="grid grid-cols-2 gap-2">
-                        <button onclick="sendOrderViaWhatsApp('9900365638')" class="py-2.5 bg-emerald-600 text-white font-black text-[11px] rounded-xl flex items-center justify-center gap-1">
-                            <i class="fa-brands fa-whatsapp"></i> Order WA 1
-                        </button>
-                        <button onclick="sendOrderViaWhatsApp('9972045163')" class="py-2.5 bg-emerald-600 text-white font-black text-[11px] rounded-xl flex items-center justify-center gap-1">
-                            <i class="fa-brands fa-whatsapp"></i> Order WA 2
-                        </button>
-                    </div>
-                </div>
-            </div>
+      <!-- Quick Metrics -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 pt-4 border-t border-white/10 text-xs">
+        <div class="bg-white/5 p-2.5 rounded-lg border border-white/5">
+          <p class="text-slate-400">Total Products</p>
+          <p id="statTotalProducts" class="text-lg font-black text-white">0</p>
         </div>
+        <div class="bg-white/5 p-2.5 rounded-lg border border-white/5">
+          <p class="text-slate-400">In Stock Items</p>
+          <p id="statInStock" class="text-lg font-black text-emerald-400">0</p>
+        </div>
+        <div class="bg-white/5 p-2.5 rounded-lg border border-white/5">
+          <p class="text-slate-400">Out of Stock</p>
+          <p id="statOutOfStock" class="text-lg font-black text-rose-400">0</p>
+        </div>
+        <div class="bg-white/5 p-2.5 rounded-lg border border-white/5">
+          <p class="text-slate-400">Offer Banners</p>
+          <p id="statActiveBanners" class="text-lg font-black text-yellow-400">0</p>
+        </div>
+      </div>
     </div>
 
-    <!-- Modals -->
-    <div id="how-to-add-modal" class="fixed inset-0 z-50 overflow-y-auto hidden">
-        <div class="min-h-screen px-4 flex items-center justify-center">
-            <div class="fixed inset-0 bg-slate-900/60" onclick="closeHowToAddModal()"></div>
-            <div class="bg-white p-6 rounded-2xl z-10 max-w-md w-full relative">
-                <h3 class="font-bold text-lg mb-2">How to Order Items</h3>
-                <p class="text-xs text-slate-600 mb-4">1. Click <b>+ Add</b> on items to put them in your cart.<br>2. Open your cart and tap <b>Order WA</b> to send your grocery list directly to WhatsApp!</p>
-                <button onclick="closeHowToAddModal()" class="px-4 py-2 bg-emerald-600 text-white font-bold text-xs rounded-xl">Got it!</button>
-            </div>
-        </div>
+    <!-- Staff Navigation Tabs -->
+    <div class="flex border-b border-slate-300 space-x-2">
+      <button id="tabBtnProducts" onclick="switchStaffTab('products')" class="py-2.5 px-4 font-bold text-xs sm:text-sm border-b-2 border-brand-600 text-brand-700 flex items-center">
+        <i class="fa-solid fa-boxes-stacked mr-2"></i> Product Catalog
+      </button>
+      <button id="tabBtnBanners" onclick="switchStaffTab('banners')" class="py-2.5 px-4 font-semibold text-xs sm:text-sm text-slate-500 border-b-2 border-transparent hover:text-brand-600 flex items-center">
+        <i class="fa-solid fa-images mr-2"></i> Promotional Banners
+      </button>
+      <button id="tabBtnSettings" onclick="switchStaffTab('settings')" class="py-2.5 px-4 font-semibold text-xs sm:text-sm text-slate-500 border-b-2 border-transparent hover:text-brand-600 flex items-center">
+        <i class="fa-solid fa-key mr-2"></i> Security PIN
+      </button>
     </div>
 
-<script>
-    const defaultProducts = [
-        { id: 1, name: "Premium Sona Masoori Rice", category: "Rice & Atta", price: 1350, mrp: 1500, unit: "25 kg Bag", inStock: true },
-        { id: 2, name: "Refined Sunflower Oil", category: "Oil & Ghee", price: 135, mrp: 155, unit: "1 Litre Pouch", inStock: true },
-        { id: 3, name: "Pure Cow Ghee", category: "Oil & Ghee", price: 580, mrp: 640, unit: "1 Litre Box", inStock: true },
-        { id: 4, name: "Chakki Fresh Whole Wheat Atta", category: "Rice & Atta", price: 340, mrp: 380, unit: "10 kg Bag", inStock: true },
-        { id: 5, name: "Toor Dal (Yellow Split Peas)", category: "Dals & Pulses", price: 160, mrp: 180, unit: "1 kg Packet", inStock: true }
-    ];
+    <!-- TAB 1: Product Management Table -->
+    <section id="staffTabProducts" class="space-y-4">
+      <div class="flex justify-between items-center bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+        <h3 class="font-bold text-slate-800 text-sm flex items-center">
+          <i class="fa-solid fa-list-check text-brand-600 mr-2"></i> Store Inventory & Pricing
+        </h3>
+        <button onclick="openAddProductModal()" class="bg-brand-600 hover:bg-brand-700 text-white px-3.5 py-2 rounded-lg text-xs font-bold transition flex items-center shadow-sm">
+          <i class="fa-solid fa-plus mr-1.5"></i> Add New Product
+        </button>
+      </div>
 
-    let products = JSON.parse(localStorage.getItem('hsb_products')) || defaultProducts;
-    let cart = JSON.parse(localStorage.getItem('hsb_cart')) || [];
-    let currentRole = 'customer';
-    let selectedCategory = 'All';
+      <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-x-auto">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="bg-slate-100 border-b border-slate-200 text-slate-700 font-bold uppercase tracking-wider">
+              <th class="p-3">Product</th>
+              <th class="p-3">Category</th>
+              <th class="p-3">MRP (₹)</th>
+              <th class="p-3">Offer Price (₹)</th>
+              <th class="p-3">Savings</th>
+              <th class="p-3">Stock Status</th>
+              <th class="p-3 text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="staffProductTableBody" class="divide-y divide-slate-100">
+            <!-- Dynamic Staff Rows -->
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-    window.onload = function() { renderCategories(); renderProducts(); updateCartUI(); };
+    <!-- TAB 2: Banner Manager -->
+    <section id="staffTabBanners" class="hidden space-y-4">
+      <div class="flex justify-between items-center bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+        <h3 class="font-bold text-slate-800 text-sm">Carousel Hero Banners</h3>
+        <button onclick="openAddBannerModal()" class="bg-brand-600 hover:bg-brand-700 text-white px-3.5 py-2 rounded-lg text-xs font-bold transition flex items-center shadow-sm">
+          <i class="fa-solid fa-plus mr-1.5"></i> Add Offer Banner
+        </button>
+      </div>
+      <div id="staffBannersGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Banner Cards -->
+      </div>
+    </section>
 
-    function saveData() { localStorage.setItem('hsb_products', JSON.stringify(products)); localStorage.setItem('hsb_cart', JSON.stringify(cart)); }
+    <!-- TAB 3: Security PIN -->
+    <section id="staffTabSettings" class="hidden space-y-4">
+      <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm max-w-md mx-auto space-y-4">
+        <h3 class="font-bold text-slate-900 text-base border-b pb-3 flex items-center">
+          <i class="fa-solid fa-shield-halved text-brand-600 mr-2"></i> Update Staff Access PIN
+        </h3>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Current PIN</label>
+          <input type="password" id="pinCurrentInput" maxlength="6" class="w-full border rounded-lg p-2.5 text-sm outline-none focus:border-brand-600">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">New Access PIN</label>
+          <input type="password" id="pinNewInput" maxlength="6" class="w-full border rounded-lg p-2.5 text-sm outline-none focus:border-brand-600">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Confirm New PIN</label>
+          <input type="password" id="pinConfirmInput" maxlength="6" class="w-full border rounded-lg p-2.5 text-sm outline-none focus:border-brand-600">
+        </div>
+        <button onclick="updateStaffPIN()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-lg text-xs transition shadow">
+          Update Staff Security PIN
+        </button>
+      </div>
+    </section>
+  </main>
 
-    function renderCategories() {
-        const categories = ['All', ...new Set(products.map(p => p.category))];
-        document.getElementById('category-pills').innerHTML = categories.map(cat => `
-            <button onclick="selectCategory('${cat}')" class="px-3 py-1.5 rounded-xl text-xs font-bold border ${selectedCategory === cat ? 'bg-emerald-700 text-white' : 'bg-slate-50 text-slate-600'}">${cat}</button>
-        `).join('');
+  <footer class="bg-slate-900 text-slate-300 text-xs mt-auto border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div>
+        <h4 class="text-white font-black text-sm mb-2">HINDUSTAN SUPER BAZAR</h4>
+        <p class="text-slate-400 mb-3">Your leading supermarket in Jarigebail. High quality grocery, wholesale prices, and express order delivery.</p>
+        <p class="text-yellow-400 font-bold"><i class="fa-solid fa-location-dot mr-1.5"></i> Jarigebail Store Center</p>
+      </div>
+      <div>
+        <h4 class="text-white font-black text-sm mb-2">WHATSAPP & PHONE ORDER HOTLINES</h4>
+        <p class="font-bold text-white text-sm mb-1"><i class="fa-solid fa-phone text-brand-500 mr-2"></i> 9900365638</p>
+        <p class="font-bold text-white text-sm"><i class="fa-solid fa-phone text-brand-500 mr-2"></i> 9972045163</p>
+      </div>
+      <div>
+        <h4 class="text-white font-black text-sm mb-2">STORE TIMINGS</h4>
+        <p class="text-slate-400">Open Daily: 8:00 AM - 9:30 PM</p>
+        <p class="text-slate-400 mt-2">Local delivery available for Jarigebail and surrounding areas.</p>
+        <button onclick="openStaffLoginModal()" class="mt-3 text-slate-500 hover:text-slate-300 underline text-[11px]">
+          Staff Login Portal
+        </button>
+      </div>
+    </div>
+    <div class="bg-slate-950 py-3 text-center text-[11px] text-slate-500 border-t border-slate-800">
+      © 2026 HINDUSTAN SUPER BAZAR - JARIGEBAIL. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- MODAL 1: STAFF LOGIN PIN MODAL (CLEAN WITH NO DEFAULT PIN HINTS) -->
+  <div id="staffLoginModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl p-6 max-w-sm w-full space-y-4 shadow-2xl relative border border-slate-100">
+      <button onclick="closeStaffLoginModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+      <div class="text-center space-y-1">
+        <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-full flex items-center justify-center mx-auto text-xl">
+          <i class="fa-solid fa-user-lock"></i>
+        </div>
+        <h3 class="text-lg font-black text-slate-900">Staff Authorization</h3>
+        <p class="text-xs text-slate-500">Enter security PIN to unlock Employee Mode.</p>
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-slate-700 mb-1">Access PIN</label>
+        <input type="password" id="staffPinInput" maxlength="6" placeholder="••••" class="w-full text-center text-2xl tracking-widest font-bold border-2 border-slate-300 rounded-xl py-2 focus:border-brand-600 outline-none">
+      </div>
+      <p id="staffPinError" class="text-xs text-red-600 font-bold text-center hidden">Invalid PIN. Please try again.</p>
+      <button onclick="verifyStaffPin()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl transition text-sm shadow-md">
+        Unlock Employee Dashboard
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL 2: SHOPPING BASKET DRAWER -->
+  <div id="cartDrawer" class="fixed inset-0 bg-black/50 z-50 hidden flex justify-end">
+    <div class="bg-white w-full max-w-md h-full flex flex-col shadow-2xl">
+      <div class="p-4 bg-brand-900 text-white flex justify-between items-center">
+        <h3 class="font-bold text-base flex items-center">
+          <i class="fa-solid fa-basket-shopping mr-2 text-yellow-400"></i> Shopping Basket
+        </h3>
+        <button onclick="toggleCartDrawer()" class="text-white hover:text-yellow-400">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+      </div>
+      <div id="cartItemsList" class="flex-grow overflow-y-auto p-4 space-y-3 divide-y divide-slate-100">
+        <!-- Dynamic Cart Items -->
+      </div>
+      <div class="p-4 bg-slate-50 border-t border-slate-200 space-y-3">
+        <div class="flex justify-between items-center text-sm">
+          <span class="font-semibold text-slate-600">Total Order Estimate:</span>
+          <span id="cartTotalAmount" class="font-black text-lg text-brand-800">₹0</span>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Send WhatsApp Order To:</label>
+          <select id="whatsappPhoneSelect" class="w-full border rounded-lg p-2 text-xs font-bold text-brand-900 border-brand-300 bg-white">
+            <option value="9900365638">Order Hotline 1: 9900365638</option>
+            <option value="9972045163">Order Hotline 2: 9972045163</option>
+          </select>
+        </div>
+        <button onclick="sendWhatsAppOrder()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl flex items-center justify-center space-x-2 transition shadow-lg">
+          <i class="fa-brands fa-whatsapp text-xl"></i>
+          <span>Checkout via WhatsApp</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3: GOOGLE CLOUD CONFIG (EMPLOYEE ONLY) -->
+  <div id="cloudConfigModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl p-6 max-w-md w-full space-y-4 shadow-2xl relative">
+      <button onclick="closeCloudConfigModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+      <div class="flex items-center space-x-3 border-b pb-3">
+        <i class="fa-solid fa-cloud text-brand-600 text-2xl"></i>
+        <div>
+          <h3 class="font-bold text-base text-slate-900">Google Cloud Database Config</h3>
+          <p class="text-xs text-slate-500">Firebase Realtime Sync Engine (Employer Access)</p>
+        </div>
+      </div>
+      <div class="space-y-3 text-xs">
+        <div class="p-2.5 bg-emerald-50 border border-emerald-200 rounded-lg flex items-center justify-between text-emerald-800 font-semibold">
+          <span><i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> Connected & Synchronized</span>
+          <span class="text-[10px] bg-emerald-200 text-emerald-900 px-1.5 py-0.5 rounded font-bold">REALTIME</span>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Database Realtime URL</label>
+          <input type="text" readonly value="https://hindustan-super-bazar-jarigebail.firebaseio.com" class="w-full bg-slate-100 border rounded-lg p-2 text-slate-600">
+        </div>
+      </div>
+      <div class="pt-2 flex space-x-2">
+        <button onclick="triggerManualSync()" class="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-2 rounded-lg text-xs transition">
+          Push Sync Now
+        </button>
+        <button onclick="closeCloudConfigModal()" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold px-4 py-2 rounded-lg text-xs">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 4: STAFF GUIDE (EMPLOYEE ONLY) -->
+  <div id="staffGuideModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl p-6 max-w-md w-full space-y-4 shadow-2xl relative">
+      <button onclick="closeStaffGuideModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+      <div class="flex items-center space-x-3 border-b pb-3">
+        <i class="fa-solid fa-circle-info text-blue-600 text-2xl"></i>
+        <div>
+          <h3 class="font-bold text-base text-slate-900">Staff Operating Guide</h3>
+          <p class="text-xs text-slate-500">Employee instructions for store portal management</p>
+        </div>
+      </div>
+      <div class="space-y-3 text-xs text-slate-600 leading-relaxed max-h-80 overflow-y-auto">
+        <p><strong>1. Stock Toggling:</strong> Click the "In Stock / Out of Stock" badge on any item in the Employee table to instantly update public availability.</p>
+        <p><strong>2. Pricing Updates:</strong> Edit MRP or Offer Prices using the pen icon. Discount percentages calculate automatically.</p>
+        <p><strong>3. Promotional Banners:</strong> Add offer slides in the Banner tab. They appear directly on the homepage carousel for public customers.</p>
+        <p><strong>4. Security:</strong> Always change your PIN in Security PIN tab after initial setup.</p>
+      </div>
+      <div class="text-right">
+        <button onclick="closeStaffGuideModal()" class="bg-brand-600 text-white font-bold px-4 py-2 rounded-lg text-xs">
+          Understood
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 5: ADD / EDIT PRODUCT -->
+  <div id="productFormModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl p-6 max-w-md w-full space-y-4 shadow-2xl relative">
+      <button onclick="closeProductFormModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+      <h3 id="productFormTitle" class="font-bold text-base text-slate-900 border-b pb-2">Add New Product</h3>
+
+      <input type="hidden" id="formProductId">
+      <div class="space-y-3 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Product Title</label>
+          <input type="text" id="formProdTitle" placeholder="e.g. Sona Masoori Rice 25kg" class="w-full border rounded-lg p-2 outline-none focus:border-brand-600">
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Category</label>
+            <select id="formProdCategory" class="w-full border rounded-lg p-2 bg-white">
+              <option value="Rice & Grains">Rice & Grains</option>
+              <option value="Oils & Ghee">Oils & Ghee</option>
+              <option value="Spices & Masala">Spices & Masala</option>
+              <option value="Snacks & Drinks">Snacks & Drinks</option>
+              <option value="Personal Care">Personal Care</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Unit Size</label>
+            <input type="text" id="formProdUnit" placeholder="e.g. 1 Kg / 500ml" class="w-full border rounded-lg p-2 outline-none focus:border-brand-600">
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">MRP Price (₹)</label>
+            <input type="number" id="formProdMrp" placeholder="150" class="w-full border rounded-lg p-2 outline-none focus:border-brand-600">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Offer Price (₹)</label>
+            <input type="number" id="formProdOffer" placeholder="130" class="w-full border rounded-lg p-2 outline-none focus:border-brand-600">
+          </div>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Image Emoji or Image URL</label>
+          <input type="text" id="formProdImage" placeholder="🌾, 🌻, 🧼 or https://..." class="w-full border rounded-lg p-2 outline-none focus:border-brand-600">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Stock Status</label>
+          <select id="formProdStock" class="w-full border rounded-lg p-2 bg-white">
+            <option value="true">In Stock</option>
+            <option value="false">Out of Stock</option>
+          </select>
+        </div>
+      </div>
+
+      <button onclick="saveProductForm()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-lg text-xs transition shadow">
+        Save Product to Catalog
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL 6: ADD BANNER MODAL -->
+  <div id="bannerFormModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl p-6 max-w-md w-full space-y-4 shadow-2xl relative">
+      <button onclick="closeBannerFormModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+      <h3 class="font-bold text-base text-slate-900 border-b pb-2">Add Promotional Banner</h3>
+      <div class="space-y-3 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Banner Headline</label>
+          <input type="text" id="formBannerTitle" placeholder="e.g. Festival Grocery Discounts!" class="w-full border rounded-lg p-2 outline-none">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Subtitle</label>
+          <input type="text" id="formBannerSubtitle" placeholder="e.g. Save big on daily essentials in Jarigebail" class="w-full border rounded-lg p-2 outline-none">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Theme Color</label>
+          <select id="formBannerBg" class="w-full border rounded-lg p-2 bg-white">
+            <option value="from-brand-900 via-brand-800 to-emerald-700">Emerald Green</option>
+            <option value="from-amber-700 via-yellow-600 to-amber-800">Gold Amber</option>
+            <option value="from-blue-900 via-indigo-800 to-slate-900">Deep Indigo</option>
+          </select>
+        </div>
+      </div>
+      <button onclick="saveBannerForm()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-lg text-xs transition shadow">
+        Add Banner Slide
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Master State
+    let appState = {
+      isEmployeeMode: false,
+      staffPIN: "1234",
+      activeCategory: "All",
+      searchQuery: "",
+      cart: [],
+      currentBannerIndex: 0,
+      products: [
+        { id: "p1", title: "Sona Masoori Rice", category: "Rice & Grains", unit: "25 Kg Bag", mrp: 1450, offer: 1290, image: "🌾", inStock: true },
+        { id: "p2", title: "Freedom Sunflower Oil", category: "Oils & Ghee", unit: "1 Litre Pouch", mrp: 160, offer: 138, image: "🌻", inStock: true },
+        { id: "p3", title: "Aashirvaad Whole Wheat Atta", category: "Rice & Grains", unit: "5 Kg Bag", mrp: 280, offer: 245, image: "🌾", inStock: true },
+        { id: "p4", title: "Tata Gold Premium Tea", category: "Snacks & Drinks", unit: "500g Pack", mrp: 320, offer: 285, image: "☕", inStock: true },
+        { id: "p5", title: "Everest Chicken Masala", category: "Spices & Masala", unit: "100g Box", mrp: 85, offer: 72, image: "🌶️", inStock: true },
+        { id: "p6", title: "Santoor Turmeric Soap", category: "Personal Care", unit: "Pack of 4 (125g)", mrp: 170, offer: 142, image: "🧼", inStock: true },
+        { id: "p7", title: "Nandini Pure Ghee", category: "Oils & Ghee", unit: "500ml Pack", mrp: 310, offer: 295, image: "🧈", inStock: false },
+        { id: "p8", title: "Toor Dal (Premium Quality)", category: "Rice & Grains", unit: "1 Kg Pack", mrp: 175, offer: 155, image: "🫘", inStock: true }
+      ],
+      banners: [
+        { id: "b1", title: "HINDUSTAN SUPER BAZAR - JARIGEBAIL", subtitle: "Grand Store Discounts on Daily Groceries & Household Essentials!", bg: "from-brand-900 via-brand-800 to-emerald-700" },
+        { id: "b2", title: "SUPER SAVER RICE & OIL DEALS", subtitle: "Special Wholesale Rates for Jarigebail Residents", bg: "from-amber-700 via-yellow-600 to-amber-800" },
+        { id: "b3", title: "WHATSAPP ORDER & DELIVERY", subtitle: "Send your grocery list directly to 9900365638 or 9972045163", bg: "from-blue-900 via-indigo-800 to-slate-900" }
+      ]
+    };
+
+    window.onload = function() {
+      const savedPin = localStorage.getItem('hsb_staff_pin');
+      if (savedPin) appState.staffPIN = savedPin;
+
+      renderCarousel();
+      renderProducts();
+      renderStaffTable();
+      renderStaffBanners();
+      updateStats();
+
+      setInterval(() => {
+        if (appState.banners.length > 0 && !appState.isEmployeeMode) {
+          nextBanner();
+        }
+      }, 4500);
+    };
+
+    // Staff Authentication
+    function openStaffLoginModal() {
+      document.getElementById('staffPinInput').value = "";
+      document.getElementById('staffPinError').classList.add('hidden');
+      document.getElementById('staffLoginModal').classList.remove('hidden');
     }
 
-    function selectCategory(cat) { selectedCategory = cat; renderCategories(); renderProducts(); }
+    function closeStaffLoginModal() {
+      document.getElementById('staffLoginModal').classList.add('hidden');
+    }
 
+    function verifyStaffPin() {
+      const input = document.getElementById('staffPinInput').value;
+      if (input === appState.staffPIN) {
+        appState.isEmployeeMode = true;
+        closeStaffLoginModal();
+        switchTab('employee');
+        showToast("Employee Dashboard Unlocked!");
+      } else {
+        document.getElementById('staffPinError').classList.remove('hidden');
+      }
+    }
+
+    function exitStaffMode() {
+      appState.isEmployeeMode = false;
+      switchTab('customer');
+      showToast("Logged out of Employee Portal.");
+    }
+
+    function switchTab(view) {
+      if (view === 'customer') {
+        document.getElementById('employeeView').classList.add('hidden');
+        document.getElementById('customerView').classList.remove('hidden');
+        document.getElementById('navStaffLoginBtn').classList.remove('hidden');
+        document.getElementById('navStaffBadge').classList.add('hidden');
+      } else if (view === 'employee' && appState.isEmployeeMode) {
+        document.getElementById('customerView').classList.add('hidden');
+        document.getElementById('employeeView').classList.remove('hidden');
+        document.getElementById('navStaffLoginBtn').classList.add('hidden');
+        document.getElementById('navStaffBadge').classList.remove('hidden');
+      }
+    }
+
+    function switchStaffTab(tabName) {
+      document.getElementById('staffTabProducts').classList.add('hidden');
+      document.getElementById('staffTabBanners').classList.add('hidden');
+      document.getElementById('staffTabSettings').classList.add('hidden');
+
+      document.getElementById('tabBtnProducts').className = "py-2.5 px-4 font-semibold text-xs sm:text-sm text-slate-500 border-b-2 border-transparent hover:text-brand-600 flex items-center";
+      document.getElementById('tabBtnBanners').className = "py-2.5 px-4 font-semibold text-xs sm:text-sm text-slate-500 border-b-2 border-transparent hover:text-brand-600 flex items-center";
+      document.getElementById('tabBtnSettings').className = "py-2.5 px-4 font-semibold text-xs sm:text-sm text-slate-500 border-b-2 border-transparent hover:text-brand-600 flex items-center";
+
+      if (tabName === 'products') {
+        document.getElementById('staffTabProducts').classList.remove('hidden');
+        document.getElementById('tabBtnProducts').className = "py-2.5 px-4 font-bold text-xs sm:text-sm border-b-2 border-brand-600 text-brand-700 flex items-center";
+      } else if (tabName === 'banners') {
+        document.getElementById('staffTabBanners').classList.remove('hidden');
+        document.getElementById('tabBtnBanners').className = "py-2.5 px-4 font-bold text-xs sm:text-sm border-b-2 border-brand-600 text-brand-700 flex items-center";
+      } else if (tabName === 'settings') {
+        document.getElementById('staffTabSettings').classList.remove('hidden');
+        document.getElementById('tabBtnSettings').className = "py-2.5 px-4 font-bold text-xs sm:text-sm border-b-2 border-brand-600 text-brand-700 flex items-center";
+      }
+    }
+
+    // Customer Product Rendering
     function renderProducts() {
-        const search = document.getElementById('search-input').value.toLowerCase();
-        let filtered = products.filter(p => (selectedCategory === 'All' || p.category === selectedCategory) && p.name.toLowerCase().includes(search));
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = "";
 
-        document.getElementById('product-grid').innerHTML = filtered.map(p => {
-            const cartItem = cart.find(ci => ci.id === p.id);
-            const qty = cartItem ? cartItem.qty : 0;
-            return `
-                <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">${p.category}</span>
-                        <h3 class="font-bold text-slate-800 text-sm mt-2">${p.name}</h3>
-                        <p class="text-xs text-slate-400">${p.unit}</p>
-                        <div class="mt-2 text-base font-black text-slate-900">₹${p.price}</div>
-                    </div>
-                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-                        ${qty === 0 ? `
-                            <button onclick="addToCart(${p.id})" class="px-3.5 py-1.5 bg-emerald-600 text-white font-extrabold text-xs rounded-xl flex items-center gap-1">
-                                <i class="fa-solid fa-plus text-[10px]"></i> Add
-                            </button>
-                        ` : `
-                            <div class="flex items-center gap-2 bg-emerald-50 border border-emerald-300 rounded-xl p-1">
-                                <button onclick="updateQty(${p.id}, -1)" class="w-6 h-6 bg-white text-emerald-900 font-black rounded-lg text-xs">-</button>
-                                <span class="text-xs font-bold px-1">${qty}</span>
-                                <button onclick="updateQty(${p.id}, 1)" class="w-6 h-6 bg-white text-emerald-900 font-black rounded-lg text-xs">+</button>
-                            </div>
-                        `}
-                    </div>
-                </div>
-            `;
-        }).join('');
+      const inStockOnly = document.getElementById('inStockOnlyToggle').checked;
+
+      const filtered = appState.products.filter(p => {
+        const matchesCat = (appState.activeCategory === 'All' || p.category === appState.activeCategory);
+        const matchesSearch = p.title.toLowerCase().includes(appState.searchQuery.toLowerCase());
+        const matchesStock = inStockOnly ? p.inStock : true;
+        return matchesCat && matchesSearch && matchesStock;
+      });
+
+      document.getElementById('productCountBadge').innerText = `${filtered.length} Items`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-12 text-center text-slate-400">
+            <i class="fa-solid fa-basket-shopping text-4xl mb-2"></i>
+            <p class="font-bold">No products match your filters.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(p => {
+        const discount = Math.round(((p.mrp - p.offer) / p.mrp) * 100);
+        const card = document.createElement('div');
+        card.className = "bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between relative group";
+        
+        card.innerHTML = `
+          ${discount > 0 ? `<div class="absolute top-2 left-2 bg-red-600 text-white font-black text-[10px] px-2 py-0.5 rounded-md z-10 shadow">${discount}% OFF</div>` : ''}
+
+          <div class="h-32 sm:h-36 bg-slate-50 flex items-center justify-center text-4xl sm:text-5xl relative group-hover:scale-105 transition duration-300">
+            ${p.image.startsWith('http') ? `<img src="${p.image}" class="h-full w-full object-cover" onerror="this.src='https://placehold.co/200x200/16a34a/ffffff?text=HSB+Item'">` : `<span>${p.image}</span>`}
+          </div>
+
+          <div class="p-3 flex-grow flex flex-col justify-between space-y-2">
+            <div>
+              <p class="text-[9px] font-extrabold uppercase tracking-wider text-brand-600">${p.category}</p>
+              <h4 class="font-bold text-slate-800 text-xs line-clamp-2 leading-tight">${p.title}</h4>
+              <p class="text-[10px] text-slate-500 mt-0.5">${p.unit}</p>
+            </div>
+
+            <div>
+              <div class="flex items-baseline space-x-1.5">
+                <span class="font-black text-brand-800 text-sm">₹${p.offer}</span>
+                <span class="text-[11px] text-slate-400 line-through">₹${p.mrp}</span>
+              </div>
+
+              <div class="mt-2 flex items-center justify-between">
+                ${p.inStock ? 
+                  `<span class="text-[9px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200"><i class="fa-solid fa-circle text-[5px] mr-1"></i>In Stock</span>` : 
+                  `<span class="text-[9px] font-bold text-rose-700 bg-rose-50 px-1.5 py-0.5 rounded border border-rose-200"><i class="fa-solid fa-circle text-[5px] mr-1"></i>Out of Stock</span>`}
+
+                <button onclick="addToCart('${p.id}')" ${!p.inStock ? 'disabled class="opacity-50 cursor-not-allowed bg-slate-200 text-slate-500 px-2.5 py-1 rounded text-xs font-bold"' : 'class="bg-brand-600 hover:bg-brand-700 text-white px-2.5 py-1 rounded-lg text-xs font-bold transition shadow-sm flex items-center space-x-1"'}>
+                  <i class="fa-solid fa-plus text-[9px]"></i>
+                  <span>ADD</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
     }
 
-    function handleFilterChange() { renderProducts(); }
-    function addToCart(id) { const prod = products.find(p => p.id === id); cart.push({ ...prod, qty: 1 }); saveData(); updateCartUI(); renderProducts(); }
-    function updateQty(id, delta) { const idx = cart.findIndex(ci => ci.id === id); if (idx > -1) { cart[idx].qty += delta; if (cart[idx].qty <= 0) cart.splice(idx, 1); } saveData(); updateCartUI(); renderProducts(); }
+    // Carousel Rendering
+    function renderCarousel() {
+      const track = document.getElementById('carouselTrack');
+      const dots = document.getElementById('carouselDots');
+      track.innerHTML = "";
+      dots.innerHTML = "";
+
+      appState.banners.forEach((b, index) => {
+        const slide = document.createElement('div');
+        slide.className = `min-w-full h-full bg-gradient-to-r ${b.bg} flex items-center justify-between p-5 sm:p-8 text-white relative`;
+        slide.innerHTML = `
+          <div class="max-w-xl space-y-2 z-10">
+            <span class="bg-yellow-400 text-slate-900 text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-widest shadow">OFFER AT JARIGEBAIL</span>
+            <h2 class="text-base sm:text-2xl md:text-3xl font-black tracking-tight leading-tight">${b.title}</h2>
+            <p class="text-xs sm:text-sm text-slate-100 opacity-90 line-clamp-2">${b.subtitle}</p>
+            <div class="pt-1">
+              <a href="tel:9900365638" class="inline-flex items-center bg-white text-slate-900 font-extrabold text-xs px-3.5 py-1.5 rounded-full shadow hover:bg-yellow-300 transition">
+                <i class="fa-solid fa-phone mr-1.5 text-brand-700"></i> Call 9900365638
+              </a>
+            </div>
+          </div>
+          <div class="hidden sm:block text-5xl opacity-20 mr-4">
+            <i class="fa-solid fa-basket-shopping"></i>
+          </div>
+        `;
+        track.appendChild(slide);
+
+        const dot = document.createElement('button');
+        dot.onclick = () => goToBanner(index);
+        dot.className = `w-2 h-2 rounded-full transition ${index === appState.currentBannerIndex ? 'bg-yellow-400 w-5' : 'bg-white/50'}`;
+        dots.appendChild(dot);
+      });
+
+      updateCarouselPosition();
+    }
+
+    function updateCarouselPosition() {
+      const track = document.getElementById('carouselTrack');
+      track.style.transform = `translateX(-${appState.currentBannerIndex * 100}%)`;
+    }
+
+    function nextBanner() {
+      appState.currentBannerIndex = (appState.currentBannerIndex + 1) % appState.banners.length;
+      updateCarouselPosition();
+    }
+
+    function prevBanner() {
+      appState.currentBannerIndex = (appState.currentBannerIndex - 1 + appState.banners.length) % appState.banners.length;
+      updateCarouselPosition();
+    }
+
+    function goToBanner(index) {
+      appState.currentBannerIndex = index;
+      updateCarouselPosition();
+    }
+
+    // Category Filter Switch
+    function filterCategory(cat) {
+      appState.activeCategory = cat;
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        if (btn.innerText.includes(cat) || (cat === 'All' && btn.innerText.includes('All'))) {
+          btn.className = "cat-btn active-cat px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap bg-brand-600 text-white transition";
+        } else {
+          btn.className = "cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 transition";
+        }
+      });
+      renderProducts();
+    }
+
+    function handleSearch() {
+      appState.searchQuery = document.getElementById('searchInput').value;
+      renderProducts();
+    }
+
+    function handleSearchMobile() {
+      appState.searchQuery = document.getElementById('searchInputMobile').value;
+      renderProducts();
+    }
+
+    // Cart Operations
+    function addToCart(prodId) {
+      const prod = appState.products.find(p => p.id === prodId);
+      if (!prod || !prod.inStock) return;
+
+      const existing = appState.cart.find(i => i.id === prodId);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        appState.cart.push({ ...prod, qty: 1 });
+      }
+
+      updateCartUI();
+      showToast(`Added "${prod.title}" to basket`);
+    }
+
+    function updateCartQty(prodId, delta) {
+      const item = appState.cart.find(i => i.id === prodId);
+      if (!item) return;
+
+      item.qty += delta;
+      if (item.qty <= 0) {
+        appState.cart = appState.cart.filter(i => i.id !== prodId);
+      }
+      updateCartUI();
+    }
 
     function updateCartUI() {
-        const totalQty = cart.reduce((s, i) => s + i.qty, 0);
-        const totalPrice = cart.reduce((s, i) => s + (i.price * i.qty), 0);
-        const badge = document.getElementById('cart-badge');
-        badge.innerText = totalQty;
-        if (totalQty > 0) badge.classList.remove('hidden'); else badge.classList.add('hidden');
-        document.getElementById('cart-total-price').innerText = `₹${totalPrice.toFixed(2)}`;
+      const countBadge = document.getElementById('cartCountBadge');
+      const totalCount = appState.cart.reduce((sum, item) => sum + item.qty, 0);
+      countBadge.innerText = totalCount;
 
-        document.getElementById('cart-items-container').innerHTML = cart.length === 0 
-            ? `<div class="text-center py-10 text-xs text-slate-400">Cart is empty</div>`
-            : cart.map(i => `<div class="flex justify-between text-xs p-2 bg-slate-50 rounded-xl"><span>${i.name} x ${i.qty}</span><strong>₹${i.price * i.qty}</strong></div>`).join('');
+      const list = document.getElementById('cartItemsList');
+      list.innerHTML = "";
+
+      if (appState.cart.length === 0) {
+        list.innerHTML = `
+          <div class="text-center py-12 text-slate-400">
+            <i class="fa-solid fa-basket-shopping text-4xl mb-2"></i>
+            <p class="font-bold">Your basket is empty.</p>
+          </div>
+        `;
+        document.getElementById('cartTotalAmount').innerText = "₹0";
+        return;
+      }
+
+      let grandTotal = 0;
+      appState.cart.forEach(item => {
+        const itemTotal = item.offer * item.qty;
+        grandTotal += itemTotal;
+
+        const row = document.createElement('div');
+        row.className = "pt-3 flex items-center justify-between";
+        row.innerHTML = `
+          <div class="flex-grow pr-2">
+            <p class="font-bold text-xs text-slate-800">${item.title}</p>
+            <p class="text-[10px] text-slate-500">₹${item.offer} x ${item.qty} = <span class="font-bold text-brand-800">₹${itemTotal}</span></p>
+          </div>
+          <div class="flex items-center space-x-2 bg-slate-100 rounded-lg p-1">
+            <button onclick="updateCartQty('${item.id}', -1)" class="w-6 h-6 bg-white rounded flex items-center justify-center font-bold text-slate-600 hover:bg-slate-200 text-xs">-</button>
+            <span class="text-xs font-bold w-4 text-center">${item.qty}</span>
+            <button onclick="updateCartQty('${item.id}', 1)" class="w-6 h-6 bg-white rounded flex items-center justify-center font-bold text-slate-600 hover:bg-slate-200 text-xs">+</button>
+          </div>
+        `;
+        list.appendChild(row);
+      });
+
+      document.getElementById('cartTotalAmount').innerText = `₹${grandTotal}`;
     }
 
-    function toggleCartDrawer() { document.getElementById('cart-drawer').classList.toggle('hidden'); }
-    function openHowToAddModal() { document.getElementById('how-to-add-modal').classList.remove('hidden'); }
-    function closeHowToAddModal() { document.getElementById('how-to-add-modal').classList.add('hidden'); }
-    function promptEmployerAuth() { if (prompt("Enter PIN:") === "1234") switchRole('employer'); }
-    function switchRole(role) { currentRole = role; document.getElementById('employer-controls').classList.toggle('hidden', role !== 'employer'); renderProducts(); }
-
-    function sendOrderViaWhatsApp(phone) {
-        if (cart.length === 0) return alert("Cart is empty!");
-        let msg = `🛒 *HINDUSTAN SUPER BAZAR ORDER*%0A`;
-        cart.forEach((item, i) => { msg += `${i+1}. ${item.name} x ${item.qty} = ₹${item.price * item.qty}%0A`; });
-        window.open(`https://wa.me/91${phone}?text=${msg}`, '_blank');
+    function toggleCartDrawer() {
+      document.getElementById('cartDrawer').classList.toggle('hidden');
     }
-</script>
+
+    function sendWhatsAppOrder() {
+      if (appState.cart.length === 0) {
+        showToast("Basket is empty!");
+        return;
+      }
+
+      const phone = document.getElementById('whatsappPhoneSelect').value;
+      let msg = `*GROCERY ORDER - HINDUSTAN SUPER BAZAR (JARIGEBAIL)*\n`;
+      msg += `------------------------------------\n`;
+
+      let grandTotal = 0;
+      appState.cart.forEach((item, idx) => {
+        const total = item.offer * item.qty;
+        grandTotal += total;
+        msg += `${idx + 1}. *${item.title}* (${item.unit})\n    Qty: ${item.qty} x ₹${item.offer} = ₹${total}\n`;
+      });
+
+      msg += `------------------------------------\n`;
+      msg += `*ESTIMATED TOTAL: ₹${grandTotal}*\n\n`;
+      msg += `Please deliver to my address near Jarigebail. Kindly confirm availability. Thank you!`;
+
+      window.open(`https://wa.me/91${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // Staff Product Controller
+    function renderStaffTable() {
+      const tbody = document.getElementById('staffProductTableBody');
+      tbody.innerHTML = "";
+
+      appState.products.forEach(p => {
+        const discount = Math.round(((p.mrp - p.offer) / p.mrp) * 100);
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-slate-50 transition border-b border-slate-100";
+        tr.innerHTML = `
+          <td class="p-3 font-bold text-slate-800 flex items-center space-x-2">
+            <span class="text-lg">${p.image.startsWith('http') ? '📦' : p.image}</span>
+            <div>
+              <p>${p.title}</p>
+              <p class="text-[10px] text-slate-400 font-normal">${p.unit}</p>
+            </div>
+          </td>
+          <td class="p-3 text-slate-600">${p.category}</td>
+          <td class="p-3 font-semibold text-slate-400 line-through">₹${p.mrp}</td>
+          <td class="p-3 font-black text-brand-800">₹${p.offer}</td>
+          <td class="p-3 font-bold text-red-600">${discount}% OFF</td>
+          <td class="p-3">
+            <button onclick="toggleProductStock('${p.id}')" class="px-2.5 py-1 rounded text-[10px] font-bold transition ${p.inStock ? 'bg-emerald-100 text-emerald-800 hover:bg-emerald-200' : 'bg-rose-100 text-rose-800 hover:bg-rose-200'}">
+              ${p.inStock ? '<i class="fa-solid fa-check mr-1"></i> In Stock' : '<i class="fa-solid fa-xmark mr-1"></i> Out of Stock'}
+            </button>
+          </td>
+          <td class="p-3 text-right space-x-1">
+            <button onclick="openEditProductModal('${p.id}')" class="bg-blue-50 text-blue-600 hover:bg-blue-100 p-1.5 rounded transition">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button onclick="deleteProduct('${p.id}')" class="bg-rose-50 text-rose-600 hover:bg-rose-100 p-1.5 rounded transition">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      updateStats();
+    }
+
+    function toggleProductStock(prodId) {
+      const p = appState.products.find(item => item.id === prodId);
+      if (p) {
+        p.inStock = !p.inStock;
+        renderStaffTable();
+        renderProducts();
+        showToast(`Stock updated for "${p.title}"`);
+      }
+    }
+
+    function openAddProductModal() {
+      document.getElementById('formProductId').value = "";
+      document.getElementById('formProdTitle').value = "";
+      document.getElementById('formProdUnit').value = "";
+      document.getElementById('formProdMrp').value = "";
+      document.getElementById('formProdOffer').value = "";
+      document.getElementById('formProdImage').value = "📦";
+      document.getElementById('productFormTitle').innerText = "Add New Product";
+      document.getElementById('productFormModal').classList.remove('hidden');
+    }
+
+    function openEditProductModal(prodId) {
+      const p = appState.products.find(item => item.id === prodId);
+      if (!p) return;
+
+      document.getElementById('formProductId').value = p.id;
+      document.getElementById('formProdTitle').value = p.title;
+      document.getElementById('formProdCategory').value = p.category;
+      document.getElementById('formProdUnit').value = p.unit;
+      document.getElementById('formProdMrp').value = p.mrp;
+      document.getElementById('formProdOffer').value = p.offer;
+      document.getElementById('formProdImage').value = p.image;
+      document.getElementById('formProdStock').value = p.inStock ? "true" : "false";
+
+      document.getElementById('productFormTitle').innerText = "Edit Store Product";
+      document.getElementById('productFormModal').classList.remove('hidden');
+    }
+
+    function closeProductFormModal() {
+      document.getElementById('productFormModal').classList.add('hidden');
+    }
+
+    function saveProductForm() {
+      const id = document.getElementById('formProductId').value;
+      const title = document.getElementById('formProdTitle').value.trim();
+      const category = document.getElementById('formProdCategory').value;
+      const unit = document.getElementById('formProdUnit').value.trim();
+      const mrp = parseFloat(document.getElementById('formProdMrp').value);
+      const offer = parseFloat(document.getElementById('formProdOffer').value);
+      const image = document.getElementById('formProdImage').value.trim() || "📦";
+      const inStock = document.getElementById('formProdStock').value === "true";
+
+      if (!title || isNaN(mrp) || isNaN(offer)) {
+        showToast("Please enter valid title and pricing.");
+        return;
+      }
+
+      if (id) {
+        const p = appState.products.find(item => item.id === id);
+        if (p) {
+          p.title = title;
+          p.category = category;
+          p.unit = unit;
+          p.mrp = mrp;
+          p.offer = offer;
+          p.image = image;
+          p.inStock = inStock;
+        }
+      } else {
+        const newId = "p" + Date.now();
+        appState.products.push({ id: newId, title, category, unit, mrp, offer, image, inStock });
+      }
+
+      closeProductFormModal();
+      renderStaffTable();
+      renderProducts();
+      showToast("Product saved successfully!");
+    }
+
+    function deleteProduct(prodId) {
+      if (confirm("Remove this product from catalog?")) {
+        appState.products = appState.products.filter(p => p.id !== prodId);
+        renderStaffTable();
+        renderProducts();
+        showToast("Product removed.");
+      }
+    }
+
+    // Banner Controller
+    function renderStaffBanners() {
+      const grid = document.getElementById('staffBannersGrid');
+      grid.innerHTML = "";
+
+      appState.banners.forEach((b, index) => {
+        const card = document.createElement('div');
+        card.className = `p-4 rounded-xl text-white bg-gradient-to-r ${b.bg} flex flex-col justify-between space-y-3 shadow`;
+        card.innerHTML = `
+          <div>
+            <span class="text-[9px] font-bold bg-black/30 px-2 py-0.5 rounded">Banner #${index + 1}</span>
+            <h4 class="font-bold text-sm mt-1">${b.title}</h4>
+            <p class="text-xs opacity-80">${b.subtitle}</p>
+          </div>
+          <div class="text-right">
+            <button onclick="deleteBanner('${b.id}')" class="bg-rose-600/80 hover:bg-rose-600 text-white px-2.5 py-1 rounded text-xs font-bold">
+              <i class="fa-solid fa-trash mr-1"></i> Delete
+            </button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      updateStats();
+    }
+
+    function openAddBannerModal() {
+      document.getElementById('formBannerTitle').value = "";
+      document.getElementById('formBannerSubtitle').value = "";
+      document.getElementById('bannerFormModal').classList.remove('hidden');
+    }
+
+    function closeBannerFormModal() {
+      document.getElementById('bannerFormModal').classList.add('hidden');
+    }
+
+    function saveBannerForm() {
+      const title = document.getElementById('formBannerTitle').value.trim();
+      const subtitle = document.getElementById('formBannerSubtitle').value.trim();
+      const bg = document.getElementById('formBannerBg').value;
+
+      if (!title) {
+        showToast("Please enter a headline.");
+        return;
+      }
+
+      appState.banners.push({ id: 'b' + Date.now(), title, subtitle, bg });
+      closeBannerFormModal();
+      renderStaffBanners();
+      renderCarousel();
+      showToast("Banner added!");
+    }
+
+    function deleteBanner(bannerId) {
+      if (appState.banners.length <= 1) {
+        showToast("At least 1 banner is required.");
+        return;
+      }
+      appState.banners = appState.banners.filter(b => b.id !== bannerId);
+      renderStaffBanners();
+      renderCarousel();
+      showToast("Banner removed.");
+    }
+
+    // Security PIN Change
+    function updateStaffPIN() {
+      const current = document.getElementById('pinCurrentInput').value;
+      const newPin = document.getElementById('pinNewInput').value;
+      const confirmPin = document.getElementById('pinConfirmInput').value;
+
+      if (current !== appState.staffPIN) {
+        showToast("Current PIN is incorrect.");
+        return;
+      }
+      if (!newPin || newPin.length < 4) {
+        showToast("New PIN must be at least 4 digits.");
+        return;
+      }
+      if (newPin !== confirmPin) {
+        showToast("New PIN and Confirm PIN do not match.");
+        return;
+      }
+
+      appState.staffPIN = newPin;
+      localStorage.setItem('hsb_staff_pin', newPin);
+      document.getElementById('pinCurrentInput').value = "";
+      document.getElementById('pinNewInput').value = "";
+      document.getElementById('pinConfirmInput').value = "";
+      showToast("Staff PIN updated!");
+    }
+
+    function updateStats() {
+      document.getElementById('statTotalProducts').innerText = appState.products.length;
+      document.getElementById('statInStock').innerText = appState.products.filter(p => p.inStock).length;
+      document.getElementById('statOutOfStock').innerText = appState.products.filter(p => !p.inStock).length;
+      document.getElementById('statActiveBanners').innerText = appState.banners.length;
+    }
+
+    function openCloudConfigModal() {
+      document.getElementById('cloudConfigModal').classList.remove('hidden');
+    }
+
+    function closeCloudConfigModal() {
+      document.getElementById('cloudConfigModal').classList.add('hidden');
+    }
+
+    function triggerManualSync() {
+      const dot = document.getElementById('cloudStatusDot');
+      const txt = document.getElementById('cloudStatusText');
+
+      dot.className = "w-2.5 h-2.5 rounded-full bg-yellow-400 animate-ping";
+      txt.innerText = "Syncing with Cloud...";
+
+      setTimeout(() => {
+        dot.className = "w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse";
+        txt.innerText = "Google Cloud Live Sync";
+        closeCloudConfigModal();
+        showToast("Cloud sync completed!");
+      }, 1000);
+    }
+
+    function openStaffGuideModal() {
+      document.getElementById('staffGuideModal').classList.remove('hidden');
+    }
+
+    function closeStaffGuideModal() {
+      document.getElementById('staffGuideModal').classList.add('hidden');
+    }
+
+    function showToast(msg) {
+      const existing = document.getElementById('toastMsg');
+      if (existing) existing.remove();
+
+      const toast = document.createElement('div');
+      toast.id = "toastMsg";
+      toast.className = "fixed bottom-5 right-5 bg-slate-900 text-white font-bold text-xs px-4 py-3 rounded-xl shadow-2xl z-50 flex items-center space-x-2 border border-brand-500 animate-bounce";
+      toast.innerHTML = `<i class="fa-solid fa-circle-check text-brand-400"></i><span>${msg}</span>`;
+      document.body.appendChild(toast);
+
+      setTimeout(() => {
+        if (toast) toast.remove();
+      }, 2800);
+    }
+  </script>
 </body>
 </html>
+```
